@@ -22,4 +22,4 @@ int main() {
   return 0;
 }
 
-#endif // SORT_ENV_
+#endif  // SORT_ENV_

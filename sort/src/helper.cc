@@ -50,4 +50,4 @@ namespace helper {
     std::cout << std::endl;
   }
 
-} // namespace helper
+}  // namespace helper

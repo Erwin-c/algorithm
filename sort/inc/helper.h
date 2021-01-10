@@ -21,6 +21,6 @@ namespace helper {
 
   void PrintArray(int arr[], int n);
 
-} // namespace helper
+}  // namespace helper
 
-#endif /* SORT_INC_HELPER_H_ */
+#endif  // SORT_INC_HELPER_H_
