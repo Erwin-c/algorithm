@@ -10,4 +10,4 @@
 
 void SelectionSort(int arr[], int n);
 
-#endif /* SORT_INC_SORT_H_ */
+#endif  // SORT_INC_SORT_H_
