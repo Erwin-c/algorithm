@@ -5,8 +5,8 @@
  *      Author: Erwin
  */
 
-#ifndef SORT_INC_SORT_H_
-#define SORT_INC_SORT_H_
+#ifndef SORT_SORT_H_
+#define SORT_SORT_H_
 
 void SelectionSort(int arr[], int n);
 

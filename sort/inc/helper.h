@@ -5,8 +5,8 @@
  *      Author: Erwin
  */
 
-#ifndef SORT_INC_HELPER_H_
-#define SORT_INC_HELPER_H_
+#ifndef SORT_HELPER_H_
+#define SORT_HELPER_H_
 
 #include <string>
 
@@ -23,4 +23,4 @@ namespace helper {
 
 }  // namespace helper
 
-#endif  // SORT_INC_HELPER_H_
+#endif  // SORT_HELPER_H_
