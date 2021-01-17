@@ -7,7 +7,6 @@
 
 #include "helper.h"
 
-#include <algorithm>
 #include <cassert>
 #include <iostream>
 

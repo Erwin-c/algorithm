@@ -6,8 +6,8 @@
  */
 
 #include "sort.h"
+
 #include <algorithm>
-#include <iostream>
 
 void SelectionSort(int arr[], int n) {
   for (int i = 0; i < n; i++) {
