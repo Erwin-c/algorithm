@@ -9,5 +9,6 @@
 #define SORT_SORT_H_
 
 void SelectionSort(int arr[], int n);
+void InsertionSort(int arr[], int n);
 
-#endif  // SORT_INC_SORT_H_
+#endif  // SORT_SORT_H_
