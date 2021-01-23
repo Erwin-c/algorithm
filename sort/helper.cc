@@ -24,10 +24,36 @@ int* GenerateRandomArray(int n, int range_left, int range_right) {
   return arr;
 }
 
+int* GenerateNearlyOrderedArray(int n, int swap_time) {
+  int* arr = new int[n];
+  for (int i = 0; i < n; i++) {
+    arr[i] = i;
+  }
+
+  srand(time(nullptr));
+  for (int i = 0; i < swap_time; i++) {
+    int posx = rand() % n;
+    int posy = rand() % n;
+    std::swap(arr[posx], arr[posy]);
+  }
+
+  return arr;
+}
+
 int* CopyArray(int arr[], int n) {
   int* des = new int[n];
   std::copy(arr, arr + n, des);
   return des;
+}
+
+bool IsSorted(int arr[], int n) {
+  for (int i = 0; i < n - 1; i++) {
+    if (arr[i + 1] < arr[i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 void TestSort(const std::string& sort_name, void (*sort)(int[], int), int arr[],
@@ -41,16 +67,6 @@ void TestSort(const std::string& sort_name, void (*sort)(int[], int), int arr[],
   std::cout << sort_name << ": "
             << (double)(end_time - start_time) / CLOCKS_PER_SEC << "s"
             << std::endl;
-}
-
-bool IsSorted(int arr[], int n) {
-  for (int i = 0; i < n - 1; i++) {
-    if (arr[i + 1] < arr[i]) {
-      return false;
-    }
-  }
-
-  return true;
 }
 
 void PrintArray(int arr[], int n) {
