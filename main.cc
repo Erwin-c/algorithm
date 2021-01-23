@@ -14,12 +14,15 @@ int main() {
   int n = 1000;
   int* arr = helper::GenerateRandomArray(n, 0, n);
   int* arr2 = helper::CopyArray(arr, n);
+  int* arr3 = helper::CopyArray(arr, n);
 
-  helper::TestSort("Selection Sort", SelectionSort, arr, n);
-  helper::TestSort("Insertion Sort", InsertionSort, arr2, n);
+  helper::TestSort("Selection Sort", sort::SelectionSort, arr, n);
+  helper::TestSort("Insertion Sort", sort::InsertionSort, arr2, n);
+  helper::TestSort("Insertion Sort", sort::MergeSort, arr3, n);
 
   delete[] arr;
   delete[] arr2;
+  delete[] arr3;
 
   return 0;
 }
