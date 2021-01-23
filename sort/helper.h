@@ -12,15 +12,17 @@
 
 namespace helper {
 
-// Generate a random array with n elements between [rangeL, rangeR].
+// Generate a random array with n elements between [range_left, range_right].
 int* GenerateRandomArray(int n, int range_left, int range_right);
+// Generate a nearly ordered array with n elements.
+int* GenerateNearlyOrderedArray(int n, int swap_time);
 
 int* CopyArray(int arr[], int n);
 
+bool IsSorted(int arr[], int n);
+
 void TestSort(const std::string& sort_name, void (*sort)(int[], int), int arr[],
               int n);
-
-bool IsSorted(int arr[], int n);
 
 void PrintArray(int arr[], int n);
 
