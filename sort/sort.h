@@ -21,6 +21,10 @@ void Merge(int arr[], int l, int mid, int r);
 void MergeSort(int arr[], int l, int r);
 void MergeSort(int arr[], int n);
 
+int Partition(int arr[], int l, int r);
+void QuickSort(int arr[], int l, int r);
+void QuickSort(int arr[], int n);
+
 }  // namespace sort
 
 #endif  // SORT_SORT_H_
