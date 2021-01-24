@@ -12,7 +12,7 @@
 #include "sort/sort.h"
 
 int main() {
-  int n = 50000;
+  int n = 500000;
   // Test for random arrays.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]" << std::endl;
@@ -20,9 +20,8 @@ int main() {
   int* arr2 = helper::CopyArray(arr1, n);
   int* arr3 = helper::CopyArray(arr1, n);
 
-  helper::TestSort("Selection Sort", sort::SelectionSort, arr1, n);
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr2, n);
-  helper::TestSort("Insertion Sort", sort::MergeSort, arr3, n);
+  helper::TestSort("Merge Sort", sort::MergeSort, arr1, n);
+  helper::TestSort("Quick Sort", sort::QuickSort, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -35,12 +34,15 @@ int main() {
             << ", swap time = " << swap_time << std::endl;
   arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
   arr2 = helper::CopyArray(arr1, n);
+  arr3 = helper::CopyArray(arr1, n);
 
   helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
   helper::TestSort("Merge Sort", sort::MergeSort, arr2, n);
+  helper::TestSort("Quick Sort", sort::QuickSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
+  delete[] arr3;
 
   return 0;
 }
