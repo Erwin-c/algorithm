@@ -12,5 +12,6 @@ main.o : main.cc
 ./out/sort/sort.o : ./sort/sort.cc
 	$(CXX) -c $(CXXFLAGS) -o ./out/sort/sort.o ./sort/sort.cc
 
+.PHONY : clean
 clean:
 	rm ./out/sort/*.o ./out/*.o main
