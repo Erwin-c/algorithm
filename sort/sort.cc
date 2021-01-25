@@ -11,21 +11,15 @@
 
 namespace sort {
 
-void SelectionSort(int arr[], int n) {
-  for (int i = 0; i < n; i++) {
-    // Find the minimum in [i, n).
-    int min_index = i;
-    for (int j = i + 1; j < n; j++) {
-      if (arr[j] < arr[min_index]) {
-        min_index = j;
-      }
-    }
+static void InsertionSort(int arr[], int l, int r);
 
-    std::swap(arr[min_index], arr[i]);
-  }
-}
+static void Merge(int arr[], int l, int mid, int r);
+static void MergeSort(int arr[], int l, int r);
 
-void InsertionSort(int arr[], int l, int r) {
+static int Partition(int arr[], int l, int r);
+static void QuickSort(int arr[], int l, int r);
+
+static void InsertionSort(int arr[], int l, int r) {
   for (int i = l + 1; i <= r; i++) {
     int e = arr[i];
     int j;
@@ -36,21 +30,8 @@ void InsertionSort(int arr[], int l, int r) {
   }
 }
 
-void InsertionSort(int arr[], int n) {
-  for (int i = 1; i < n; i++) {
-    // Find the insertion position of arr[i].
-    // Optimation compared with std::swap().
-    int e = arr[i];
-    int j;
-    for (j = i; j > 0 && arr[j - 1] > e; j--) {
-      arr[j] = arr[j - 1];
-    }
-    arr[j] = e;
-  }
-}
-
 // Merge for arr[l...mid] and arr[mid + 1...r).
-void Merge(int arr[], int l, int mid, int r) {
+static void Merge(int arr[], int l, int mid, int r) {
   int aux[r - l + 1];
   for (int i = l; i <= r; i++) {
     aux[i - l] = arr[i];
@@ -75,7 +56,7 @@ void Merge(int arr[], int l, int mid, int r) {
 }
 
 // Merge sort for arr[l...r].
-void MergeSort(int arr[], int l, int r) {
+static void MergeSort(int arr[], int l, int r) {
   // Optimation: There is a constant C in time complexity.
   if (r - l <= 15) {
     InsertionSort(arr, l, r);
@@ -91,11 +72,9 @@ void MergeSort(int arr[], int l, int r) {
   }
 }
 
-void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
-
 // Partition for arr[l...r].
 // Return p: arr[l...(p - 1)] < arr[p], arr[(p + 1)...r] >= arr[p].
-int Partition(int arr[], int l, int r) {
+static int Partition(int arr[], int l, int r) {
   int v = arr[l];
 
   // arr[(l + 1)...j] < v, arr[(j + 1)...i) >= v.
@@ -113,7 +92,7 @@ int Partition(int arr[], int l, int r) {
 }
 
 // Quick sort for arr[l...r].
-void QuickSort(int arr[], int l, int r) {
+static void QuickSort(int arr[], int l, int r) {
   if (r - l <= 15) {
     InsertionSort(arr, l, r);
     return;
@@ -123,6 +102,35 @@ void QuickSort(int arr[], int l, int r) {
   QuickSort(arr, l, p - 1);
   QuickSort(arr, p + 1, r);
 }
+
+void SelectionSort(int arr[], int n) {
+  for (int i = 0; i < n; i++) {
+    // Find the minimum in [i, n).
+    int min_index = i;
+    for (int j = i + 1; j < n; j++) {
+      if (arr[j] < arr[min_index]) {
+        min_index = j;
+      }
+    }
+
+    std::swap(arr[min_index], arr[i]);
+  }
+}
+
+void InsertionSort(int arr[], int n) {
+  for (int i = 1; i < n; i++) {
+    // Find the insertion position of arr[i].
+    // Optimation compared with std::swap().
+    int e = arr[i];
+    int j;
+    for (j = i; j > 0 && arr[j - 1] > e; j--) {
+      arr[j] = arr[j - 1];
+    }
+    arr[j] = e;
+  }
+}
+
+void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
 
 void QuickSort(int arr[], int n) { QuickSort(arr, 0, n - 1); }
 
