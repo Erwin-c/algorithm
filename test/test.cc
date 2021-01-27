@@ -9,8 +9,8 @@
 
 #include <iostream>
 
-#include "../sort/helper.h"
-#include "../sort/sort.h"
+#include "sort/helper.h"
+#include "sort/sort.h"
 
 namespace test {
 
