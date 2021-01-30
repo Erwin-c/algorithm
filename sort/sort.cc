@@ -5,7 +5,7 @@
  *      Author: Erwin
  */
 
-#include "sort.h"
+#include "sort/sort.h"
 
 #include <algorithm>
 

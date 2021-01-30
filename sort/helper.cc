@@ -5,7 +5,7 @@
  *      Author: Erwin
  */
 
-#include "helper.h"
+#include "sort/helper.h"
 
 #include <cassert>
 #include <iostream>
