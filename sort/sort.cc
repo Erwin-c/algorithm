@@ -15,7 +15,7 @@ static void InsertionSort(int arr[], int l, int r);
 
 static void Merge(int arr[], int l, int mid, int r);
 static void MergeSort(int arr[], int l, int r);
-static void MergeSort2(int arr[], int l, int r);
+static void MergeSortAdvanced(int arr[], int l, int r);
 
 static int Partition(int arr[], int l, int r);
 static void QuickSort(int arr[], int l, int r);
@@ -63,12 +63,12 @@ static void MergeSort(int arr[], int l, int r) {
   }
 
   int mid = l + (r - l) / 2;
-  MergeSort2(arr, l, mid);
-  MergeSort2(arr, mid + 1, r);
+  MergeSort(arr, l, mid);
+  MergeSort(arr, mid + 1, r);
   Merge(arr, l, mid, r);
 }
 
-static void MergeSort2(int arr[], int l, int r) {
+static void MergeSortAdvanced(int arr[], int l, int r) {
   // Optimation: There is a constant C in time complexity.
   if (r - l <= 15) {
     InsertionSort(arr, l, r);
@@ -76,8 +76,8 @@ static void MergeSort2(int arr[], int l, int r) {
   }
 
   int mid = l + (r - l) / 2;
-  MergeSort2(arr, l, mid);
-  MergeSort2(arr, mid + 1, r);
+  MergeSortAdvanced(arr, l, mid);
+  MergeSortAdvanced(arr, mid + 1, r);
   // Optimation
   if (arr[mid] > arr[mid + 1]) {
     Merge(arr, l, mid, r);
@@ -144,7 +144,7 @@ void InsertionSort(int arr[], int n) {
 
 void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
 
-void MergeSort2(int arr[], int n) { MergeSort2(arr, 0, n - 1); }
+void MergeSortAdvanced(int arr[], int n) { MergeSortAdvanced(arr, 0, n - 1); }
 
 void QuickSort(int arr[], int n) { QuickSort(arr, 0, n - 1); }
 

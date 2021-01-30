@@ -52,7 +52,7 @@ void Test2() {
          "ordered arrays"
       << std::endl;
 
-  int n = 50000;
+  int n = 100000;
   int swap_time = 10;
   // Test for nearly ordered arrays.
   std::cout << "Test for nearly ordered arrays, size = " << n
@@ -77,11 +77,11 @@ void Test3() {
                "-----------------"
             << std::endl;
   std::cout << "Start sort_test 3:" << std::endl;
-  std::cout << "Compare Insertion Sort and Merge Sort 2 with nearly "
+  std::cout << "Compare Insertion Sort and Merge Sort Advanced with nearly "
                "ordered arrays"
             << std::endl;
 
-  int n = 50000;
+  int n = 100000;
   int swap_time = 10;
   // Test for nearly ordered arrays.
   std::cout << "Test for nearly ordered arrays, size = " << n
@@ -89,8 +89,8 @@ void Test3() {
   int* arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
   int* arr2 = helper::CopyArray(arr1, n);
 
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr2, n);
-  helper::TestSort("Merge Sort 2", sort::MergeSort2, arr2, n);
+  helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -103,7 +103,7 @@ void Test4() {
                "-----------------"
             << std::endl;
   std::cout << "Start sort_test 4:" << std::endl;
-  std::cout << "Compare Merge Sort 2 and Quick Sort with random arrays"
+  std::cout << "Compare Merge Sort Advanced and Quick Sort with random arrays"
             << std::endl;
 
   int n = 1000000;
@@ -113,7 +113,7 @@ void Test4() {
   int* arr1 = helper::GenerateRandomArray(n, 0, n);
   int* arr2 = helper::CopyArray(arr1, n);
 
-  helper::TestSort("Merge Sort", sort::MergeSort2, arr1, n);
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
   helper::TestSort("Quick Sort", sort::QuickSort, arr2, n);
 
   delete[] arr1;
@@ -128,7 +128,7 @@ void Test5() {
             << std::endl;
   std::cout << "Start sort_test 5:" << std::endl;
   std::cout
-      << "Compare Insertion Sort, Merge Sort 2 and Quick Sort with nearly "
+      << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort with nearly "
          "ordered arrays"
       << std::endl;
 
@@ -142,7 +142,7 @@ void Test5() {
   int* arr3 = helper::CopyArray(arr1, n);
 
   helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
-  helper::TestSort("Merge Sort", sort::MergeSort2, arr2, n);
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
   helper::TestSort("Quick Sort", sort::QuickSort, arr3, n);
 
   delete[] arr1;
