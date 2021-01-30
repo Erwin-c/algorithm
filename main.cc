@@ -5,15 +5,15 @@
  *      Author: Erwin
  */
 
-#include "test/test.h"
+#include "test/sort_test.h"
 
 int main() {
   // Begin test.
-  test::sort_test_1();
-  test::sort_test_2();
-  test::sort_test_3();
-  test::sort_test_4();
-  test::sort_test_5();
+  sort_test::Test1();
+  sort_test::Test2();
+  sort_test::Test3();
+  sort_test::Test4();
+  sort_test::Test5();
 
   return 0;
 }
