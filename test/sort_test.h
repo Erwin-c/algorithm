@@ -15,13 +15,16 @@ void Test1();
 // Compare Selection Sort, Insertion Sort and Merge Sort with nearly ordered
 // arrays.
 void Test2();
-// Compare Insertion Sort and Merge Sort 2 with nearly ordered arrays.
+// Compare Insertion Sort and Merge Sort Advanced with nearly ordered arrays.
 void Test3();
-// Compare Merge Sort 2 and Quick Sort with random arrays.
+// Compare Merge Sort Advanced and Quick Sort with random arrays.
 void Test4();
-// Compare Insertion sort, Merge Sort 2 and Quick Sort with nearly ordered
-// arrays.
+// Compare Insertion sort, Merge Sort Advanced and Quick Sort with nearly
+// ordered arrays.
 void Test5();
+// Compare Insertion sort, Merge Sort Advanced and Quick Sort Advanced with
+// nearly ordered arrays.
+void Test6();
 
 }  // namespace sort_test
 

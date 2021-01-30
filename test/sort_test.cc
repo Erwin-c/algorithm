@@ -127,10 +127,10 @@ void Test5() {
                "-----------------"
             << std::endl;
   std::cout << "Start sort_test 5:" << std::endl;
-  std::cout
-      << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort with nearly "
-         "ordered arrays"
-      << std::endl;
+  std::cout << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort "
+               "with nearly "
+               "ordered arrays"
+            << std::endl;
 
   int n = 500000;
   int swap_time = 100;
@@ -144,6 +144,36 @@ void Test5() {
   helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
   helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
   helper::TestSort("Quick Sort", sort::QuickSort, arr3, n);
+
+  delete[] arr1;
+  delete[] arr2;
+  delete[] arr3;
+
+  std::cout << "End ^-^" << std::endl;
+}
+
+void Test6() {
+  std::cout << "---------------------------------------------------------------"
+               "-----------------"
+            << std::endl;
+  std::cout << "Start sort_test 6:" << std::endl;
+  std::cout << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort "
+               "Advanced with nearly "
+               "ordered arrays"
+            << std::endl;
+
+  int n = 500000;
+  int swap_time = 100;
+  // Test for nearly ordered arrays.
+  std::cout << "Test for nearly ordered arrays, size = " << n
+            << ", swap time = " << swap_time << std::endl;
+  int* arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
+  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr3 = helper::CopyArray(arr1, n);
+
+  helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
+  helper::TestSort("Quick Sort Advanced", sort::QuickSortAdvanced, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
