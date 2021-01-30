@@ -14,6 +14,7 @@ namespace sort {
 static void InsertionSort(int arr[], int l, int r);
 
 static void Merge(int arr[], int l, int mid, int r);
+static void MergeSort(int arr[], int l, int r);
 static void MergeSort2(int arr[], int l, int r);
 
 static int Partition(int arr[], int l, int r);
@@ -56,6 +57,17 @@ static void Merge(int arr[], int l, int mid, int r) {
 }
 
 // Merge sort for arr[l...r].
+static void MergeSort(int arr[], int l, int r) {
+  if (l >= r) {
+    return;
+  }
+
+  int mid = l + (r - l) / 2;
+  MergeSort2(arr, l, mid);
+  MergeSort2(arr, mid + 1, r);
+  Merge(arr, l, mid, r);
+}
+
 static void MergeSort2(int arr[], int l, int r) {
   // Optimation: There is a constant C in time complexity.
   if (r - l <= 15) {
@@ -129,6 +141,8 @@ void InsertionSort(int arr[], int n) {
     arr[j] = e;
   }
 }
+
+void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
 
 void MergeSort2(int arr[], int n) { MergeSort2(arr, 0, n - 1); }
 

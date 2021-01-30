@@ -11,6 +11,9 @@ int main() {
   // Begin test.
   test::sort_test_1();
   test::sort_test_2();
+  test::sort_test_3();
+  test::sort_test_4();
+  test::sort_test_5();
 
   return 0;
 }

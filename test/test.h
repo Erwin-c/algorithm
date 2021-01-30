@@ -10,10 +10,18 @@
 
 namespace test {
 
-// Compare Merge Sort 2 and Quick Sort with random arrays.
+// Compare Selection Sort, Insertion Sort and Merge Sort with random arrays.
 void sort_test_1();
-// Compare Insertion sort, Merge Sort 2 and Quick Sort with nearly ordered arrays.
+// Compare Selection Sort, Insertion Sort and Merge Sort with nearly ordered
+// arrays.
 void sort_test_2();
+// Compare Insertion Sort and Merge Sort 2 with nearly ordered arrays.
+void sort_test_3();
+// Compare Merge Sort 2 and Quick Sort with random arrays.
+void sort_test_4();
+// Compare Insertion sort, Merge Sort 2 and Quick Sort with nearly ordered
+// arrays.
+void sort_test_5();
 
 }  // namespace test
 
