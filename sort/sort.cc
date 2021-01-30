@@ -8,6 +8,7 @@
 #include "sort/sort.h"
 
 #include <algorithm>
+#include <ctime>
 
 namespace sort {
 
@@ -15,10 +16,12 @@ static void InsertionSort(int arr[], int l, int r);
 
 static void Merge(int arr[], int l, int mid, int r);
 static void MergeSort(int arr[], int l, int r);
-static void MergeSort2(int arr[], int l, int r);
+static void MergeSortAdvanced(int arr[], int l, int r);
 
 static int Partition(int arr[], int l, int r);
+static int PartitionAdvanced(int arr[], int l, int r);
 static void QuickSort(int arr[], int l, int r);
+static void QuickSortAdvanced(int arr[], int l, int r);
 
 static void InsertionSort(int arr[], int l, int r) {
   for (int i = l + 1; i <= r; i++) {
@@ -63,12 +66,12 @@ static void MergeSort(int arr[], int l, int r) {
   }
 
   int mid = l + (r - l) / 2;
-  MergeSort2(arr, l, mid);
-  MergeSort2(arr, mid + 1, r);
+  MergeSort(arr, l, mid);
+  MergeSort(arr, mid + 1, r);
   Merge(arr, l, mid, r);
 }
 
-static void MergeSort2(int arr[], int l, int r) {
+static void MergeSortAdvanced(int arr[], int l, int r) {
   // Optimation: There is a constant C in time complexity.
   if (r - l <= 15) {
     InsertionSort(arr, l, r);
@@ -76,9 +79,9 @@ static void MergeSort2(int arr[], int l, int r) {
   }
 
   int mid = l + (r - l) / 2;
-  MergeSort2(arr, l, mid);
-  MergeSort2(arr, mid + 1, r);
-  // Optimation
+  MergeSortAdvanced(arr, l, mid);
+  MergeSortAdvanced(arr, mid + 1, r);
+  // Optimation: More important.
   if (arr[mid] > arr[mid + 1]) {
     Merge(arr, l, mid, r);
   }
@@ -103,6 +106,23 @@ static int Partition(int arr[], int l, int r) {
   return j;
 }
 
+static int PartitionAdvanced(int arr[], int l, int r) {
+  // Optimation: Avoid being O(n ^ 2) in ordered arrays.
+  srand(time(nullptr));
+  std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
+  int v = arr[l];
+
+  int j = l;
+  for (int i = l + 1; i <= r; i++) {
+    if (arr[i] < v) {
+      std::swap(arr[i], arr[++j]);
+    }
+  }
+  std::swap(arr[j], arr[l]);
+
+  return j;
+}
+
 // Quick sort for arr[l...r].
 static void QuickSort(int arr[], int l, int r) {
   if (r - l <= 15) {
@@ -113,6 +133,17 @@ static void QuickSort(int arr[], int l, int r) {
   int p = Partition(arr, l, r);
   QuickSort(arr, l, p - 1);
   QuickSort(arr, p + 1, r);
+}
+
+static void QuickSortAdvanced(int arr[], int l, int r) {
+  if (r - l <= 15) {
+    InsertionSort(arr, l, r);
+    return;
+  }
+
+  int p = PartitionAdvanced(arr, l, r);
+  QuickSortAdvanced(arr, l, p - 1);
+  QuickSortAdvanced(arr, p + 1, r);
 }
 
 void SelectionSort(int arr[], int n) {
@@ -144,8 +175,10 @@ void InsertionSort(int arr[], int n) {
 
 void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
 
-void MergeSort2(int arr[], int n) { MergeSort2(arr, 0, n - 1); }
+void MergeSortAdvanced(int arr[], int n) { MergeSortAdvanced(arr, 0, n - 1); }
 
 void QuickSort(int arr[], int n) { QuickSort(arr, 0, n - 1); }
+
+void QuickSortAdvanced(int arr[], int n) { QuickSortAdvanced(arr, 0, n - 1); }
 
 }  // namespace sort

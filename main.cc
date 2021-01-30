@@ -14,6 +14,7 @@ int main() {
   sort_test::Test3();
   sort_test::Test4();
   sort_test::Test5();
+  sort_test::Test6();
 
   return 0;
 }

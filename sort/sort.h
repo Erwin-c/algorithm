@@ -17,9 +17,10 @@ void InsertionSort(int arr[], int n);
 
 void MergeSort(int arr[], int n);
 // Optimation mainly for nearly ordered arrays.
-void MergeSort2(int arr[], int n);
+void MergeSortAdvanced(int arr[], int n);
 
 void QuickSort(int arr[], int n);
+void QuickSortAdvanced(int arr[], int n);
 
 }  // namespace sort
 
