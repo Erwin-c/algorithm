@@ -5,8 +5,8 @@
  *      Author: Erwin
  */
 
-#ifndef TEST_SORT_TEST_H_
-#define TEST_SORT_TEST_H_
+#ifndef SORT_TEST_H_
+#define SORT_TEST_H_
 
 namespace sort_test {
 
@@ -28,4 +28,4 @@ void Test6();
 
 }  // namespace sort_test
 
-#endif  // TEST_SORT_TEST_H_
+#endif  // SORT_TEST_H_

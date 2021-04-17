@@ -5,8 +5,8 @@
  *      Author: Erwin
  */
 
-#ifndef SORT_SORT_H_
-#define SORT_SORT_H_
+#ifndef SORT_H_
+#define SORT_H_
 
 #include <algorithm>
 
@@ -24,4 +24,4 @@ void QuickSortAdvanced(int arr[], int n);
 
 }  // namespace sort
 
-#endif  // SORT_SORT_H_
+#endif  // SORT_H_
