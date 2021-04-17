@@ -5,8 +5,8 @@
  *      Author: Erwin
  */
 
-#ifndef SORT_HELPER_H_
-#define SORT_HELPER_H_
+#ifndef HELPER_H_
+#define HELPER_H_
 
 #include <string>
 
@@ -28,4 +28,4 @@ void PrintArray(int arr[], int n);
 
 }  // namespace helper
 
-#endif  // SORT_HELPER_H_
+#endif  // HELPER_H_
