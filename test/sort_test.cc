@@ -15,9 +15,7 @@
 namespace sort_test {
 
 void Test1() {
-  std::cout << "---------------------------------------------------------------"
-               "-----------------"
-            << std::endl;
+  std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 1:" << std::endl;
   std::cout << "Compare Selection Sort, Insertion Sort and Merge Sort with "
                "random arrays."
@@ -43,9 +41,7 @@ void Test1() {
 }
 
 void Test2() {
-  std::cout << "---------------------------------------------------------------"
-               "-----------------"
-            << std::endl;
+  std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 2:" << std::endl;
   std::cout
       << "Compare Selection Sort, Insertion Sort and Merge Sort with nearly "
@@ -73,9 +69,7 @@ void Test2() {
 }
 
 void Test3() {
-  std::cout << "---------------------------------------------------------------"
-               "-----------------"
-            << std::endl;
+  std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 3:" << std::endl;
   std::cout << "Compare Insertion Sort and Merge Sort Advanced with nearly "
                "ordered arrays"
@@ -99,9 +93,7 @@ void Test3() {
 }
 
 void Test4() {
-  std::cout << "---------------------------------------------------------------"
-               "-----------------"
-            << std::endl;
+  std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 4:" << std::endl;
   std::cout << "Compare Merge Sort Advanced and Quick Sort with random arrays"
             << std::endl;
@@ -123,9 +115,7 @@ void Test4() {
 }
 
 void Test5() {
-  std::cout << "---------------------------------------------------------------"
-               "-----------------"
-            << std::endl;
+  std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 5:" << std::endl;
   std::cout << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort "
                "with nearly "
@@ -153,9 +143,7 @@ void Test5() {
 }
 
 void Test6() {
-  std::cout << "---------------------------------------------------------------"
-               "-----------------"
-            << std::endl;
+  std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 6:" << std::endl;
   std::cout << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort "
                "Advanced with nearly "
@@ -178,6 +166,29 @@ void Test6() {
   delete[] arr1;
   delete[] arr2;
   delete[] arr3;
+
+  std::cout << "End ^-^" << std::endl;
+}
+
+void Test7() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start sort_test 7:" << std::endl;
+  std::cout << "Compare Merge Sort Advanced and Quick Sort Advanced with "
+               "arrays which have more duplicate elements"
+            << std::endl;
+
+  int n = 350000;
+  // Test for random arrays which have more duplicate elements.
+  std::cout << "Test for random arrays, size = " << n << ", random range [0, "
+            << 10 << "]" << std::endl;
+  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
+  int* arr2 = helper::CopyArray(arr1, n);
+
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
+  helper::TestSort("Quick Sort Advanced", sort::QuickSortAdvanced, arr2, n);
+
+  delete[] arr1;
+  delete[] arr2;
 
   std::cout << "End ^-^" << std::endl;
 }
