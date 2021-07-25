@@ -10,24 +10,42 @@
 
 namespace sort_test {
 
-// Compare Selection Sort, Insertion Sort and Merge Sort with random arrays.
+// Selection Sort.
+// Insertion Sort.
+// Merge Sort.
+// Random arrays.
 void Test1();
-// Compare Selection Sort, Insertion Sort and Merge Sort with nearly ordered
-// arrays.
+// Selection Sort.
+// Insertion Sort.
+// Merge Sort.
+// Nearly ordered arrays.
 void Test2();
-// Compare Insertion Sort and Merge Sort Advanced with nearly ordered arrays.
+// Insertion Sort.
+// Merge Sort Advanced.
+// Nearly ordered arrays.
 void Test3();
-// Compare Merge Sort Advanced and Quick Sort with random arrays.
+// Merge Sort Advanced.
+// Quick Sort.
+// Random arrays.
 void Test4();
-// Compare Insertion Sort, Merge Sort Advanced and Quick Sort with nearly
-// ordered arrays.
+// Insertion Sort.
+// Merge Sort Advanced.
+// Quick Sort.
+// Nearly ordered arrays.
 void Test5();
-// Compare Insertion Sort, Merge Sort Advanced and Quick Sort Advanced with
-// nearly ordered arrays.
+// Insertion Sort.
+// Merge Sort Advanced.
+// Quick Sort Advanced.
+// Nearly ordered arrays.
 void Test6();
-// Compare Merge Sort Advanced and Quick Sort Advanced with arrays which have
-// more duplicate elements.
+// Merge Sort Advanced.
+// Quick Sort Advanced. 
+// Arrays with many duplicate elements.
 void Test7();
+// Merge Sort Advanced.
+// Quick Sort 2 Ways.
+// Arrays with many duplicate elements.
+void Test8();
 
 }  // namespace sort_test
 
