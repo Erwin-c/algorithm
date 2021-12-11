@@ -14,6 +14,7 @@ namespace helper {
 
 // Generate a random array with n elements between [range_left, range_right].
 int* GenerateRandomArray(int n, int range_left, int range_right);
+
 // Generate a nearly ordered array with n elements.
 int* GenerateNearlyOrderedArray(int n, int swap_time);
 

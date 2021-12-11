@@ -15,15 +15,18 @@ namespace sort {
 static void InsertionSort(int arr[], int l, int r);
 
 static void Merge(int arr[], int l, int mid, int r);
+
 static void MergeSort(int arr[], int l, int r);
 static void MergeSortAdvanced(int arr[], int l, int r);
 
 static int Partition(int arr[], int l, int r);
 static int PartitionAdvanced(int arr[], int l, int r);
 static int Partition2Ways(int arr[], int l, int r);
+
 static void QuickSort(int arr[], int l, int r);
 static void QuickSortAdvanced(int arr[], int l, int r);
 static void QuickSort2Ways(int arr[], int l, int r);
+static void QuickSort3Ways(int arr[], int l, int r);
 
 static void InsertionSort(int arr[], int l, int r) {
   for (int i = l + 1; i <= r; ++i) {
@@ -34,6 +37,8 @@ static void InsertionSort(int arr[], int l, int r) {
     }
     arr[j] = e;
   }
+
+  return;
 }
 
 // Merge for arr[l...mid] and arr[mid + 1...r).
@@ -59,6 +64,8 @@ static void Merge(int arr[], int l, int mid, int r) {
       ++j;
     }
   }
+
+  return;
 }
 
 // Merge sort for arr[l...r].
@@ -71,6 +78,8 @@ static void MergeSort(int arr[], int l, int r) {
   MergeSort(arr, l, mid);
   MergeSort(arr, mid + 1, r);
   Merge(arr, l, mid, r);
+
+  return;
 }
 
 static void MergeSortAdvanced(int arr[], int l, int r) {
@@ -87,6 +96,8 @@ static void MergeSortAdvanced(int arr[], int l, int r) {
   if (arr[mid] > arr[mid + 1]) {
     Merge(arr, l, mid, r);
   }
+
+  return;
 }
 
 // Partition for arr[l...r].
@@ -158,7 +169,7 @@ static int Partition2Ways(int arr[], int l, int r) {
   return j;
 }
 
-// Quick sort for arr[l...r].
+// Quick sort for arr[l ... r].
 static void QuickSort(int arr[], int l, int r) {
   if (r - l <= 15) {
     InsertionSort(arr, l, r);
@@ -168,6 +179,8 @@ static void QuickSort(int arr[], int l, int r) {
   int p = Partition(arr, l, r);
   QuickSort(arr, l, p - 1);
   QuickSort(arr, p + 1, r);
+
+  return;
 }
 
 static void QuickSortAdvanced(int arr[], int l, int r) {
@@ -179,6 +192,8 @@ static void QuickSortAdvanced(int arr[], int l, int r) {
   int p = PartitionAdvanced(arr, l, r);
   QuickSortAdvanced(arr, l, p - 1);
   QuickSortAdvanced(arr, p + 1, r);
+
+  return;
 }
 
 static void QuickSort2Ways(int arr[], int l, int r) {
@@ -190,6 +205,42 @@ static void QuickSort2Ways(int arr[], int l, int r) {
   int p = Partition2Ways(arr, l, r);
   QuickSort2Ways(arr, l, p - 1);
   QuickSort2Ways(arr, p + 1, r);
+
+  return;
+}
+
+static void QuickSort3Ways(int arr[], int l, int r) {
+  if (r - l <= 15) {
+    InsertionSort(arr, l, r);
+    return;
+  }
+
+  srand(time(nullptr));
+  std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
+  int v = arr[l];
+
+  int lt = l;      // arr[l+1 ... lt] < v
+  int gt = r + 1;  // arr[gt ... r] > v
+  int i = l + 1;   // arr[lt+1 ... i) == v
+  while (i < gt) {
+    if (arr[i] < v) {
+      std::swap(arr[i], arr[lt + 1]);
+      ++i;
+      ++lt;
+    } else if (arr[i] > v) {
+      std::swap(arr[i], arr[gt - 1]);
+      --gt;
+    } else {  // arr[i] == v
+      i++;
+    }
+  }
+
+  std::swap(arr[l], arr[lt]);
+
+  QuickSort3Ways(arr, l, lt - 1);
+  QuickSort3Ways(arr, gt, r);
+
+  return;
 }
 
 void SelectionSort(int arr[], int n) {
@@ -204,6 +255,8 @@ void SelectionSort(int arr[], int n) {
 
     std::swap(arr[min_index], arr[i]);
   }
+
+  return;
 }
 
 void InsertionSort(int arr[], int n) {
@@ -217,6 +270,8 @@ void InsertionSort(int arr[], int n) {
     }
     arr[j] = e;
   }
+
+  return;
 }
 
 void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
@@ -228,5 +283,7 @@ void QuickSort(int arr[], int n) { QuickSort(arr, 0, n - 1); }
 void QuickSortAdvanced(int arr[], int n) { QuickSortAdvanced(arr, 0, n - 1); }
 
 void QuickSort2Ways(int arr[], int n) { QuickSort2Ways(arr, 0, n - 1); }
+
+void QuickSort3Ways(int arr[], int n) { QuickSort3Ways(arr, 0, n - 1); }
 
 }  // namespace sort
