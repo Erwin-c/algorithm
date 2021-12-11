@@ -38,6 +38,8 @@ void Test1() {
   delete[] arr3;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test2() {
@@ -66,6 +68,8 @@ void Test2() {
   delete[] arr3;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test3() {
@@ -90,6 +94,8 @@ void Test3() {
   delete[] arr2;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test4() {
@@ -112,6 +118,8 @@ void Test4() {
   delete[] arr2;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test5() {
@@ -140,6 +148,8 @@ void Test5() {
   delete[] arr3;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test6() {
@@ -168,6 +178,8 @@ void Test6() {
   delete[] arr3;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test7() {
@@ -191,6 +203,8 @@ void Test7() {
   delete[] arr2;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 void Test8() {
@@ -208,12 +222,42 @@ void Test8() {
   int* arr2 = helper::CopyArray(arr1, n);
 
   helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort Advanced", sort::QuickSort2Ways, arr2, n);
+  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
 
   std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void Test9() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start sort_test 9:" << std::endl;
+  std::cout << "Compare Merge Sort Advanced, Quick Sort 2 Ways and Quick Sort "
+               "3 Ways with arrays which have many duplicate elements."
+            << std::endl;
+
+  int n = 350000;
+  // Test for random arrays which have more duplicate elements.
+  std::cout << "Test for random arrays, size = " << n << ", random range [0, "
+            << 10 << "]." << std::endl;
+  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
+  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr3 = helper::CopyArray(arr1, n);
+
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
+  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
+  helper::TestSort("Quick Sort 3 Ways", sort::QuickSort3Ways, arr3, n);
+
+  delete[] arr1;
+  delete[] arr2;
+  delete[] arr3;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
 }
 
 }  // namespace sort_test

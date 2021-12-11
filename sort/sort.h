@@ -22,6 +22,7 @@ void MergeSortAdvanced(int arr[], int n);
 void QuickSort(int arr[], int n);
 void QuickSortAdvanced(int arr[], int n);
 void QuickSort2Ways(int arr[], int n);
+void QuickSort3Ways(int arr[], int n);
 
 }  // namespace sort
 

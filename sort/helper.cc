@@ -67,6 +67,8 @@ void TestSort(const std::string& sort_name, void (*sort)(int[], int), int arr[],
   std::cout << sort_name << ": "
             << (double)(end_time - start_time) / CLOCKS_PER_SEC << "s"
             << std::endl;
+
+  return;
 }
 
 void PrintArray(int arr[], int n) {
@@ -74,6 +76,8 @@ void PrintArray(int arr[], int n) {
     std::cout << arr[i] << " ";
   }
   std::cout << std::endl;
+
+  return;
 }
 
 }  // namespace helper
