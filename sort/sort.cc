@@ -17,15 +17,21 @@ static void InsertionSort(int arr[], int l, int r);
 static void Merge(int arr[], int l, int mid, int r);
 
 static void MergeSort(int arr[], int l, int r);
+
 static void MergeSortAdvanced(int arr[], int l, int r);
 
 static int Partition(int arr[], int l, int r);
+
 static int PartitionAdvanced(int arr[], int l, int r);
+
 static int Partition2Ways(int arr[], int l, int r);
 
 static void QuickSort(int arr[], int l, int r);
+
 static void QuickSortAdvanced(int arr[], int l, int r);
+
 static void QuickSort2Ways(int arr[], int l, int r);
+
 static void QuickSort3Ways(int arr[], int l, int r);
 
 static void InsertionSort(int arr[], int l, int r) {
@@ -141,7 +147,7 @@ static int Partition2Ways(int arr[], int l, int r) {
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   int v = arr[l];
 
-  // arr[l + 1 ... i) <= v; arr(j ... r] >= v
+  // arr[(l + 1)...i) <= v; arr(j...r] >= v
   int i = l + 1, j = r;
   while (true) {
     // Why not arr[i] <= v?
@@ -159,9 +165,7 @@ static int Partition2Ways(int arr[], int l, int r) {
       break;
     }
 
-    std::swap(arr[i], arr[j]);
-    ++i;
-    --j;
+    std::swap(arr[i++], arr[j--]);
   }
 
   std::swap(arr[j], arr[l]);
@@ -219,9 +223,9 @@ static void QuickSort3Ways(int arr[], int l, int r) {
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   int v = arr[l];
 
-  int lt = l;      // arr[l+1 ... lt] < v
-  int gt = r + 1;  // arr[gt ... r] > v
-  int i = l + 1;   // arr[lt+1 ... i) == v
+  int lt = l;      // arr[(l + 1)...lt] < v
+  int gt = r + 1;  // arr[gt...r] > v
+  int i = l + 1;   // arr[(lt + 1)...i) == v
   while (i < gt) {
     if (arr[i] < v) {
       std::swap(arr[i], arr[lt + 1]);
@@ -274,16 +278,34 @@ void InsertionSort(int arr[], int n) {
   return;
 }
 
-void MergeSort(int arr[], int n) { MergeSort(arr, 0, n - 1); }
+void MergeSort(int arr[], int n) {
+  MergeSort(arr, 0, n - 1);
+  return;
+}
 
-void MergeSortAdvanced(int arr[], int n) { MergeSortAdvanced(arr, 0, n - 1); }
+void MergeSortAdvanced(int arr[], int n) {
+  MergeSortAdvanced(arr, 0, n - 1);
+  return;
+}
 
-void QuickSort(int arr[], int n) { QuickSort(arr, 0, n - 1); }
+void QuickSort(int arr[], int n) {
+  QuickSort(arr, 0, n - 1);
+  return;
+}
 
-void QuickSortAdvanced(int arr[], int n) { QuickSortAdvanced(arr, 0, n - 1); }
+void QuickSortAdvanced(int arr[], int n) {
+  QuickSortAdvanced(arr, 0, n - 1);
+  return;
+}
 
-void QuickSort2Ways(int arr[], int n) { QuickSort2Ways(arr, 0, n - 1); }
+void QuickSort2Ways(int arr[], int n) {
+  QuickSort2Ways(arr, 0, n - 1);
+  return;
+}
 
-void QuickSort3Ways(int arr[], int n) { QuickSort3Ways(arr, 0, n - 1); }
+void QuickSort3Ways(int arr[], int n) {
+  QuickSort3Ways(arr, 0, n - 1);
+  return;
+}
 
 }  // namespace sort
