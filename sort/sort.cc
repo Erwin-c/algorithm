@@ -165,9 +165,7 @@ static int Partition2Ways(int arr[], int l, int r) {
       break;
     }
 
-    std::swap(arr[i], arr[j]);
-    ++i;
-    --j;
+    std::swap(arr[i++], arr[j--]);
   }
 
   std::swap(arr[j], arr[l]);
