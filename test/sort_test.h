@@ -41,6 +41,16 @@ void Test8();
 // many duplicate elements.
 void Test9();
 
+// Merge Sort Advanced, Quick Sort 2 Ways, Quick Sort 3 Ways and Heap Sort 1 for
+// arrays with many duplicate elements.
+void Test10();
+
+// Merge Sort Advanced, Quick Sort 2 Ways, Quick Sort 3 Ways, Heap Sort 1 and
+// Heap Sort 2for arrays with many duplicate elements.
+// In general, Heap Sort is worse than others. So Heap Sort is often used to
+// process dynamic data, not for system sort.
+void Test11();
+
 }  // namespace sort_test
 
 #endif  // SORT_TEST_H_

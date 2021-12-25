@@ -6,6 +6,7 @@
  */
 
 #include "test/sort_test.h"
+#include "heap/max_heap.h"
 
 int main() {
   // Begin test.
@@ -18,6 +19,8 @@ int main() {
   sort_test::Test7();
   sort_test::Test8();
   sort_test::Test9();
+  sort_test::Test10();
+  sort_test::Test11();
 
   return 0;
 }

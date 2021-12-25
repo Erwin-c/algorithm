@@ -8,8 +8,6 @@
 #ifndef SORT_H_
 #define SORT_H_
 
-#include <algorithm>
-
 namespace sort {
 
 void SelectionSort(int arr[], int n);
@@ -28,6 +26,12 @@ void QuickSortAdvanced(int arr[], int n);
 void QuickSort2Ways(int arr[], int n);
 
 void QuickSort3Ways(int arr[], int n);
+
+// Creat a heap, Insert -> O(nlogn), related to 'level'.
+void HeapSort1(int arr[], int n);
+
+// Create a heap, Heapify -> O(n).
+void HeapSort2(int arr[], int n);
 
 }  // namespace sort
 

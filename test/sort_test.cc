@@ -260,4 +260,71 @@ void Test9() {
   return;
 }
 
+void Test10() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start sort_test 10:" << std::endl;
+  std::cout << "Compare Merge Sort Advanced, Quick Sort 2 Ways, Quick Sort "
+               "3 Ways and Heap Sort 1 with arrays which have many duplicate "
+               "elements."
+            << std::endl;
+
+  int n = 1000000;
+  // Test for random arrays which have more duplicate elements.
+  std::cout << "Test for random arrays, size = " << n << ", random range [0, "
+            << 10 << "]." << std::endl;
+  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
+  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr3 = helper::CopyArray(arr1, n);
+  int* arr4 = helper::CopyArray(arr1, n);
+
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
+  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
+  helper::TestSort("Quick Sort 3 Ways", sort::QuickSort3Ways, arr3, n);
+  helper::TestSort("Heap Sort 1", sort::HeapSort1, arr4, n);
+
+  delete[] arr1;
+  delete[] arr2;
+  delete[] arr3;
+  delete[] arr4;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void Test11() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start sort_test 11:" << std::endl;
+  std::cout << "Compare Merge Sort Advanced, Quick Sort 2 Ways, Quick Sort "
+               "3 Ways Heap Sort 1 and Heap Sort 2 with arrays which have many "
+               "duplicate  elements."
+            << std::endl;
+
+  int n = 1000000;
+  // Test for random arrays which have more duplicate elements.
+  std::cout << "Test for random arrays, size = " << n << ", random range [0, "
+            << 10 << "]." << std::endl;
+  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
+  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr3 = helper::CopyArray(arr1, n);
+  int* arr4 = helper::CopyArray(arr1, n);
+  int* arr5 = helper::CopyArray(arr1, n);
+
+  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
+  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
+  helper::TestSort("Quick Sort 3 Ways", sort::QuickSort3Ways, arr3, n);
+  helper::TestSort("Heap Sort 1", sort::HeapSort1, arr4, n);
+  helper::TestSort("Heap Sort 2", sort::HeapSort2, arr5, n);
+
+  delete[] arr1;
+  delete[] arr2;
+  delete[] arr3;
+  delete[] arr4;
+  delete[] arr5;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
 }  // namespace sort_test

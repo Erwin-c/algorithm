@@ -23,12 +23,28 @@ class MaxHeap {
     capacity_ = capacity;
   }
 
+  MaxHeap(Item arr[], int n) {
+    data_ = new Item[n + 1];
+    capacity_ = n;
+
+    for (int i = 0; i < n; ++i) {
+      data_[i + 1] = arr[i];
+    }
+    count_ = n;
+
+    // Heapify: Create a heap -> O(n).
+    for (int i = count_ / 2; i >= 1; --i) {
+      ShiftDown(i);
+    }
+  }
+
   ~MaxHeap() { delete[] data_; }
 
   int size() { return count_; }
 
   bool IsEmpty() { return count_ == 0; }
 
+  // Create a heap -> O(nlogn).
   void Insert(Item item) {
     assert(count_ + 1 <= capacity);
 
@@ -38,6 +54,23 @@ class MaxHeap {
     ShiftUp(count_);
 
     return;
+  }
+
+  Item ExtractMax() {
+    assert(count > 0);
+
+    Item ret = data_[1];
+
+    std::swap(data_[1], data_[count_]);
+    --count_;
+    ShiftDown(1);
+
+    return ret;
+  }
+
+  Item GetMax() {
+    assert(count > 0);
+    return data_[1];
   }
 
   void TestPrint() {
@@ -108,6 +141,33 @@ class MaxHeap {
   }
 
  private:
+  void ShiftUp(int k) {
+    while (k > 1 && data_[k / 2] < data_[k]) {
+      std::swap(data_[k / 2], data_[k]);
+      k /= 2;
+    }
+
+    return;
+  }
+
+  void ShiftDown(int k) {
+    while (2 * k <= count_) {
+      int j = 2 * k;
+      if (j + 1 <= count_ && data_[j + 1] > data_[j]) {
+        ++j;
+      }
+
+      if (data_[k] >= data_[j]) {
+        break;
+      }
+
+      std::swap(data_[k], data_[j]);
+      k = j;
+    }
+
+    return;
+  }
+
   void PutNumberInLine(int num, std::string &line, int index_cur_level,
                        int cur_tree_width, bool is_left) {
     int sub_tree_width = (cur_tree_width - 1) / 2;
@@ -139,15 +199,6 @@ class MaxHeap {
 
     line[offset_left + 1] = '/';
     line[offset_right + 0] = '\\';
-
-    return;
-  }
-
-  void ShiftUp(int k) {
-    while (k > 1 && data_[k / 2] < data_[k]) {
-      std::swap(data_[k / 2], data_[k]);
-      k /= 2;
-    }
 
     return;
   }
