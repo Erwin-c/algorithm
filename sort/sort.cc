@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <ctime>
 
+#include "heap/max_heap.h"
+
 namespace sort {
 
 static void InsertionSort(int arr[], int l, int r);
@@ -235,7 +237,7 @@ static void QuickSort3Ways(int arr[], int l, int r) {
       std::swap(arr[i], arr[gt - 1]);
       --gt;
     } else {  // arr[i] == v
-      i++;
+      ++i;
     }
   }
 
@@ -305,6 +307,35 @@ void QuickSort2Ways(int arr[], int n) {
 
 void QuickSort3Ways(int arr[], int n) {
   QuickSort3Ways(arr, 0, n - 1);
+  return;
+}
+
+// Create a heap using Insert -> O(nlogn).
+// Sort using Exract -> O(nlogn).
+// HeapSort1 -> O(nlogn).
+void HeapSort1(int arr[], int n) {
+  MaxHeap<int> maxheap = MaxHeap<int>(n);
+  for (int i = 0; i < n; ++i) {
+    maxheap.Insert(arr[i]);
+  }
+
+  for (int i = n - 1; i >= 0; --i) {
+    arr[i] = maxheap.ExtractMax();
+  }
+
+  return;
+}
+
+// Optimization: Create a heap using Heapify -> O(n).
+// Sort using Exract -> O(nlogn).
+// HeapSort2 -> O(nlogn) but optimized.
+void HeapSort2(int arr[], int n) {
+  MaxHeap<int> maxheap = MaxHeap<int>(arr, n);
+
+  for (int i = n - 1; i >= 0; --i) {
+    arr[i] = maxheap.ExtractMax();
+  }
+
   return;
 }
 
