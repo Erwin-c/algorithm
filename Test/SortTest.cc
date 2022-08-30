@@ -1,20 +1,20 @@
 /*
- * test.cc
+ * SortTest.cc
  *
  *  Created on: Jan 28, 2021
  *      Author: Erwin
  */
 
-#include "test/sort_test.h"
+#include "Test/SortTest.h"
 
 #include <iostream>
 
-#include "sort/helper.h"
-#include "sort/sort.h"
+#include "Sort/Sort.h"
+#include "Util/Util.h"
 
-namespace sort_test {
+namespace SortTest {
 
-void Test1() {
+void test1() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 1:" << std::endl;
   std::cout << "Compare Selection Sort, Insertion Sort and Merge Sort with "
@@ -25,13 +25,13 @@ void Test1() {
   // Test for random arrays.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, n);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, n);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Selection Sort", sort::SelectionSort, arr1, n);
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr2, n);
-  helper::TestSort("Merge Sort", sort::MergeSort, arr3, n);
+  Util::testSort("Selection Sort", selectionSort, arr1, n);
+  Util::testSort("Insertion Sort", insertionSort, arr2, n);
+  Util::testSort("Merge Sort", mergeSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -42,7 +42,7 @@ void Test1() {
   return;
 }
 
-void Test2() {
+void test2() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 2:" << std::endl;
   std::cout
@@ -51,17 +51,17 @@ void Test2() {
       << std::endl;
 
   int n = 100000;
-  int swap_time = 10;
+  int swapTime = 10;
   // Test for nearly ordered arrays.
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swap_time << "." << std::endl;
-  int* arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
+            << ", swap time = " << swapTime << "." << std::endl;
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Selection Sort", sort::SelectionSort, arr1, n);
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr2, n);
-  helper::TestSort("Merge Sort", sort::MergeSort, arr3, n);
+  Util::testSort("Selection Sort", selectionSort, arr1, n);
+  Util::testSort("Insertion Sort", insertionSort, arr2, n);
+  Util::testSort("Merge Sort", mergeSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -72,7 +72,7 @@ void Test2() {
   return;
 }
 
-void Test3() {
+void test3() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 3:" << std::endl;
   std::cout << "Compare Insertion Sort and Merge Sort Advanced with nearly "
@@ -80,15 +80,15 @@ void Test3() {
             << std::endl;
 
   int n = 100000;
-  int swap_time = 10;
+  int swapTime = 10;
   // Test for nearly ordered arrays.
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swap_time << "." << std::endl;
-  int* arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
-  int* arr2 = helper::CopyArray(arr1, n);
+            << ", swap time = " << swapTime << "." << std::endl;
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr2 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
+  Util::testSort("Insertion Sort", insertionSort, arr1, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -98,7 +98,7 @@ void Test3() {
   return;
 }
 
-void Test4() {
+void test4() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 4:" << std::endl;
   std::cout << "Compare Merge Sort Advanced and Quick Sort with random arrays."
@@ -108,11 +108,11 @@ void Test4() {
   // Test for random arrays.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, n);
-  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, n);
+  int* arr2 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort", sort::QuickSort, arr2, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr1, n);
+  Util::testSort("Quick Sort", quickSort, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -122,7 +122,7 @@ void Test4() {
   return;
 }
 
-void Test5() {
+void test5() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 5:" << std::endl;
   std::cout << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort "
@@ -131,17 +131,17 @@ void Test5() {
             << std::endl;
 
   int n = 500000;
-  int swap_time = 100;
+  int swapTime = 100;
   // Test for nearly ordered arrays.
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swap_time << "." << std::endl;
-  int* arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
+            << ", swap time = " << swapTime << "." << std::endl;
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
-  helper::TestSort("Quick Sort", sort::QuickSort, arr3, n);
+  Util::testSort("Insertion Sort", insertionSort, arr1, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr2, n);
+  Util::testSort("Quick Sort", quickSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -152,7 +152,7 @@ void Test5() {
   return;
 }
 
-void Test6() {
+void test6() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 6:" << std::endl;
   std::cout << "Compare Insertion Sort, Merge Sort Advanced and Quick Sort "
@@ -161,17 +161,17 @@ void Test6() {
             << std::endl;
 
   int n = 500000;
-  int swap_time = 100;
+  int swapTime = 100;
   // Test for nearly ordered arrays.
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swap_time << "." << std::endl;
-  int* arr1 = helper::GenerateNearlyOrderedArray(n, swap_time);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
+            << ", swap time = " << swapTime << "." << std::endl;
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Insertion Sort", sort::InsertionSort, arr1, n);
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr2, n);
-  helper::TestSort("Quick Sort Advanced", sort::QuickSortAdvanced, arr3, n);
+  Util::testSort("Insertion Sort", insertionSort, arr1, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr2, n);
+  Util::testSort("Quick Sort Advanced", quickSortAdvanced, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -182,7 +182,7 @@ void Test6() {
   return;
 }
 
-void Test7() {
+void test7() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 7:" << std::endl;
   std::cout << "Compare Merge Sort Advanced and Quick Sort Advanced with "
@@ -193,11 +193,11 @@ void Test7() {
   // Test for random arrays which have more duplicate elements.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
-  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr2 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort Advanced", sort::QuickSortAdvanced, arr2, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr1, n);
+  Util::testSort("Quick Sort Advanced", quickSortAdvanced, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -207,7 +207,7 @@ void Test7() {
   return;
 }
 
-void Test8() {
+void test8() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 8:" << std::endl;
   std::cout << "Compare Merge Sort Advanced and Quick Sort 2 Ways with "
@@ -218,11 +218,11 @@ void Test8() {
   // Test for random arrays which have more duplicate elements.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
-  int* arr2 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr2 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -232,7 +232,7 @@ void Test8() {
   return;
 }
 
-void Test9() {
+void test9() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 9:" << std::endl;
   std::cout << "Compare Merge Sort Advanced, Quick Sort 2 Ways and Quick Sort "
@@ -243,13 +243,13 @@ void Test9() {
   // Test for random arrays which have more duplicate elements.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
-  helper::TestSort("Quick Sort 3 Ways", sort::QuickSort3Ways, arr3, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
+  Util::testSort("Quick Sort 3 Ways", quickSort3Ways, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -260,7 +260,7 @@ void Test9() {
   return;
 }
 
-void Test10() {
+void test10() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 10:" << std::endl;
   std::cout << "Compare Merge Sort Advanced, Quick Sort 2 Ways, Quick Sort "
@@ -272,15 +272,15 @@ void Test10() {
   // Test for random arrays which have more duplicate elements.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
-  int* arr4 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
+  int* arr4 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
-  helper::TestSort("Quick Sort 3 Ways", sort::QuickSort3Ways, arr3, n);
-  helper::TestSort("Heap Sort 1", sort::HeapSort1, arr4, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
+  Util::testSort("Quick Sort 3 Ways", quickSort3Ways, arr3, n);
+  Util::testSort("Heap Sort 1", heapSort1, arr4, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -292,7 +292,7 @@ void Test10() {
   return;
 }
 
-void Test11() {
+void test11() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start sort_test 11:" << std::endl;
   std::cout << "Compare Merge Sort Advanced, Quick Sort 2 Ways, Quick Sort "
@@ -304,17 +304,17 @@ void Test11() {
   // Test for random arrays which have more duplicate elements.
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
-  int* arr1 = helper::GenerateRandomArray(n, 0, 10);
-  int* arr2 = helper::CopyArray(arr1, n);
-  int* arr3 = helper::CopyArray(arr1, n);
-  int* arr4 = helper::CopyArray(arr1, n);
-  int* arr5 = helper::CopyArray(arr1, n);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr2 = Util::copyArray(arr1, n);
+  int* arr3 = Util::copyArray(arr1, n);
+  int* arr4 = Util::copyArray(arr1, n);
+  int* arr5 = Util::copyArray(arr1, n);
 
-  helper::TestSort("Merge Sort Advanced", sort::MergeSortAdvanced, arr1, n);
-  helper::TestSort("Quick Sort 2 Ways", sort::QuickSort2Ways, arr2, n);
-  helper::TestSort("Quick Sort 3 Ways", sort::QuickSort3Ways, arr3, n);
-  helper::TestSort("Heap Sort 1", sort::HeapSort1, arr4, n);
-  helper::TestSort("Heap Sort 2", sort::HeapSort2, arr5, n);
+  Util::testSort("Merge Sort Advanced", mergeSortAdvanced, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
+  Util::testSort("Quick Sort 3 Ways", quickSort3Ways, arr3, n);
+  Util::testSort("Heap Sort 1", heapSort1, arr4, n);
+  Util::testSort("Heap Sort 2", heapSort2, arr5, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -327,4 +327,4 @@ void Test11() {
   return;
 }
 
-}  // namespace sort_test
+}  // namespace SortTest
