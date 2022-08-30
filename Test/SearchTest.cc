@@ -16,11 +16,13 @@
 namespace SearchTest {
 
 void test1() {
+  std::cout << "-------------------------------------------------" << std::endl;
   int n = 1000000;
+  int* arr = Util::generateOrderedArray(n);
 
   clock_t startTime = clock();
   for (int i = 0; i < n; ++i) {
-    assert(i == binarySearch(Util::generateOrderedArray(n), n, i));
+    assert(i == binarySearch(arr, n, i));
   }
 
   clock_t endTime = clock();
@@ -28,6 +30,10 @@ void test1() {
   std::cout << "Binary search test complete!" << std::endl;
   std::cout << "Time cost: " << double(endTime - startTime) / CLOCKS_PER_SEC
             << "s" << std::endl;
+
+  delete[] arr;
+
+  std::cout << "End ^-^" << std::endl;
 
   return;
 }

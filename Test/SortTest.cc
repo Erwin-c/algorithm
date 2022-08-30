@@ -22,7 +22,7 @@ void test1() {
             << std::endl;
 
   int n = 50000;
-  // Test for random arrays.
+  // Test for random arrays
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, n);
@@ -52,7 +52,7 @@ void test2() {
 
   int n = 100000;
   int swapTime = 10;
-  // Test for nearly ordered arrays.
+  // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
@@ -81,7 +81,7 @@ void test3() {
 
   int n = 100000;
   int swapTime = 10;
-  // Test for nearly ordered arrays.
+  // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
@@ -105,7 +105,7 @@ void test4() {
             << std::endl;
 
   int n = 1000000;
-  // Test for random arrays.
+  // Test for random arrays
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, n);
@@ -132,7 +132,7 @@ void test5() {
 
   int n = 500000;
   int swapTime = 100;
-  // Test for nearly ordered arrays.
+  // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
@@ -162,7 +162,7 @@ void test6() {
 
   int n = 500000;
   int swapTime = 100;
-  // Test for nearly ordered arrays.
+  // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
@@ -190,7 +190,7 @@ void test7() {
             << std::endl;
 
   int n = 350000;
-  // Test for random arrays which have more duplicate elements.
+  // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
@@ -215,7 +215,7 @@ void test8() {
             << std::endl;
 
   int n = 350000;
-  // Test for random arrays which have more duplicate elements.
+  // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
@@ -240,7 +240,7 @@ void test9() {
             << std::endl;
 
   int n = 350000;
-  // Test for random arrays which have more duplicate elements.
+  // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
@@ -269,7 +269,7 @@ void test10() {
             << std::endl;
 
   int n = 1000000;
-  // Test for random arrays which have more duplicate elements.
+  // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
@@ -301,7 +301,7 @@ void test11() {
             << std::endl;
 
   int n = 1000000;
-  // Test for random arrays which have more duplicate elements.
+  // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
