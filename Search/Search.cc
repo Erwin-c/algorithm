@@ -9,19 +9,19 @@
 
 template <typename T>
 int binarySearch(T arr[], int n, T target) {
-  // Find target in [l ... r]
-  int l = 0, r = n - 1;
-  // [l ... r] is still valid when l == r
-  while (l <= r) {
+  // Find target in [l...r)
+  int l = 0, r = n;
+  // [l...r) is invalid when l == r
+  while (l < r) {
     int mid = l + (r - l) << 1;
     if (target == arr[mid]) {
       return mid;
     }
 
     if (target > mid) {
-      l = mid + 1;  // target is in [mid + 1 ... r]
+      l = mid + 1;  // target exists in [mid + 1 ... r)
     } else {
-      r = mid - 1;  // target is in [l ... mid - 1]
+      r = mid;  // target exists in [l ... mid)
     }
   }
 
