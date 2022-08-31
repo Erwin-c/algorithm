@@ -18,10 +18,10 @@ int binarySearch(T arr[], int n, T target) {
       return mid;
     }
 
-    if (target > mid) {
-      l = mid + 1;  // target exists in [mid + 1 ... r)
+    if (target > arr[mid]) {
+      l = mid + 1;  // target exists in [mid + 1...r)
     } else {
-      r = mid;  // target exists in [l ... mid)
+      r = mid;  // target exists in [l...mid)
     }
   }
 

@@ -16,7 +16,7 @@ static void __insertionSort(int arr[], int l, int r);
 
 static void __merge(int arr[], int l, int mid, int r);
 
-static void _mergeSort(int arr[], int l, int r);
+static void __mergeSort(int arr[], int l, int r);
 
 static void __mergeSortAdvanced(int arr[], int l, int r);
 
@@ -250,14 +250,14 @@ static void __quickSort3Ways(int arr[], int l, int r) {
 void selectionSort(int arr[], int n) {
   for (int i = 0; i < n; ++i) {
     // Find the minimum in [i, n)
-    int min_index = i;
+    int minIndex = i;
     for (int j = i + 1; j < n; ++j) {
-      if (arr[j] < arr[min_index]) {
-        min_index = j;
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
       }
     }
 
-    std::swap(arr[min_index], arr[i]);
+    std::swap(arr[minIndex], arr[i]);
   }
 
   return;
