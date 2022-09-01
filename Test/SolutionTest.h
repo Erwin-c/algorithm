@@ -12,6 +12,10 @@ namespace SolutionTest {
 
 void moveZerosTest();
 
+void sortColorsTest();
+
+void sortColorsOptimizedTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_

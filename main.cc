@@ -27,5 +27,9 @@ int main() {
 
   SolutionTest::moveZerosTest();
 
+  SolutionTest::sortColorsTest();
+
+  SolutionTest::sortColorsOptimizedTest();
+
   return 0;
 }
