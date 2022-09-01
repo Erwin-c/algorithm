@@ -15,11 +15,11 @@ void insertionSort(int arr[], int n);
 void mergeSort(int arr[], int n);
 
 // Optimation mainly for nearly ordered arrays
-void mergeSortAdvanced(int arr[], int n);
+void mergeSortOptimized(int arr[], int n);
 
 void quickSort(int arr[], int n);
 
-void quickSortAdvanced(int arr[], int n);
+void quickSortOptimized(int arr[], int n);
 
 void quickSort2Ways(int arr[], int n);
 

@@ -14,6 +14,12 @@ class Solution {
  public:
   // 283
   void moveZeros(std::vector<int>& nums);
+
+  // 75
+  void sortColors(std::vector<int>& nums);
+
+  // 75 optimized
+  void sortColorsOptimized(std::vector<int>& nums);
 };
 
 #endif  // SOLUTION_H_

@@ -18,17 +18,17 @@ static void __merge(int arr[], int l, int mid, int r);
 
 static void __mergeSort(int arr[], int l, int r);
 
-static void __mergeSortAdvanced(int arr[], int l, int r);
+static void __mergeSortOptimized(int arr[], int l, int r);
 
 static int __partition(int arr[], int l, int r);
 
-static int __partitionAdvanced(int arr[], int l, int r);
+static int __partitionOptimized(int arr[], int l, int r);
 
 static int __partition2Ways(int arr[], int l, int r);
 
 static void __quickSort(int arr[], int l, int r);
 
-static void __quickSortAdvanced(int arr[], int l, int r);
+static void __quickSortOptimized(int arr[], int l, int r);
 
 static void __quickSort2Ways(int arr[], int l, int r);
 
@@ -88,7 +88,7 @@ static void __mergeSort(int arr[], int l, int r) {
   return;
 }
 
-static void __mergeSortAdvanced(int arr[], int l, int r) {
+static void __mergeSortOptimized(int arr[], int l, int r) {
   // Optimation: There is a constant C in time complexity
   if (r - l <= 15) {
     __insertionSort(arr, l, r);
@@ -96,8 +96,8 @@ static void __mergeSortAdvanced(int arr[], int l, int r) {
   }
 
   int mid = l + (r - l) / 2;
-  __mergeSortAdvanced(arr, l, mid);
-  __mergeSortAdvanced(arr, mid + 1, r);
+  __mergeSortOptimized(arr, l, mid);
+  __mergeSortOptimized(arr, mid + 1, r);
   // Optimation: More important
   if (arr[mid] > arr[mid + 1]) {
     __merge(arr, l, mid, r);
@@ -125,8 +125,8 @@ static int __partition(int arr[], int l, int r) {
   return j;
 }
 
-static int __partitionAdvanced(int arr[], int l, int r) {
-  // Optimation: Avoid being O(n ^ 2) in ordered arrays.
+static int __partitionOptimized(int arr[], int l, int r) {
+  // Optimation: Avoid being O(n ^ 2) in ordered arrays
   srand(time(nullptr));
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   int v = arr[l];
@@ -187,15 +187,15 @@ static void __quickSort(int arr[], int l, int r) {
   return;
 }
 
-static void __quickSortAdvanced(int arr[], int l, int r) {
+static void __quickSortOptimized(int arr[], int l, int r) {
   if (r - l <= 15) {
     __insertionSort(arr, l, r);
     return;
   }
 
-  int p = __partitionAdvanced(arr, l, r);
-  __quickSortAdvanced(arr, l, p - 1);
-  __quickSortAdvanced(arr, p + 1, r);
+  int p = __partitionOptimized(arr, l, r);
+  __quickSortOptimized(arr, l, p - 1);
+  __quickSortOptimized(arr, p + 1, r);
 
   return;
 }
@@ -283,8 +283,8 @@ void mergeSort(int arr[], int n) {
   return;
 }
 
-void mergeSortAdvanced(int arr[], int n) {
-  __mergeSortAdvanced(arr, 0, n - 1);
+void mergeSortOptimized(int arr[], int n) {
+  __mergeSortOptimized(arr, 0, n - 1);
   return;
 }
 
@@ -293,8 +293,8 @@ void quickSort(int arr[], int n) {
   return;
 }
 
-void quickSortAdvanced(int arr[], int n) {
-  __quickSortAdvanced(arr, 0, n - 1);
+void quickSortOptimized(int arr[], int n) {
+  __quickSortOptimized(arr, 0, n - 1);
   return;
 }
 
