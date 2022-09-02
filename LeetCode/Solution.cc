@@ -8,6 +8,7 @@
 #include "LeetCode/Solution.h"
 
 #include <cassert>
+#include <stdexcept>
 
 // Time: O(n)
 // Space: O(1)
@@ -72,4 +73,25 @@ void Solution::sortColorsOptimized(std::vector<int>& nums) {
   }
 
   return;
+}
+
+// Time: O(n)
+// Space: O(1)
+std::vector<int> Solution::twoSumOptimized(std::vector<int>& numbers,
+                                           int target) {
+  assert(numbers.size() >= 2);
+
+  int l = 0, r = numbers.size() - 1;
+  while (l < r) {
+    if (target == numbers[l] + numbers[r]) {
+      int res[2] = {l + 1, r + 1};
+      return std::vector<int>(res, res + 2);
+    } else if (target > numbers[l] + numbers[r]) {
+      ++l;
+    } else {
+      --r;
+    }
+  }
+
+  throw std::invalid_argument("The input has no solution!");
 }
