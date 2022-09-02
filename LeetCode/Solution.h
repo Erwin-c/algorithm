@@ -20,6 +20,12 @@ class Solution {
 
   // 75 optimized
   void sortColorsOptimized(std::vector<int>& nums);
+
+  // TBD: 167 binary search
+  // vector<int> twoSum(vector<int>& numbers, int target);
+
+  // 167 optimized
+  std::vector<int> twoSumOptimized(std::vector<int>& numbers, int target);
 };
 
 #endif  // SOLUTION_H_

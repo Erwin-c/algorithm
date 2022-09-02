@@ -26,10 +26,10 @@ int main() {
   SearchTest::test1();
 
   SolutionTest::moveZerosTest();
-
   SolutionTest::sortColorsTest();
-
   SolutionTest::sortColorsOptimizedTest();
+  // SolutionTest::twoSumTest();
+  SolutionTest::twoSumOptimizedTest();
 
   return 0;
 }

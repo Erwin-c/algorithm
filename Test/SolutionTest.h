@@ -16,6 +16,11 @@ void sortColorsTest();
 
 void sortColorsOptimizedTest();
 
+// TBD: binary search
+// void twoSumTest();
+
+void twoSumOptimizedTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_
