@@ -21,6 +21,8 @@ void sortColorsOptimizedTest();
 
 void twoSumOptimizedTest();
 
+void minSubArrayLenTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_

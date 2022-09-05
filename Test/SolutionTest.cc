@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "LeetCode/Solution.h"
+#include "LeetCode/ArraySolution.h"
 
 namespace SolutionTest {
 
@@ -19,7 +19,7 @@ void moveZerosTest() {
 
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
-  Solution().moveZeros(vec);
+  ArraySolution().moveZeros(vec);
 
   for (size_t i = 0; i < vec.size(); ++i) {
     std::cout << vec[i] << " ";
@@ -40,7 +40,7 @@ void sortColorsTest() {
 
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
-  Solution().sortColors(vec);
+  ArraySolution().sortColors(vec);
 
   for (size_t i = 0; i < vec.size(); ++i) {
     std::cout << vec[i] << " ";
@@ -61,7 +61,7 @@ void sortColorsOptimizedTest() {
 
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
-  Solution().sortColorsOptimized(vec);
+  ArraySolution().sortColorsOptimized(vec);
 
   for (size_t i = 0; i < vec.size(); ++i) {
     std::cout << vec[i] << " ";
@@ -83,13 +83,31 @@ void twoSumOptimizedTest() {
 
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
-  res = Solution().twoSumOptimized(vec, 11);
+  res = ArraySolution().twoSumOptimized(vec, 11);
 
   for (size_t i = 0; i < res.size(); ++i) {
     std::cout << res[i] << " ";
   }
 
   std::cout << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void minSubArrayLenTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start minSubArrayLen() test:" << std::endl;
+
+  int res = 0;
+  int arr[] = {2, 3, 1, 2, 4, 3};
+
+  std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
+
+  res = ArraySolution().minSubArrayLen(7, vec);
+
+  std::cout << res << std::endl;
 
   std::cout << "End ^-^" << std::endl;
 

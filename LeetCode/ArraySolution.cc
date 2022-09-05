@@ -1,18 +1,18 @@
 /*
- * Solution.cc
+ * ArraySolution.cc
  *
  *  Created on: Aug 30, 2022
  *      Author: Erwin
  */
 
-#include "LeetCode/Solution.h"
+#include "LeetCode/ArraySolution.h"
 
 #include <cassert>
 #include <stdexcept>
 
 // Time: O(n)
 // Space: O(1)
-void Solution::moveZeros(std::vector<int>& nums) {
+void ArraySolution::moveZeros(std::vector<int>& nums) {
   // Element in [0, k) is not 0
   size_t k = 0;
 
@@ -32,7 +32,7 @@ void Solution::moveZeros(std::vector<int>& nums) {
 
 // Time: O(n)
 // Space: O(1)
-void Solution::sortColors(std::vector<int>& nums) {
+void ArraySolution::sortColors(std::vector<int>& nums) {
   // Frequency of 0, 1, 2
   int count[3] = {0};
 
@@ -57,7 +57,7 @@ void Solution::sortColors(std::vector<int>& nums) {
 
 // Time: O(n)
 // Space: O(1)
-void Solution::sortColorsOptimized(std::vector<int>& nums) {
+void ArraySolution::sortColorsOptimized(std::vector<int>& nums) {
   int zero = -1;             // nums[0...zero] = 0
   size_t two = nums.size();  // nums[two...n) = 2
 
@@ -77,8 +77,8 @@ void Solution::sortColorsOptimized(std::vector<int>& nums) {
 
 // Time: O(n)
 // Space: O(1)
-std::vector<int> Solution::twoSumOptimized(std::vector<int>& numbers,
-                                           int target) {
+std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
+                                                int target) {
   assert(numbers.size() >= 2);
 
   int l = 0, r = numbers.size() - 1;
@@ -94,4 +94,30 @@ std::vector<int> Solution::twoSumOptimized(std::vector<int>& numbers,
   }
 
   throw std::invalid_argument("The input has no solution!");
+}
+
+int ArraySolution::minSubArrayLen(int s, std::vector<int>& nums) {
+  // Sliding widow nums[l...r)
+  // TBD: type 'r = -1'
+  size_t l = 0, r = -1;
+  size_t res = nums.size() + 1;
+  int sum = 0;
+
+  while (l < nums.size()) {
+    if (s > sum && r + 1 < nums.size()) {
+      sum += nums[++r];
+    } else {
+      sum -= nums[l++];
+    }
+
+    if (s <= sum) {
+      res = std::min(res, r - l + 1);
+    }
+  }
+
+  if (res == nums.size() + 1) {
+    return 0;
+  }
+
+  return res;
 }
