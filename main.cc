@@ -11,19 +11,19 @@
 
 int main() {
   // Begin test
-  // SortTest::test1();
-  // SortTest::test2();
-  // SortTest::test3();
-  // SortTest::test4();
-  // SortTest::test5();
-  // SortTest::test6();
-  // SortTest::test7();
-  // SortTest::test8();
-  // SortTest::test9();
-  // SortTest::test10();
-  // SortTest::test11();
+  SortTest::test1();
+  SortTest::test2();
+  SortTest::test3();
+  SortTest::test4();
+  SortTest::test5();
+  SortTest::test6();
+  SortTest::test7();
+  SortTest::test8();
+  SortTest::test9();
+  SortTest::test10();
+  SortTest::test11();
 
-  // SearchTest::test1();
+  SearchTest::test1();
 
   SolutionTest::moveZerosTest();
   SolutionTest::sortColorsTest();
@@ -31,6 +31,7 @@ int main() {
   // SolutionTest::twoSumTest();
   SolutionTest::twoSumOptimizedTest();
   SolutionTest::minSubArrayLenTest();
+  SolutionTest::lengthOfLongestSubstringTest();
 
   return 0;
 }

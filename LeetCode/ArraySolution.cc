@@ -96,15 +96,17 @@ std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
   throw std::invalid_argument("The input has no solution!");
 }
 
+// Time: O(n)
+// Space: O(n)
 int ArraySolution::minSubArrayLen(int s, std::vector<int>& nums) {
+  int size = nums.size();
   // Sliding widow nums[l...r)
-  // TBD: type 'r = -1'
-  size_t l = 0, r = -1;
-  size_t res = nums.size() + 1;
+  int l = 0, r = -1;
+  int res = size + 1;
   int sum = 0;
 
-  while (l < nums.size()) {
-    if (s > sum && r + 1 < nums.size()) {
+  while (l < size) {
+    if (s > sum && r + 1 < size) {
       sum += nums[++r];
     } else {
       sum -= nums[l++];
@@ -115,8 +117,27 @@ int ArraySolution::minSubArrayLen(int s, std::vector<int>& nums) {
     }
   }
 
-  if (res == nums.size() + 1) {
+  if (res == size + 1) {
     return 0;
+  }
+
+  return res;
+}
+
+int ArraySolution::lengthOfLongestSubstring(std::string s) {
+  int size = s.size();
+  int freq[256] = {0};
+  int l = 0, r = -1;
+  int res = 0;
+
+  while (l < size) {
+    if (freq[(int)s[r + 1]] == 0 && r + 1 < size) {
+      ++freq[(int)s[++r]];
+    } else {
+      --freq[(int)s[l++]];
+    }
+
+    res = std::max(res, r - l + 1);
   }
 
   return res;

@@ -8,6 +8,7 @@
 #ifndef ARRAY_SOLUTION_H_
 #define ARRAY_SOLUTION_H_
 
+#include <string>
 #include <vector>
 
 class ArraySolution {
@@ -29,6 +30,11 @@ class ArraySolution {
 
   // 209
   int minSubArrayLen(int s, std::vector<int>& nums);
+
+  // 3
+  int lengthOfLongestSubstring(std::string s);
+
+  // TBD: 438
 };
 
 #endif  // ARRAY_SOLUTION_H_
