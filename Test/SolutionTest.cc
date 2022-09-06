@@ -16,7 +16,6 @@ void moveZerosTest() {
   std::cout << "Start moveZeros() test:" << std::endl;
 
   int arr[] = {0, 1, 0, 3, 12};
-
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
   ArraySolution().moveZeros(vec);
@@ -37,7 +36,6 @@ void sortColorsTest() {
   std::cout << "Start sortColors() test:" << std::endl;
 
   int arr[] = {0, 2, 2, 1, 0, 2, 2, 0, 2, 1, 0};
-
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
   ArraySolution().sortColors(vec);
@@ -58,7 +56,6 @@ void sortColorsOptimizedTest() {
   std::cout << "Start sortColorsOptimized() test:" << std::endl;
 
   int arr[] = {0, 2, 2, 1, 0, 2, 2, 0, 2, 1, 0};
-
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
   ArraySolution().sortColorsOptimized(vec);
@@ -78,10 +75,10 @@ void twoSumOptimizedTest() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start twoSumOptimized() test:" << std::endl;
 
-  std::vector<int> res;
   int arr[] = {1, 3, 4, 7, 11, 23, 55, 65, 89};
-
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
+
+  std::vector<int> res;
 
   res = ArraySolution().twoSumOptimized(vec, 11);
 
@@ -100,12 +97,29 @@ void minSubArrayLenTest() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Start minSubArrayLen() test:" << std::endl;
 
-  int res = 0;
   int arr[] = {2, 3, 1, 2, 4, 3};
-
   std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
+  int res = 0;
+
   res = ArraySolution().minSubArrayLen(7, vec);
+
+  std::cout << res << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void lengthOfLongestSubstringTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start lengthOfLongestSubstring() test:" << std::endl;
+
+  std::string s = "abcabcbb";
+
+  int res = 0;
+
+  res = ArraySolution().lengthOfLongestSubstring(s);
 
   std::cout << res << std::endl;
 

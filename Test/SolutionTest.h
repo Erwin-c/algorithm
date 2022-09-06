@@ -23,6 +23,8 @@ void twoSumOptimizedTest();
 
 void minSubArrayLenTest();
 
+void lengthOfLongestSubstringTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_
