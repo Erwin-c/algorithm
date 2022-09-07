@@ -33,5 +33,8 @@ int main() {
   SolutionTest::minSubArrayLenTest();
   SolutionTest::lengthOfLongestSubstringTest();
 
+  SolutionTest::intersectionTest();
+  SolutionTest::intersectionOptimizedTest();
+
   return 0;
 }
