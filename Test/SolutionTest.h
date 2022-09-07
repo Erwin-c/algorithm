@@ -25,6 +25,10 @@ void minSubArrayLenTest();
 
 void lengthOfLongestSubstringTest();
 
+void intersectionTest();
+
+void intersectionOptimizedTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_

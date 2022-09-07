@@ -8,6 +8,7 @@
 #include <iostream>
 
 #include "LeetCode/ArraySolution.h"
+#include "LeetCode/SearchSolution.h"
 
 namespace SolutionTest {
 
@@ -122,6 +123,54 @@ void lengthOfLongestSubstringTest() {
   res = ArraySolution().lengthOfLongestSubstring(s);
 
   std::cout << res << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void intersectionTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start intersection() test:" << std::endl;
+
+  int arr1[] = {4, 9, 5};
+  std::vector<int> vec1(arr1, arr1 + sizeof(arr1) / sizeof(int));
+
+  int arr2[] = {9, 4, 9, 8, 4};
+  std::vector<int> vec2(arr2, arr2 + sizeof(arr2) / sizeof(int));
+
+  std::vector<int> res;
+  res = SearchSolution().intersection(vec1, vec2);
+
+  for (size_t i = 0; i < res.size(); ++i) {
+    std::cout << res[i] << " ";
+  }
+
+  std::cout << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void intersectionOptimizedTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start intersectionOptimized() test:" << std::endl;
+
+  int arr1[] = {4, 9, 5};
+  std::vector<int> vec1(arr1, arr1 + sizeof(arr1) / sizeof(int));
+
+  int arr2[] = {9, 4, 9, 8, 4};
+  std::vector<int> vec2(arr2, arr2 + sizeof(arr2) / sizeof(int));
+
+  std::vector<int> res;
+  res = SearchSolution().intersectionOptimized(vec1, vec2);
+
+  for (size_t i = 0; i < res.size(); ++i) {
+    std::cout << res[i] << " ";
+  }
+
+  std::cout << std::endl;
 
   std::cout << "End ^-^" << std::endl;
 
