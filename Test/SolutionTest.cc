@@ -177,4 +177,52 @@ void intersectionOptimizedTest() {
   return;
 }
 
+void intersectTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start intersect() test:" << std::endl;
+
+  int arr1[] = {1, 2, 2, 1};
+  std::vector<int> vec1(arr1, arr1 + sizeof(arr1) / sizeof(int));
+
+  int arr2[] = {2, 2};
+  std::vector<int> vec2(arr2, arr2 + sizeof(arr2) / sizeof(int));
+
+  std::vector<int> res;
+  res = SearchSolution().intersect(vec1, vec2);
+
+  for (size_t i = 0; i < res.size(); ++i) {
+    std::cout << res[i] << " ";
+  }
+
+  std::cout << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
+void intersectOptimizedTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start intersectOptimized() test:" << std::endl;
+
+  int arr1[] = {1, 2, 2, 1};
+  std::vector<int> vec1(arr1, arr1 + sizeof(arr1) / sizeof(int));
+
+  int arr2[] = {2, 2};
+  std::vector<int> vec2(arr2, arr2 + sizeof(arr2) / sizeof(int));
+
+  std::vector<int> res;
+  res = SearchSolution().intersectOptimized(vec1, vec2);
+
+  for (size_t i = 0; i < res.size(); ++i) {
+    std::cout << res[i] << " ";
+  }
+
+  std::cout << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
 }  // namespace SolutionTest

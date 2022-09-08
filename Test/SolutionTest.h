@@ -29,6 +29,10 @@ void intersectionTest();
 
 void intersectionOptimizedTest();
 
+void intersectTest();
+
+void intersectOptimizedTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_
