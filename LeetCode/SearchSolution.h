@@ -19,6 +19,13 @@ class SearchSolution {
   // 349 optimized
   std::vector<int> intersectionOptimized(std::vector<int>& nums1,
                                          std::vector<int>& nums2);
+
+  // 350
+  std::vector<int> intersect(std::vector<int>& nums1, std::vector<int>& nums2);
+
+  // 350 optimized
+  std::vector<int> intersectOptimized(std::vector<int>& nums1,
+                                      std::vector<int>& nums2);
 };
 
 #endif  // SEARCH_SOLUTION_H_

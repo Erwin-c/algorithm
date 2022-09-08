@@ -35,6 +35,8 @@ int main() {
 
   SolutionTest::intersectionTest();
   SolutionTest::intersectionOptimizedTest();
+  SolutionTest::intersectTest();
+  SolutionTest::intersectOptimizedTest();
 
   return 0;
 }
