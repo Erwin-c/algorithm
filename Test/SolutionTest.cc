@@ -225,4 +225,26 @@ void intersectOptimizedTest() {
   return;
 }
 
+void twoSumTest() {
+  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Start twoSum() test:" << std::endl;
+
+  int target = 9;
+  int arr[] = {2, 7, 11, 15};
+  std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
+
+  std::vector<int> res;
+  res = SearchSolution().twoSum(vec, target);
+
+  for (size_t i = 0; i < res.size(); ++i) {
+    std::cout << res[i] << " ";
+  }
+
+  std::cout << std::endl;
+
+  std::cout << "End ^-^" << std::endl;
+
+  return;
+}
+
 }  // namespace SolutionTest

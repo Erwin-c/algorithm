@@ -26,6 +26,9 @@ class SearchSolution {
   // 350 optimized
   std::vector<int> intersectOptimized(std::vector<int>& nums1,
                                       std::vector<int>& nums2);
+
+  // 1
+  std::vector<int> twoSum(std::vector<int> nums, int target);
 };
 
 #endif  // SEARCH_SOLUTION_H_

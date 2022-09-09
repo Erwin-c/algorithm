@@ -33,6 +33,8 @@ void intersectTest();
 
 void intersectOptimizedTest();
 
+void twoSumTest();
+
 }  // namespace SolutionTest
 
 #endif  // SOLUTION_TEST_H_

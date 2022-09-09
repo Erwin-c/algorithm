@@ -7,8 +7,9 @@
 
 #include "LeetCode/SearchSolution.h"
 
-#include <map>
+#include <cassert>
 #include <set>
+#include <unordered_map>
 
 // Time: O(n)
 // Space: O(n)
@@ -51,11 +52,11 @@ std::vector<int> SearchSolution::intersectionOptimized(
   return std::vector<int>(resultSet.begin(), resultSet.end());
 }
 
-// Time: ?
-// Space: ?
+// Time: O(n)
+// Space: O(n)
 std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
                                            std::vector<int>& nums2) {
-  std::map<int, int> record;
+  std::unordered_map<int, int> record;
   for (size_t i = 0; i < nums1.size(); ++i) {
     if (record.find(nums1[i]) == record.end()) {
       record.insert(std::make_pair(nums1[i], 1));
@@ -79,11 +80,11 @@ std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
   return resultVector;
 }
 
-// Time: ?
-// Space: ?
+// Time: O(n)
+// Space: O(n)
 std::vector<int> SearchSolution::intersectOptimized(std::vector<int>& nums1,
                                                     std::vector<int>& nums2) {
-  std::map<int, int> record;
+  std::unordered_map<int, int> record;
   for (size_t i = 0; i < nums1.size(); ++i) {
     ++record[nums1[i]];
   }
@@ -97,4 +98,23 @@ std::vector<int> SearchSolution::intersectOptimized(std::vector<int>& nums1,
   }
 
   return resultVector;
+}
+
+// Time: O(n)
+// Space: O(n)
+std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
+  assert(nums.size() >= 2);
+
+  std::unordered_map<int, int> record;
+  for (size_t i = 0; i < nums.size(); ++i) {
+    int complement = target - nums[i];
+    if (record.find(complement) != record.end()) {
+      int res[2] = {record[complement], (int)i};
+      return std::vector<int>(res, res + 2);
+    }
+
+    record[nums[i]] = i;
+  }
+
+  throw std::invalid_argument("The input has no solution!");
 }
