@@ -37,6 +37,7 @@ int main() {
   SolutionTest::intersectionOptimizedTest();
   SolutionTest::intersectTest();
   SolutionTest::intersectOptimizedTest();
+  SolutionTest::twoSumTest();
 
   return 0;
 }
