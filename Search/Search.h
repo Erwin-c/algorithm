@@ -12,9 +12,9 @@ namespace Search {
 
 template <typename T>
 int binarySearch(T arr[], int n, T target) {
-  // Find target in [l...r)
+  // Find target in arr[l...r)
   int l = 0, r = n;
-  // [l...r) is invalid when l == r
+  // arr[l...r) is invalid when 'l == r'
   while (l < r) {
     int mid = l + (r - l) << 1;
     if (target == arr[mid]) {
@@ -22,9 +22,9 @@ int binarySearch(T arr[], int n, T target) {
     }
 
     if (target > arr[mid]) {
-      l = mid + 1;  // target exists in [mid + 1...r)
+      l = mid + 1;  // target exists in arr[(mid + 1)...r)
     } else {
-      r = mid;  // target exists in [l...mid)
+      r = mid;  // target exists in arr[l...mid)
     }
   }
 

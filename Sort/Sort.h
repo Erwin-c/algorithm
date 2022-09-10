@@ -242,7 +242,7 @@ void __quickSort3Ways(T arr[], int l, int r) {
 template <typename T>
 void selectionSort(T arr[], int n) {
   for (int i = 0; i < n; ++i) {
-    // Find the minimum in [i, n)
+    // Find the minimum in arr[i...n)
     int minIndex = i;
     for (int j = i + 1; j < n; ++j) {
       if (arr[j] < arr[minIndex]) {

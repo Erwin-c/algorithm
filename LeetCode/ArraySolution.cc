@@ -13,10 +13,10 @@
 // Time: O(n)
 // Space: O(1)
 void ArraySolution::moveZeros(std::vector<int>& nums) {
-  // Element in [0, k) is not 0
+  // Element in arr[0...k) is not 0
   size_t k = 0;
 
-  // [0, i]: nums[0...k) != 0, nums[k...i] == 0
+  // nums[0...i]: nums[0...k) != 0, nums[k...i] == 0
   for (size_t i = 0; i < nums.size(); ++i) {
     if (nums[i] != 0) {
       if (k != i) {
