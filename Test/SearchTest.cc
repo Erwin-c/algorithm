@@ -18,7 +18,7 @@ namespace SearchTest {
 void test1() {
   std::cout << "-------------------------------------------------" << std::endl;
   int n = 1000000;
-  int* arr = Util::generateOrderedArray(n);
+  int* arr = Util::generateOrderedArray<int>(n);
 
   clock_t startTime = clock();
   for (int i = 0; i < n; ++i) {

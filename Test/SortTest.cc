@@ -25,7 +25,7 @@ void test1() {
   // Test for random arrays
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, n);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -55,7 +55,7 @@ void test2() {
   // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -84,7 +84,7 @@ void test3() {
   // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
 
   Util::testSort("Insertion Sort", insertionSort, arr1, n);
@@ -108,7 +108,7 @@ void test4() {
   // Test for random arrays
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, n);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
 
   Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
@@ -135,7 +135,7 @@ void test5() {
   // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -165,7 +165,7 @@ void test6() {
   // Test for nearly ordered arrays
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -193,7 +193,7 @@ void test7() {
   // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
   Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
@@ -218,7 +218,7 @@ void test8() {
   // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
   Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
@@ -243,7 +243,7 @@ void test9() {
   // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -272,7 +272,7 @@ void test10() {
   // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
   int* arr4 = Util::copyArray(arr1, n);
@@ -304,7 +304,7 @@ void test11() {
   // Test for random arrays which have more duplicate elements
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray(n, 0, 10);
+  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
   int* arr4 = Util::copyArray(arr1, n);
