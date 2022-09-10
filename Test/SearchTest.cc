@@ -22,7 +22,7 @@ void test1() {
 
   clock_t startTime = clock();
   for (int i = 0; i < n; ++i) {
-    assert(i == binarySearch(arr, n, i));
+    assert(i == Search::binarySearch(arr, n, i));
   }
 
   clock_t endTime = clock();

@@ -29,9 +29,9 @@ void test1() {
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
-  Util::testSort("Selection Sort", selectionSort, arr1, n);
-  Util::testSort("Insertion Sort", insertionSort, arr2, n);
-  Util::testSort("Merge Sort", mergeSort, arr3, n);
+  Util::testSort("Selection Sort", Sort::selectionSort, arr1, n);
+  Util::testSort("Insertion Sort", Sort::insertionSort, arr2, n);
+  Util::testSort("Merge Sort", Sort::mergeSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -59,9 +59,9 @@ void test2() {
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
-  Util::testSort("Selection Sort", selectionSort, arr1, n);
-  Util::testSort("Insertion Sort", insertionSort, arr2, n);
-  Util::testSort("Merge Sort", mergeSort, arr3, n);
+  Util::testSort("Selection Sort", Sort::selectionSort, arr1, n);
+  Util::testSort("Insertion Sort", Sort::insertionSort, arr2, n);
+  Util::testSort("Merge Sort", Sort::mergeSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -87,8 +87,8 @@ void test3() {
   int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
 
-  Util::testSort("Insertion Sort", insertionSort, arr1, n);
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr2, n);
+  Util::testSort("Insertion Sort", Sort::insertionSort, arr1, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -111,8 +111,8 @@ void test4() {
   int* arr1 = Util::generateRandomArray<int>(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
 
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
-  Util::testSort("Quick Sort", quickSort, arr2, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr1, n);
+  Util::testSort("Quick Sort", Sort::quickSort, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -139,9 +139,9 @@ void test5() {
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
-  Util::testSort("Insertion Sort", insertionSort, arr1, n);
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr2, n);
-  Util::testSort("Quick Sort", quickSort, arr3, n);
+  Util::testSort("Insertion Sort", Sort::insertionSort, arr1, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr2, n);
+  Util::testSort("Quick Sort", Sort::quickSort, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -169,9 +169,9 @@ void test6() {
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
-  Util::testSort("Insertion Sort", insertionSort, arr1, n);
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr2, n);
-  Util::testSort("Quick Sort Optimized", quickSortOptimized, arr3, n);
+  Util::testSort("Insertion Sort", Sort::insertionSort, arr1, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr2, n);
+  Util::testSort("Quick Sort Optimized", Sort::quickSortOptimized, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -196,8 +196,8 @@ void test7() {
   int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
-  Util::testSort("Quick Sort Optimized", quickSortOptimized, arr2, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr1, n);
+  Util::testSort("Quick Sort Optimized", Sort::quickSortOptimized, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -221,8 +221,8 @@ void test8() {
   int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
-  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", Sort::quickSort2Ways, arr2, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -247,9 +247,9 @@ void test9() {
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
-  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
-  Util::testSort("Quick Sort 3 Ways", quickSort3Ways, arr3, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", Sort::quickSort2Ways, arr2, n);
+  Util::testSort("Quick Sort 3 Ways", Sort::quickSort3Ways, arr3, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -277,10 +277,10 @@ void test10() {
   int* arr3 = Util::copyArray(arr1, n);
   int* arr4 = Util::copyArray(arr1, n);
 
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
-  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
-  Util::testSort("Quick Sort 3 Ways", quickSort3Ways, arr3, n);
-  Util::testSort("Heap Sort 1", heapSort1, arr4, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", Sort::quickSort2Ways, arr2, n);
+  Util::testSort("Quick Sort 3 Ways", Sort::quickSort3Ways, arr3, n);
+  Util::testSort("Heap Sort Insert", Sort::heapSortInsert, arr4, n);
 
   delete[] arr1;
   delete[] arr2;
@@ -310,11 +310,11 @@ void test11() {
   int* arr4 = Util::copyArray(arr1, n);
   int* arr5 = Util::copyArray(arr1, n);
 
-  Util::testSort("Merge Sort Optimized", mergeSortOptimized, arr1, n);
-  Util::testSort("Quick Sort 2 Ways", quickSort2Ways, arr2, n);
-  Util::testSort("Quick Sort 3 Ways", quickSort3Ways, arr3, n);
-  Util::testSort("Heap Sort 1", heapSort1, arr4, n);
-  Util::testSort("Heap Sort 2", heapSort2, arr5, n);
+  Util::testSort("Merge Sort Optimized", Sort::mergeSortOptimized, arr1, n);
+  Util::testSort("Quick Sort 2 Ways", Sort::quickSort2Ways, arr2, n);
+  Util::testSort("Quick Sort 3 Ways", Sort::quickSort3Ways, arr3, n);
+  Util::testSort("Heap Sort Insert", Sort::heapSortInsert, arr4, n);
+  Util::testSort("Heap Sort Heapify", Sort::heapSortHeapify, arr5, n);
 
   delete[] arr1;
   delete[] arr2;
