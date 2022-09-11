@@ -28,7 +28,7 @@ class ArraySolution {
   std::vector<int> twoSumOptimized(std::vector<int>& numbers, int target);
 
   // 209
-  int minSubArrayLen(int s, std::vector<int>& nums);
+  int minSubArrayLen(int target, std::vector<int>& nums);
 
   // 3
   int lengthOfLongestSubstring(std::string s);

@@ -97,7 +97,7 @@ std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
 
 // Time: O(n)
 // Space: O(n)
-int ArraySolution::minSubArrayLen(int s, std::vector<int>& nums) {
+int ArraySolution::minSubArrayLen(int target, std::vector<int>& nums) {
   int size = nums.size();
   // Sliding widow nums[l...r)
   int l = 0, r = -1;
@@ -105,13 +105,13 @@ int ArraySolution::minSubArrayLen(int s, std::vector<int>& nums) {
   int sum = 0;
 
   while (l < size) {
-    if (s > sum && r + 1 < size) {
+    if (target > sum && r + 1 < size) {
       sum += nums[++r];
     } else {
       sum -= nums[l++];
     }
 
-    if (s <= sum) {
+    if (target <= sum) {
       res = std::min(res, r - l + 1);
     }
   }

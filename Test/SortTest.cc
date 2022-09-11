@@ -8,7 +8,7 @@
 #include "Util/Util.h"
 #include "gtest/gtest.h"
 
-namespace {
+namespace {  // TBD: What use?
 
 class SortTest : public ::testing::Test {
  protected:
