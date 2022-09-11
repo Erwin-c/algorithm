@@ -1,8 +1,7 @@
 /*
  * ArraySolution.cc
  *
- *  Created on: Aug 30, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #include "LeetCode/ArraySolution.h"

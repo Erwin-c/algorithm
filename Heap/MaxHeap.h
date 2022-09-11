@@ -1,8 +1,7 @@
 /*
  * MaxHeap.h
  *
- *  Created on: Dec 19, 2021
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #ifndef MAX_HEAP_H_

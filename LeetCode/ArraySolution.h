@@ -1,8 +1,7 @@
 /*
  * ArraySolution.h
  *
- *  Created on: Aug 30, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #ifndef ARRAY_SOLUTION_H_

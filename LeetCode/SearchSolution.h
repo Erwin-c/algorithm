@@ -1,8 +1,7 @@
 /*
  * SearchSolution.h
  *
- *  Created on: Sep 7, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #ifndef SEARCH_SOLUTION_H_

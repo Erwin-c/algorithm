@@ -1,8 +1,7 @@
 /*
  * Search.h
  *
- *  Created on: Aug 29, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #ifndef SEARCH_H_
