@@ -1,21 +1,17 @@
 /*
  * SearchTest.cc
  *
- *  Created on: Aug 30, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
-#include "Test/SearchTest.h"
-
-#include <cassert>
-#include <iostream>
-
-#include "Search/Search.h"
+// TBD: Why?
+// #include "Search/Search.h"
 #include "Util/Util.h"
+#include "gtest/gtest.h"
 
-namespace SearchTest {
+namespace {
 
-void test1() {
+TEST(SearchTest, binarySearch) {
   std::cout << "-------------------------------------------------" << std::endl;
   int n = 1000000;
   int* arr = Util::generateOrderedArray<int>(n);
@@ -32,10 +28,6 @@ void test1() {
             << "s" << std::endl;
 
   delete[] arr;
-
-  std::cout << "End ^-^" << std::endl;
-
-  return;
 }
 
-}  // namespace SearchTest
+}  // namespace

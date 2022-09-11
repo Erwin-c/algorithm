@@ -1,8 +1,7 @@
 /*
  * SearchSolution.cc
  *
- *  Created on: Sep 7, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #include "LeetCode/SearchSolution.h"

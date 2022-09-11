@@ -1,8 +1,7 @@
 /*
  * Sort.h
  *
- *  Created on: Jan 10, 2021
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #ifndef SORT_H_

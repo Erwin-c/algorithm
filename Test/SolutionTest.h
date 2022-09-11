@@ -1,8 +1,7 @@
 /*
  * SolutionTest.h
  *
- *  Created on: Aug 30, 2022
- *      Author: Erwin
+ *  Author: Erwin
  */
 
 #ifndef SOLUTION_TEST_H_

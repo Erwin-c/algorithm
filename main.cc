@@ -1,43 +1,28 @@
 /*
  * main.cc
  *
- *  Created on: Jan 10, 2021
- *      Author: Erwin
+ *  Author: Erwin
  */
 
-#include "Test/SearchTest.h"
-#include "Test/SolutionTest.h"
-#include "Test/SortTest.h"
+#include "gtest/gtest.h"
 
 int main() {
   // Begin test
-  SortTest::test1();
-  SortTest::test2();
-  SortTest::test3();
-  SortTest::test4();
-  SortTest::test5();
-  SortTest::test6();
-  SortTest::test7();
-  SortTest::test8();
-  SortTest::test9();
-  SortTest::test10();
-  SortTest::test11();
 
-  SearchTest::test1();
+  // SolutionTest::moveZerosTest();
+  // SolutionTest::sortColorsTest();
+  // SolutionTest::sortColorsOptimizedTest();
+  // // SolutionTest::twoSumTest();
+  // SolutionTest::twoSumOptimizedTest();
+  // SolutionTest::minSubArrayLenTest();
+  // SolutionTest::lengthOfLongestSubstringTest();
 
-  SolutionTest::moveZerosTest();
-  SolutionTest::sortColorsTest();
-  SolutionTest::sortColorsOptimizedTest();
+  // SolutionTest::intersectionTest();
+  // SolutionTest::intersectionOptimizedTest();
+  // SolutionTest::intersectTest();
+  // SolutionTest::intersectOptimizedTest();
   // SolutionTest::twoSumTest();
-  SolutionTest::twoSumOptimizedTest();
-  SolutionTest::minSubArrayLenTest();
-  SolutionTest::lengthOfLongestSubstringTest();
 
-  SolutionTest::intersectionTest();
-  SolutionTest::intersectionOptimizedTest();
-  SolutionTest::intersectTest();
-  SolutionTest::intersectOptimizedTest();
-  SolutionTest::twoSumTest();
-
-  return 0;
+  ::testing::InitGoogleTest();
+  return RUN_ALL_TESTS();
 }
