@@ -49,4 +49,11 @@ TEST(SearchSolutionTest, twoSum) {
   EXPECT_EQ(SearchSolution().twoSum(vec, target), res);
 }
 
+TEST(SearchSolutionTest, containNearbyDuplicate) {
+  int k = 2;
+  std::vector<int> vec{1, 2, 3, 1, 2, 3};
+
+  EXPECT_FALSE(SearchSolution().containNearbyDuplicate(vec, k));
+}
+
 }  // namespace

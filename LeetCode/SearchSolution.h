@@ -28,6 +28,11 @@ class SearchSolution {
 
   // 1
   std::vector<int> twoSum(std::vector<int> nums, int target);
+
+  // TBD: 454
+
+  // 219
+  bool containNearbyDuplicate(std::vector<int>& nums, int k);
 };
 
 #endif  // SEARCH_SOLUTION_H_
