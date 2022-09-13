@@ -9,6 +9,7 @@
 #include <cassert>
 #include <set>
 #include <unordered_map>
+#include <unordered_set>
 
 // Time: O(n)
 // Space: O(n)
@@ -116,4 +117,23 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   }
 
   throw std::invalid_argument("The input has no solution!");
+}
+
+// Time: O(n)
+// Space: O(n)
+bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {
+  std::unordered_set<int> record;
+  for (size_t i = 0; i < nums.size(); ++i) {
+    if (record.find(nums[i]) != record.end()) {
+      return true;
+    }
+
+    record.insert(nums[i]);
+
+    if ((int)record.size() == k + 1) {
+      record.erase(nums[i - k]);
+    }
+  }
+
+  return false;
 }
