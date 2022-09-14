@@ -49,6 +49,16 @@ TEST(SearchSolutionTest, twoSum) {
   EXPECT_EQ(SearchSolution().twoSum(vec, target), res);
 }
 
+TEST(SearchSolutionTest, fourSumCount) {
+  std::vector<int> vec1{1, 2};
+  std::vector<int> vec2{-2, -1};
+  std::vector<int> vec3{-1, 2};
+  std::vector<int> vec4{0, 2};
+  int res = 2;
+
+  EXPECT_EQ(SearchSolution().fourSumCount(vec1, vec2, vec3, vec4), res);
+}
+
 TEST(SearchSolutionTest, containNearbyDuplicate) {
   int k = 2;
   std::vector<int> vec{1, 2, 3, 1, 2, 3};
