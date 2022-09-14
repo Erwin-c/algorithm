@@ -119,6 +119,31 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   throw std::invalid_argument("The input has no solution!");
 }
 
+// Time: O(n ^ 2)
+// Space: O(n ^ 2)
+int SearchSolution::fourSumCount(std::vector<int>& nums1,
+                                 std::vector<int>& nums2,
+                                 std::vector<int>& nums3,
+                                 std::vector<int>& nums4) {
+  std::unordered_map<int, int> record;
+  for (size_t i = 0; i < nums1.size(); ++i) {
+    for (size_t j = 0; j < nums2.size(); ++j) {
+      ++record[nums1[i] + nums2[j]];
+    }
+  }
+
+  int res = 0;
+  for (size_t i = 0; i < nums3.size(); ++i) {
+    for (size_t j = 0; j < nums4.size(); ++j) {
+      if (record.find(0 - nums3[i] - nums4[j]) != record.end()) {
+        res += record[0 - nums3[i] - nums4[j]];
+      }
+    }
+  }
+
+  return res;
+}
+
 // Time: O(n)
 // Space: O(n)
 bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {

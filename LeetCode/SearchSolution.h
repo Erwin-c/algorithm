@@ -29,7 +29,9 @@ class SearchSolution {
   // 1
   std::vector<int> twoSum(std::vector<int> nums, int target);
 
-  // TBD: 454
+  // 454
+  int fourSumCount(std::vector<int>& nums1, std::vector<int>& nums2,
+                   std::vector<int>& nums3, std::vector<int>& nums4);
 
   // 219
   bool containNearbyDuplicate(std::vector<int>& nums, int k);
