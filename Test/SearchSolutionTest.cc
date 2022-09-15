@@ -66,4 +66,13 @@ TEST(SearchSolutionTest, containNearbyDuplicate) {
   EXPECT_FALSE(SearchSolution().containNearbyDuplicate(vec, k));
 }
 
+TEST(SearchSolutionTest, containNearbyAlmostDuplicate) {
+  std::vector<int> vec{1, 2, 3, 1};
+  int indexDiff = 3;
+  int valueDiff = 0;
+
+  EXPECT_TRUE(
+      SearchSolution().containNearbyAlmostDuplicate(vec, indexDiff, valueDiff));
+}
+
 }  // namespace
