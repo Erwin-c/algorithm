@@ -35,6 +35,10 @@ class SearchSolution {
 
   // 219
   bool containNearbyDuplicate(std::vector<int>& nums, int k);
+
+  // 220
+  bool containNearbyAlmostDuplicate(std::vector<int> nums, int indexDiff,
+                                    int valueDiff);
 };
 
 #endif  // SEARCH_SOLUTION_H_

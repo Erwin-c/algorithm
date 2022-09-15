@@ -162,3 +162,26 @@ bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {
 
   return false;
 }
+
+// Time: O(nlogn)
+// Space: O(n)
+bool SearchSolution::containNearbyAlmostDuplicate(std::vector<int> nums,
+                                                  int indexDiff,
+                                                  int valueDiff) {
+  std::set<int> record;
+  for (size_t i = 0; i < nums.size(); ++i) {
+    if (record.lower_bound(nums[i] - valueDiff) != record.end() &&
+        // TBD: Why
+        *record.lower_bound(nums[i] - valueDiff) <= nums[i] + valueDiff) {
+      return true;
+    }
+
+    record.insert(nums[i]);
+
+    if ((int)record.size() == indexDiff + 1) {
+      record.erase(nums[i - indexDiff]);
+    }
+  }
+
+  return false;
+}
