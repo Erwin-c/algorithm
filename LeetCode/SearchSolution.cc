@@ -171,7 +171,6 @@ bool SearchSolution::containNearbyAlmostDuplicate(std::vector<int> nums,
   std::set<int> record;
   for (size_t i = 0; i < nums.size(); ++i) {
     if (record.lower_bound(nums[i] - valueDiff) != record.end() &&
-        // TBD: Why
         *record.lower_bound(nums[i] - valueDiff) <= nums[i] + valueDiff) {
       return true;
     }
