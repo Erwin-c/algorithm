@@ -21,6 +21,9 @@ class LinkedListSolution {
   ListNode* swapPairs(ListNode* head);
 
   // TBD: 24 optimized, not need 'next'
+
+  // 237
+  void deleteNode(ListNode* node);
 };
 
 #endif  // LINKED_LIST_SOLUTION_H_

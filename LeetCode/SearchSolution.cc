@@ -116,7 +116,8 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
     record[nums[i]] = i;
   }
 
-  throw std::invalid_argument("The input has no solution!");
+  // throw std::invalid_argument("The input has no solution!");
+  // TBD: return
 }
 
 // Time: O(n ^ 2)
