@@ -55,4 +55,20 @@ TEST(LinkedListSolutionTest, swapPairs) {
   deleteLinkedList(resList);
 }
 
+TEST(LinkedListSolutionTest, removeNthFromEnd) {
+  int arr[] = {1, 2, 3, 4, 5};
+  int n = 2;
+  int resArr[] = {1, 2, 3, 5};
+
+  ListNode* head = createLinkedList(arr, sizeof(arr) / sizeof(int));
+  ListNode* resList = createLinkedList(resArr, sizeof(resArr) / sizeof(int));
+
+  head = LinkedListSolution().removeNthFromEnd(head, n);
+
+  EXPECT_TRUE(isLinkedListEqual(head, resList));
+
+  deleteLinkedList(head);
+  deleteLinkedList(resList);
+}
+
 }  // namespace
