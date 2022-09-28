@@ -24,6 +24,9 @@ class LinkedListSolution {
 
   // 237
   void deleteNode(ListNode* node);
+
+  // 19
+  ListNode* removeNthFromEnd(ListNode* head, int n);
 };
 
 #endif  // LINKED_LIST_SOLUTION_H_

@@ -6,6 +6,8 @@
 
 #include "LeetCode/LinkedListSolution.h"
 
+#include <cassert>
+
 // Time: O(n)
 // Space: O(1)
 ListNode* LinkedListSolution::reverseList(ListNode* head) {
@@ -70,6 +72,8 @@ ListNode* LinkedListSolution::swapPairs(ListNode* head) {
   return retNode;
 }
 
+// Time: O(n)
+// Space: O(1)
 void LinkedListSolution::deleteNode(ListNode* node) {
   if (node == nullptr) {
     return;
@@ -88,4 +92,34 @@ void LinkedListSolution::deleteNode(ListNode* node) {
   delete delNode;
 
   return;
+}
+
+// Time: O(n)
+// Space: O(1)
+ListNode* LinkedListSolution::removeNthFromEnd(ListNode* head, int n) {
+  assert(n >= 0);
+
+  ListNode* dummyHead = new ListNode(0);
+  dummyHead->next = head;
+
+  ListNode* p = dummyHead;
+  ListNode* q = dummyHead;
+  for (int i = 0; i < n + 1; ++i) {
+    assert(q != nullptr);
+    q = q->next;
+  }
+
+  while (q != nullptr) {
+    p = p->next;
+    q = q->next;
+  }
+
+  ListNode* delNode = p->next;
+  p->next = delNode->next;
+  delete delNode;
+
+  ListNode* retNode = dummyHead->next;
+  delete dummyHead;
+
+  return retNode;
 }
