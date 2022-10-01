@@ -111,3 +111,34 @@ std::vector<int> TreeSolution::postorderTraversal(TreeNode* root) {
 
   return res;
 }
+
+std::vector<std::vector<int>> TreeSolution::levelOrder(TreeNode* root) {
+  std::vector<std::vector<int>> res;
+  if (root == nullptr) {
+    return res;
+  }
+
+  std::queue<std::pair<TreeNode*, int>> q;
+  q.push(std::make_pair(root, 0));
+  while (!q.empty()) {
+    TreeNode* node = q.front().first;
+    int level = q.front().second;
+    q.pop();
+
+    if (level == (int)res.size()) {
+      res.push_back(std::vector<int>());
+    }
+
+    res[level].push_back(node->val);
+
+    if (node->left != nullptr) {
+      q.push(std::make_pair(node->left, level + 1));
+    }
+
+    if (node->right != nullptr) {
+      q.push(std::make_pair(node->right, level + 1));
+    }
+  }
+
+  return res;
+}
