@@ -24,7 +24,7 @@ std::vector<int> TreeSolution::preorderTraversal(TreeNode* root) {
 
   std::stack<Command> stack;
   stack.push(Command("go", root));
-  while (stack.empty()) {
+  while (!stack.empty()) {
     Command command = stack.top();
     stack.pop();
 
