@@ -45,7 +45,7 @@ TEST_F(SortTest, test1) {
   int n = 50000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, n);
+  int* arr1 = Util::generateRandomArray(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -68,7 +68,7 @@ TEST_F(SortTest, test2) {
   int swapTime = 10;
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -91,7 +91,7 @@ TEST_F(SortTest, test3) {
   int swapTime = 10;
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
 
   EXPECT_TRUE(testSort("Insertion Sort", Sort::insertionSort, arr1, n));
@@ -110,7 +110,7 @@ TEST_F(SortTest, test4) {
   int n = 1000000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << n << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, n);
+  int* arr1 = Util::generateRandomArray(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
 
   EXPECT_TRUE(
@@ -131,7 +131,7 @@ TEST_F(SortTest, test5) {
   int swapTime = 100;
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -156,7 +156,7 @@ TEST_F(SortTest, test6) {
   int swapTime = 100;
   std::cout << "Test for nearly ordered arrays, size = " << n
             << ", swap time = " << swapTime << std::endl;
-  int* arr1 = Util::generateNearlyOrderedArray<int>(n, swapTime);
+  int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -181,7 +181,7 @@ TEST_F(SortTest, test7) {
   int n = 350000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
   EXPECT_TRUE(
@@ -203,7 +203,7 @@ TEST_F(SortTest, test8) {
   int n = 350000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
   EXPECT_TRUE(
@@ -224,7 +224,7 @@ TEST_F(SortTest, test9) {
   int n = 350000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
 
@@ -249,7 +249,7 @@ TEST_F(SortTest, test10) {
   int n = 1000000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
   int* arr4 = Util::copyArray(arr1, n);
@@ -279,7 +279,7 @@ TEST_F(SortTest, test11) {
   int n = 1000000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
             << 10 << "]" << std::endl;
-  int* arr1 = Util::generateRandomArray<int>(n, 0, 10);
+  int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
   int* arr4 = Util::copyArray(arr1, n);

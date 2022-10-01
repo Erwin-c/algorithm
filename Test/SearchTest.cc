@@ -14,7 +14,7 @@ namespace {
 TEST(SearchTest, binarySearch) {
   std::cout << "-------------------------------------------------" << std::endl;
   int n = 1000000;
-  int* arr = Util::generateOrderedArray<int>(n);
+  int* arr = Util::generateOrderedArray(n);
 
   clock_t startTime = clock();
   for (int i = 0; i < n; ++i) {
