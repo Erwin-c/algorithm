@@ -15,6 +15,12 @@ class TreeSolution {
  public:
   // 144
   std::vector<int> preorderTraversal(TreeNode* root);
+
+  // 94
+  std::vector<int> inorderTraversal(TreeNode* root);
+
+  // 145
+  std::vector<int> postorderTraversal(TreeNode* root);
 };
 
 #endif  // TREE_SOLUTION_H_
