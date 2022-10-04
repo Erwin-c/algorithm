@@ -23,7 +23,7 @@ class TreeSolution {
   std::vector<int> postorderTraversal(TreeNode* root);
 
   // 102
-  std::vector<std::vector<int>> levelOrder(TreeNode* root)
+  std::vector<std::vector<int>> levelOrder(TreeNode* root);
 };
 
 #endif  // TREE_SOLUTION_H_

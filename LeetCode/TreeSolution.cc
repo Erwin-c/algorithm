@@ -7,6 +7,7 @@
 #include "LeetCode/TreeSolution.h"
 
 #include <cassert>
+#include <queue>
 #include <stack>
 #include <string>
 
