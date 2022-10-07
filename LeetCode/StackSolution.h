@@ -11,7 +11,7 @@
 
 class StackSolution {
  public:
-  // 20
+  // 20.
   bool isValid(std::string s);
 };
 

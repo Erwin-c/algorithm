@@ -12,7 +12,7 @@
 #include <string>
 
 struct Command {
-  std::string s;  // go, print
+  std::string s;  // go, print.
   TreeNode* node;
   Command(std::string s, TreeNode* node) : s(s), node(node) {}
 };

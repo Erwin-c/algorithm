@@ -11,7 +11,7 @@
 
 namespace Util {
 
-// Generate a random array with n elements between [rangeLeft, rangeRight]
+// Generate a random array with n elements between [rangeLeft, rangeRight].
 int* generateRandomArray(int n, int rangeLeft, int rangeRight) {
   assert(rangeRight >= rangeLeft);
 
@@ -24,7 +24,7 @@ int* generateRandomArray(int n, int rangeLeft, int rangeRight) {
   return arr;
 }
 
-// Generate an ordered array with n elements
+// Generate an ordered array with n elements.
 int* generateOrderedArray(int n) {
   int* arr = new int[n];
   for (int i = 0; i < n; ++i) {
@@ -34,7 +34,7 @@ int* generateOrderedArray(int n) {
   return arr;
 }
 
-// Generate a nearly ordered array with n elements
+// Generate a nearly ordered array with n elements.
 int* generateNearlyOrderedArray(int n, int swapTime) {
   int* arr = new int[n];
   for (int i = 0; i < n; ++i) {

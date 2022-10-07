@@ -28,7 +28,7 @@ void __insertionSort(T arr[], int l, int r) {
   return;
 }
 
-// Merge for arr[l...mid] and arr[mid + 1...r)
+// Merge for arr[l...mid] and arr[mid + 1...r).
 template <typename T>
 void __merge(T arr[], int l, int mid, int r) {
   T aux[r - l + 1];
@@ -56,7 +56,7 @@ void __merge(T arr[], int l, int mid, int r) {
   return;
 }
 
-// Merge sort for arr[l...r]
+// Merge sort for arr[l...r].
 template <typename T>
 void __mergeSort(T arr[], int l, int r) {
   if (l >= r) {
@@ -73,7 +73,7 @@ void __mergeSort(T arr[], int l, int r) {
 
 template <typename T>
 void __mergeSortOptimized(T arr[], int l, int r) {
-  // Optimation: There is a constant C in time complexity
+  // Optimation: There is a constant C in time complexity.
   if (r - l <= 15) {
     __insertionSort(arr, l, r);
     return;
@@ -82,7 +82,7 @@ void __mergeSortOptimized(T arr[], int l, int r) {
   int mid = l + (r - l) / 2;
   __mergeSortOptimized(arr, l, mid);
   __mergeSortOptimized(arr, mid + 1, r);
-  // Optimation: More important
+  // Optimation: More important.
   if (arr[mid] > arr[mid + 1]) {
     __merge(arr, l, mid, r);
   }
@@ -90,17 +90,17 @@ void __mergeSortOptimized(T arr[], int l, int r) {
   return;
 }
 
-// Partition for arr[l...r]
-// Return p: arr[l...(p - 1)] < arr[p], arr[(p + 1)...r] >= arr[p]
+// Partition for arr[l...r].
+// Return p: arr[l...(p - 1)] < arr[p], arr[(p + 1)...r] >= arr[p].
 template <typename T>
 int __partition(T arr[], int l, int r) {
   T v = arr[l];
 
-  // arr[(l + 1)...j] < v, arr[(j + 1)...i) >= v
+  // arr[(l + 1)...j] < v, arr[(j + 1)...i) >= v.
   int j = l;
   for (int i = l + 1; i <= r; ++i) {
-    // Initial state throughout defination for internal
-    // arr[(l + 1)...l] and arr[(l + 1)...(l + 1)) are both empty set
+    // Initial state throughout defination for internal.
+    // arr[(l + 1)...l] and arr[(l + 1)...(l + 1)) are both empty set.
     if (arr[i] < v) {
       std::swap(arr[i], arr[++j]);
     }
@@ -112,7 +112,7 @@ int __partition(T arr[], int l, int r) {
 
 template <typename T>
 int __partitionOptimized(T arr[], int l, int r) {
-  // Optimation: Avoid being O(n ^ 2) in ordered arrays
+  // Optimation: Avoid being O(n ^ 2) in ordered arrays.
   srand(time(nullptr));
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   T v = arr[l];
@@ -134,14 +134,14 @@ int __partition2Ways(T arr[], int l, int r) {
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   T v = arr[l];
 
-  // arr[(l + 1)...i) <= v; arr(j...r] >= v
+  // arr[(l + 1)...i) <= v; arr(j...r] >= v.
   int i = l + 1, j = r;
   while (true) {
-    // Why not arr[i] <= v?
+    // TBD: Why not arr[i] <= v?
     while (i <= r && arr[i] < v) {
       ++i;
     }
-    // Why not arr[j] >= v?
+    // TBD: Why not arr[j] >= v?
     while (j >= l + 1 && arr[j] > v) {
       --j;
     }
@@ -160,7 +160,7 @@ int __partition2Ways(T arr[], int l, int r) {
   return j;
 }
 
-// Quick sort for arr[l...r]
+// Quick sort for arr[l...r].
 template <typename T>
 void __quickSort(T arr[], int l, int r) {
   if (r - l <= 15) {
@@ -214,9 +214,9 @@ void __quickSort3Ways(T arr[], int l, int r) {
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   T v = arr[l];
 
-  int lt = l;      // arr[(l + 1)...lt] < v
-  int gt = r + 1;  // arr[gt...r] > v
-  int i = l + 1;   // arr[(lt + 1)...i) == v
+  int lt = l;      // arr[(l + 1)...lt] < v.
+  int gt = r + 1;  // arr[gt...r] > v.
+  int i = l + 1;   // arr[(lt + 1)...i) == v.
   while (i < gt) {
     if (arr[i] < v) {
       std::swap(arr[i], arr[lt + 1]);
@@ -241,7 +241,7 @@ void __quickSort3Ways(T arr[], int l, int r) {
 template <typename T>
 void selectionSort(T arr[], int n) {
   for (int i = 0; i < n; ++i) {
-    // Find the minimum in arr[i...n)
+    // Find the minimum in arr[i...n).
     int minIndex = i;
     for (int j = i + 1; j < n; ++j) {
       if (arr[j] < arr[minIndex]) {
@@ -258,8 +258,8 @@ void selectionSort(T arr[], int n) {
 template <typename T>
 void insertionSort(T arr[], int n) {
   for (int i = 1; i < n; ++i) {
-    // Find the insertion position of arr[i]
-    // Optimation compared with std::swap()
+    // Find the insertion position of arr[i].
+    // Optimation compared with std::swap().
     T e = arr[i];
     T j;
     for (j = i; j > 0 && arr[j - 1] > e; --j) {
@@ -277,7 +277,7 @@ void mergeSort(T arr[], int n) {
   return;
 }
 
-// Optimation mainly for nearly ordered arrays
+// Optimation mainly for nearly ordered arrays.
 template <typename T>
 void mergeSortOptimized(T arr[], int n) {
   __mergeSortOptimized(arr, 0, n - 1);
@@ -308,9 +308,9 @@ void quickSort3Ways(T arr[], int n) {
   return;
 }
 
-// Create a heap using Insert -> O(nlogn), related to 'level'
-// Sort using Exract -> O(nlogn)
-// heapSortInsert -> O(nlogn)
+// Create a heap using Insert -> O(nlogn), related to 'level'.
+// Sort using Exract -> O(nlogn).
+// heapSortInsert -> O(nlogn).
 template <typename T>
 void heapSortInsert(T arr[], int n) {
   MaxHeap<T> maxheap = MaxHeap<T>(n);
@@ -325,9 +325,9 @@ void heapSortInsert(T arr[], int n) {
   return;
 }
 
-// Optimization: Create a heap using Heapify -> O(n)
-// Sort using Exract -> O(nlogn)
-// heapSortHeapify -> O(nlogn) but optimized
+// Optimization: Create a heap using Heapify -> O(n).
+// Sort using Exract -> O(nlogn).
+// heapSortHeapify -> O(nlogn) but optimized.
 template <typename T>
 void heapSortHeapify(T arr[], int n) {
   MaxHeap<T> maxheap = MaxHeap<T>(arr, n);

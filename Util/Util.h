@@ -9,13 +9,13 @@
 
 namespace Util {
 
-// Generate a random array with n elements between [rangeLeft, rangeRight]
+// Generate a random array with n elements between [rangeLeft, rangeRight].
 int* generateRandomArray(int n, int rangeLeft, int rangeRight);
 
-// Generate an ordered array with n elements
+// Generate an ordered array with n elements.
 int* generateOrderedArray(int n);
 
-// Generate a nearly ordered array with n elements
+// Generate a nearly ordered array with n elements.
 int* generateNearlyOrderedArray(int n, int swapTime);
 
 int* copyArray(int arr[], int n);

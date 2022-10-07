@@ -11,8 +11,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 std::vector<int> SearchSolution::intersection(std::vector<int>& nums1,
                                               std::vector<int>& nums2) {
   std::set<int> record;
@@ -36,8 +36,8 @@ std::vector<int> SearchSolution::intersection(std::vector<int>& nums1,
   return resultVector;
 }
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 std::vector<int> SearchSolution::intersectionOptimized(
     std::vector<int>& nums1, std::vector<int>& nums2) {
   std::set<int> record(nums1.begin(), nums1.end());
@@ -52,8 +52,8 @@ std::vector<int> SearchSolution::intersectionOptimized(
   return std::vector<int>(resultSet.begin(), resultSet.end());
 }
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
                                            std::vector<int>& nums2) {
   std::unordered_map<int, int> record;
@@ -80,8 +80,8 @@ std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
   return resultVector;
 }
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 std::vector<int> SearchSolution::intersectOptimized(std::vector<int>& nums1,
                                                     std::vector<int>& nums2) {
   std::unordered_map<int, int> record;
@@ -100,8 +100,8 @@ std::vector<int> SearchSolution::intersectOptimized(std::vector<int>& nums1,
   return resultVector;
 }
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   assert(nums.size() >= 2);
 
@@ -120,8 +120,8 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   // TBD: return
 }
 
-// Time: O(n ^ 2)
-// Space: O(n ^ 2)
+// Time: O(n ^ 2).
+// Space: O(n ^ 2).
 int SearchSolution::fourSumCount(std::vector<int>& nums1,
                                  std::vector<int>& nums2,
                                  std::vector<int>& nums3,
@@ -145,8 +145,8 @@ int SearchSolution::fourSumCount(std::vector<int>& nums1,
   return res;
 }
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {
   std::unordered_set<int> record;
   for (size_t i = 0; i < nums.size(); ++i) {
@@ -164,8 +164,8 @@ bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {
   return false;
 }
 
-// Time: O(nlogn)
-// Space: O(n)
+// Time: O(nlogn).
+// Space: O(n).
 bool SearchSolution::containNearbyAlmostDuplicate(std::vector<int> nums,
                                                   int indexDiff,
                                                   int valueDiff) {

@@ -9,13 +9,13 @@
 #include <cassert>
 #include <stdexcept>
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 void ArraySolution::moveZeros(std::vector<int>& nums) {
-  // Element in arr[0...k) is not 0
+  // Element in arr[0...k) is not 0.
   size_t k = 0;
 
-  // nums[0...i]: nums[0...k) != 0, nums[k...i] == 0
+  // nums[0...i]: nums[0...k) != 0, nums[k...i] == 0.
   for (size_t i = 0; i < nums.size(); ++i) {
     if (nums[i] != 0) {
       if (k != i) {
@@ -29,10 +29,10 @@ void ArraySolution::moveZeros(std::vector<int>& nums) {
   return;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 void ArraySolution::sortColors(std::vector<int>& nums) {
-  // Frequency of 0, 1, 2
+  // Frequency of 0, 1, 2.
   int count[3] = {0};
 
   for (size_t i = 0; i < nums.size(); ++i) {
@@ -54,13 +54,13 @@ void ArraySolution::sortColors(std::vector<int>& nums) {
   return;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 void ArraySolution::sortColorsOptimized(std::vector<int>& nums) {
-  int zero = -1;             // nums[0...zero] = 0
-  size_t two = nums.size();  // nums[two...n) = 2
+  int zero = -1;             // nums[0...zero] = 0.
+  size_t two = nums.size();  // nums[two...n) = 2.
 
-  for (size_t i = 0; i < two;) {  // nums[(zero + 1)...i) = 1
+  for (size_t i = 0; i < two;) {  // nums[(zero + 1)...i) = 1.
     if (nums[i] == 1) {
       ++i;
     } else if (nums[i] == 2) {
@@ -74,8 +74,8 @@ void ArraySolution::sortColorsOptimized(std::vector<int>& nums) {
   return;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
                                                 int target) {
   assert(numbers.size() >= 2);
@@ -95,11 +95,11 @@ std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
   throw std::invalid_argument("The input has no solution!");
 }
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(n).
+// Space: O(n).
 int ArraySolution::minSubArrayLen(int target, std::vector<int>& nums) {
   int size = nums.size();
-  // Sliding widow nums[l...r)
+  // Sliding widow nums[l...r).
   int l = 0, r = -1;
   int res = size + 1;
   int sum = 0;
