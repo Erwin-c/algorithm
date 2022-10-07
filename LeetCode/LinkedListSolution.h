@@ -11,21 +11,21 @@
 
 class LinkedListSolution {
  public:
-  // 206
+  // 206.
   ListNode* reverseList(ListNode* head);
 
-  // 203
+  // 203.
   ListNode* removeElements(ListNode* head, int val);
 
-  // 24
+  // 24.
   ListNode* swapPairs(ListNode* head);
 
-  // TBD: 24 optimized, not need 'next'
+  // TBD: 24 optimized, not need 'next'.
 
-  // 237
+  // 237.
   void deleteNode(ListNode* node);
 
-  // 19
+  // 19.
   ListNode* removeNthFromEnd(ListNode* head, int n);
 };
 

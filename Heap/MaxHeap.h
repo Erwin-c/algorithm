@@ -31,7 +31,7 @@ class MaxHeap {
     }
     count = n;
 
-    // Heapify: Create a heap -> O(n)
+    // Heapify: Create a heap -> O(n).
     for (int i = count / 2; i >= 1; --i) {
       shiftDown(i);
     }
@@ -43,7 +43,7 @@ class MaxHeap {
 
   bool isEmpty() { return count == 0; }
 
-  // Create a heap -> O(nlogn)
+  // Create a heap -> O(nlogn).
   void insert(Item item) {
     assert(count + 1 <= capacity);
 
@@ -73,7 +73,7 @@ class MaxHeap {
   }
 
   void testPrint() {
-    // The size is limited to 100
+    // The size is limited to 100.
     if (size() >= 100) {
       std::cout << "This print function can only work for less than 100 int!";
       return;
@@ -87,7 +87,7 @@ class MaxHeap {
     std::cout << "The max heap size is: " << size() << std::endl;
     std::cout << "Data in the max heap: ";
     for (int i = 1; i <= size(); i++) {
-      // The data is limited within [0, 100)
+      // The data is limited within [0, 100).
       assert(data[i] >= 0 && data[i] < 100);
       std::cout << data[i] << " ";
     }

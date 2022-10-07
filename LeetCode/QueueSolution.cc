@@ -42,8 +42,8 @@ int QueueSolution::numSquares(int n) {
   }
 }
 
-// Time: O(nlogk)
-// Space: O(n)
+// Time: O(nlogk).
+// Space: O(n).
 std::vector<int> QueueSolution::topKFrequent(std::vector<int>& nums, int k) {
   assert(k > 0);
 

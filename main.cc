@@ -7,7 +7,7 @@
 #include "gtest/gtest.h"
 
 int main() {
-  // Begin test
+  // Begin test.
   ::testing::InitGoogleTest();
 
   ::testing::GTEST_FLAG(filter) = "*SolutionTest*";

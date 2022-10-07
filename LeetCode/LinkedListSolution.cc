@@ -8,8 +8,8 @@
 
 #include <cassert>
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 ListNode* LinkedListSolution::reverseList(ListNode* head) {
   ListNode* pre = nullptr;
   ListNode* cur = head;
@@ -24,8 +24,8 @@ ListNode* LinkedListSolution::reverseList(ListNode* head) {
   return pre;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 ListNode* LinkedListSolution::removeElements(ListNode* head, int val) {
   ListNode* dummyHead = new ListNode(0);
   dummyHead->next = head;
@@ -47,8 +47,8 @@ ListNode* LinkedListSolution::removeElements(ListNode* head, int val) {
   return retNode;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 ListNode* LinkedListSolution::swapPairs(ListNode* head) {
   ListNode* dummyHead = new ListNode(0);
   dummyHead->next = head;
@@ -72,8 +72,8 @@ ListNode* LinkedListSolution::swapPairs(ListNode* head) {
   return retNode;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 void LinkedListSolution::deleteNode(ListNode* node) {
   if (node == nullptr) {
     return;
@@ -94,8 +94,8 @@ void LinkedListSolution::deleteNode(ListNode* node) {
   return;
 }
 
-// Time: O(n)
-// Space: O(1)
+// Time: O(n).
+// Space: O(1).
 ListNode* LinkedListSolution::removeNthFromEnd(ListNode* head, int n) {
   assert(n >= 0);
 

@@ -36,15 +36,15 @@ class SortTest : public ::testing::Test {
   }
 };
 
-// Selection Sort, Insertion Sort and Merge Sort for random arrays
+// Selection Sort, Insertion Sort and Merge Sort for random arrays.
 TEST_F(SortTest, test1) {
   std::cout << "Compare Selection Sort, Insertion Sort and Merge Sort with "
-               "random arrays"
+               "random arrays."
             << std::endl;
 
   int n = 50000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << n << "]" << std::endl;
+            << n << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
@@ -58,16 +58,16 @@ TEST_F(SortTest, test1) {
   delete[] arr3;
 }
 
-// Selection Sort, Insertion Sort and Merge Sort for nearly ordered arrays
+// Selection Sort, Insertion Sort and Merge Sort for nearly ordered arrays.
 TEST_F(SortTest, test2) {
   std::cout << "Compare Selection Sort, Insertion Sort and Merge Sort with "
-               "nearly ordered arrays"
+               "nearly ordered arrays."
             << std::endl;
 
   int n = 100000;
   int swapTime = 10;
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swapTime << std::endl;
+            << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
@@ -81,16 +81,16 @@ TEST_F(SortTest, test2) {
   delete[] arr3;
 }
 
-// Insertion Sort, Merge Sort Optimized for nearly ordered arrays
+// Insertion Sort, Merge Sort Optimized for nearly ordered arrays.
 TEST_F(SortTest, test3) {
   std::cout << "Compare Insertion Sort and Merge Sort Optimized with nearly "
-               "ordered arrays"
+               "ordered arrays."
             << std::endl;
 
   int n = 100000;
   int swapTime = 10;
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swapTime << std::endl;
+            << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
 
@@ -102,14 +102,14 @@ TEST_F(SortTest, test3) {
   delete[] arr2;
 }
 
-// Merge Sort Optimized and Quick Sort for random arrays
+// Merge Sort Optimized and Quick Sort for random arrays.
 TEST_F(SortTest, test4) {
-  std::cout << "Compare Merge Sort Optimized and Quick Sort with random arrays"
+  std::cout << "Compare Merge Sort Optimized and Quick Sort with random arrays."
             << std::endl;
 
   int n = 1000000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << n << "]" << std::endl;
+            << n << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, n);
   int* arr2 = Util::copyArray(arr1, n);
 
@@ -121,16 +121,17 @@ TEST_F(SortTest, test4) {
   delete[] arr2;
 }
 
-// Insertion Sort, Merge Sort Optimized and Quick Sort for nearly ordered arrays
+// Insertion Sort, Merge Sort Optimized and Quick Sort for nearly ordered
+// arrays.
 TEST_F(SortTest, test5) {
   std::cout << "Compare Insertion Sort, Merge Sort Optimized and Quick Sort "
-               "with nearly ordered arrays"
+               "with nearly ordered arrays."
             << std::endl;
 
   int n = 500000;
   int swapTime = 100;
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swapTime << std::endl;
+            << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
@@ -146,16 +147,16 @@ TEST_F(SortTest, test5) {
 }
 
 // Insertion Sort, Merge Sort Optimized and Quick Sort Optimized for nearly
-// ordered arrays
+// ordered arrays.
 TEST_F(SortTest, test6) {
   std::cout << "Compare Insertion Sort, Merge Sort Optimized and Quick Sort "
-               "Optimized with nearly ordered arrays"
+               "Optimized with nearly ordered arrays."
             << std::endl;
 
   int n = 500000;
   int swapTime = 100;
   std::cout << "Test for nearly ordered arrays, size = " << n
-            << ", swap time = " << swapTime << std::endl;
+            << ", swap time = " << swapTime << "." << std::endl;
   int* arr1 = Util::generateNearlyOrderedArray(n, swapTime);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
@@ -172,15 +173,15 @@ TEST_F(SortTest, test6) {
 }
 
 // Merge Sort Optimized and Quick Sort Optimized for arrays with many duplicate
-// elements
+// elements.
 TEST_F(SortTest, test7) {
   std::cout << "Compare Merge Sort Optimized and Quick Sort Optimized with "
-               "arrays which have many duplicate elements"
+               "arrays which have many duplicate elements."
             << std::endl;
 
   int n = 350000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << 10 << "]" << std::endl;
+            << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
@@ -194,15 +195,15 @@ TEST_F(SortTest, test7) {
 }
 
 // Merge Sort Optimized and Quick Sort 2 Ways for arrays with many duplicate
-// elements
+// elements.
 TEST_F(SortTest, test8) {
   std::cout << "Compare Merge Sort Optimized and Quick Sort 2 Ways with arrays "
-               "which have many duplicate elements"
+               "which have many duplicate elements."
             << std::endl;
 
   int n = 350000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << 10 << "]" << std::endl;
+            << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
 
@@ -215,15 +216,15 @@ TEST_F(SortTest, test8) {
 }
 
 // Merge Sort Optimized, Quick Sort 2 Ways and Quick Sort 3 Ways for arrays with
-// many duplicate elements
+// many duplicate elements.
 TEST_F(SortTest, test9) {
   std::cout << "Compare Merge Sort Optimized, Quick Sort 2 Ways and Quick Sort "
-               "3 Ways with arrays which have many duplicate elements"
+               "3 Ways with arrays which have many duplicate elements."
             << std::endl;
 
   int n = 350000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << 10 << "]" << std::endl;
+            << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
@@ -239,16 +240,16 @@ TEST_F(SortTest, test9) {
 }
 
 // Merge Sort Optimized, Quick Sort 2 Ways, Quick Sort 3 Ways and Heap Sort 1
-// for arrays with many duplicate elements
+// for arrays with many duplicate elements.
 TEST_F(SortTest, test10) {
   std::cout
       << "Compare Merge Sort Optimized, Quick Sort 2 Ways, Quick Sort 3 Ways "
-         "and Heap Sort 1 with arrays which have many duplicate elements "
+         "and Heap Sort 1 with arrays which have many duplicate elements."
       << std::endl;
 
   int n = 1000000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << 10 << "]" << std::endl;
+            << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
@@ -269,16 +270,16 @@ TEST_F(SortTest, test10) {
 // Merge Sort Optimized, Quick Sort 2 Ways, Quick Sort 3 Ways, Heap Sort Insert
 // and Heap Sort Heapify for arrays with many duplicate elements. In general,
 // Heap Sort is worse than others. So Heap Sort is often used to process dynamic
-// data, not for system sort
+// data, not for system sort.
 TEST_F(SortTest, test11) {
   std::cout << "Compare Merge Sort Optimized, Quick Sort 2 Ways, Quick Sort 3 "
                "Ways Heap Sort 1 and Heap Sort 2 with arrays which have many "
-               "duplicate elements "
+               "duplicate elements."
             << std::endl;
 
   int n = 1000000;
   std::cout << "Test for random arrays, size = " << n << ", random range [0, "
-            << 10 << "]" << std::endl;
+            << 10 << "]." << std::endl;
   int* arr1 = Util::generateRandomArray(n, 0, 10);
   int* arr2 = Util::copyArray(arr1, n);
   int* arr3 = Util::copyArray(arr1, n);
