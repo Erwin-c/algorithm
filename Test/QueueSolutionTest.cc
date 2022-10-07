@@ -13,7 +13,7 @@ TEST(QueueSolutionTest, numSquares) {
   int n = 12;
   int res = 3;
 
-  EXPECT_EQ(QueueSolution().numSquares(12), res);
+  EXPECT_EQ(QueueSolution().numSquares(n), res);
 }
 
 TEST(QueueSolutionTest, topKFrequent) {
