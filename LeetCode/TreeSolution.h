@@ -24,6 +24,12 @@ class TreeSolution {
 
   // 102.
   std::vector<std::vector<int>> levelOrder(TreeNode* root);
+
+  // 104.
+  int maxDepth(TreeNode* root);
+
+  // 226.
+  TreeNode* invertTree(TreeNode* root);
 };
 
 #endif  // TREE_SOLUTION_H_

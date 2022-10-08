@@ -143,3 +143,23 @@ std::vector<std::vector<int>> TreeSolution::levelOrder(TreeNode* root) {
 
   return res;
 }
+
+int TreeSolution::maxDepth(TreeNode* root) {
+  if (root == nullptr) {
+    return 0;
+  }
+
+  return std::max(maxDepth(root->left), maxDepth(root->right)) + 1;
+}
+
+TreeNode* TreeSolution::invertTree(TreeNode* root) {
+  if (root == nullptr) {
+    return nullptr;
+  }
+
+  invertTree(root->left);
+  invertTree(root->right);
+  std::swap(root->left, root->right);
+
+  return root;
+}
