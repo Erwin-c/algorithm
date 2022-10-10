@@ -200,3 +200,15 @@ std::vector<std::string> TreeSolution::binaryTreePaths(TreeNode* root) {
 
   return res;
 }
+
+int TreeSolution::pathSum(TreeNode* root, int targetSum) {
+  if (root == nullptr) {
+    return 0;
+  }
+
+  int res = findPath(root, targetSum);
+  res += pathSum(root->left, targetSum);
+  res += pathSum(root->right, targetSum);
+
+  return res;
+}
