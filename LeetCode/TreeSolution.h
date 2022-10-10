@@ -37,6 +37,26 @@ class TreeSolution {
 
   // 257.
   std::vector<std::string> binaryTreePaths(TreeNode* root);
+
+  // 437, TBD: LeetCode can not pass.
+  int pathSum(TreeNode* root, int targetSum);
+
+ private:
+  int findPath(TreeNode* node, int num) {
+    if (node == nullptr) {
+      return 0;
+    }
+
+    int res = 0;
+    if (node->val == num) {
+      ++res;
+    }
+
+    res += findPath(node->left, num - node->val);
+    res += findPath(node->right, num - node->val);
+
+    return res;
+  }
 };
 
 #endif  // TREE_SOLUTION_H_
