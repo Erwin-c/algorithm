@@ -163,3 +163,40 @@ TreeNode* TreeSolution::invertTree(TreeNode* root) {
 
   return root;
 }
+
+bool TreeSolution::hasPathSum(TreeNode* root, int targetSum) {
+  if (root == nullptr) {
+    return false;
+  }
+
+  if (root->left == nullptr && root->right == nullptr) {
+    return root->val == targetSum;
+  }
+
+  return hasPathSum(root->left, targetSum - root->val) ||
+         hasPathSum(root->right, targetSum - root->val);
+}
+
+std::vector<std::string> TreeSolution::binaryTreePaths(TreeNode* root) {
+  std::vector<std::string> res;
+
+  if (root == nullptr) {
+    return res;
+  }
+
+  if (root->left == nullptr && root->right == nullptr) {
+    res.push_back(std::to_string(root->val));
+  }
+
+  std::vector<std::string> leftS = binaryTreePaths(root->left);
+  for (size_t i = 0; i < leftS.size(); ++i) {
+    res.push_back(std::to_string(root->val) + "->" + leftS[i]);
+  }
+
+  std::vector<std::string> rightS = binaryTreePaths(root->right);
+  for (size_t i = 0; i < rightS.size(); ++i) {
+    res.push_back(std::to_string(root->val) + "->" + rightS[i]);
+  }
+
+  return res;
+}

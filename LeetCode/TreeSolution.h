@@ -7,6 +7,7 @@
 #ifndef TREE_SOLUTION_H_
 #define TREE_SOLUTION_H_
 
+#include <string>
 #include <vector>
 
 #include "TreeNode/TreeNode.h"
@@ -30,6 +31,12 @@ class TreeSolution {
 
   // 226.
   TreeNode* invertTree(TreeNode* root);
+
+  // 112.
+  bool hasPathSum(TreeNode* root, int targetSum);
+
+  // 257.
+  std::vector<std::string> binaryTreePaths(TreeNode* root);
 };
 
 #endif  // TREE_SOLUTION_H_
