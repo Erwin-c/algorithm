@@ -41,6 +41,9 @@ class TreeSolution {
   // 437, TBD: LeetCode can not pass.
   int pathSum(TreeNode* root, int targetSum);
 
+  // 235.
+  TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+
  private:
   int findPath(TreeNode* node, int num) {
     if (node == nullptr) {
