@@ -44,6 +44,38 @@ void RecursionSolution::generatePermutaion(const std::vector<int>& nums,
   return;
 }
 
+void RecursionSolution::generateCombinations(int n, int k, int start,
+                                             std::vector<int>& c) {
+  if (k == (int)c.size()) {
+    res2.push_back(c);
+    return;
+  }
+
+  for (int i = start; i <= n; ++i) {
+    c.push_back(i);
+    generateCombinations(n, k, i + 1, c);
+    c.pop_back();
+  }
+
+  return;
+}
+
+void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
+                                                      std::vector<int>& c) {
+  if (k == (int)c.size()) {
+    res2.push_back(c);
+    return;
+  }
+
+  for (int i = start; i <= n - (k - (int)c.size()) + 1; ++i) {
+    c.push_back(i);
+    generateCombinations(n, k, i + 1, c);
+    c.pop_back();
+  }
+
+  return;
+}
+
 // Time: O(2 ^ n)
 std::vector<std::string> RecursionSolution::letterCombinations(
     std::string digits) {
@@ -71,6 +103,34 @@ std::vector<std::vector<int>> RecursionSolution::permute(
 
   std::vector<int> p;
   generatePermutaion(nums, 0, p);
+
+  return res2;
+}
+
+// Time: O(2 ^ n)
+std::vector<std::vector<int>> RecursionSolution::combine(int n, int k) {
+  res2.clear();
+
+  if (n <= 0 || k <= 0 || n < k) {
+    return res2;
+  }
+
+  std::vector<int> p;
+  generateCombinations(n, k, 1, p);
+
+  return res2;
+}
+
+std::vector<std::vector<int>> RecursionSolution::combineOptimized(int n,
+                                                                  int k) {
+  res2.clear();
+
+  if (n <= 0 || k <= 0 || n < k) {
+    return res2;
+  }
+
+  std::vector<int> p;
+  generateCombinationsOptimized(n, k, 1, p);
 
   return res2;
 }
