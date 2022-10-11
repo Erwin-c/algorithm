@@ -13,6 +13,23 @@
 #include "TreeNode/TreeNode.h"
 
 class TreeSolution {
+ private:
+  int findPath(TreeNode* node, int num) {
+    if (node == nullptr) {
+      return 0;
+    }
+
+    int res = 0;
+    if (node->val == num) {
+      ++res;
+    }
+
+    res += findPath(node->left, num - node->val);
+    res += findPath(node->right, num - node->val);
+
+    return res;
+  }
+
  public:
   // 144.
   std::vector<int> preorderTraversal(TreeNode* root);
@@ -43,23 +60,6 @@ class TreeSolution {
 
   // 235.
   TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
-
- private:
-  int findPath(TreeNode* node, int num) {
-    if (node == nullptr) {
-      return 0;
-    }
-
-    int res = 0;
-    if (node->val == num) {
-      ++res;
-    }
-
-    res += findPath(node->left, num - node->val);
-    res += findPath(node->right, num - node->val);
-
-    return res;
-  }
 };
 
 #endif  // TREE_SOLUTION_H_
