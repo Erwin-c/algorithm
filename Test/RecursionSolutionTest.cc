@@ -49,4 +49,14 @@ TEST(RecursionSolutionTest, exist) {
   EXPECT_TRUE(RecursionSolution().exist(board, word));
 }
 
+TEST(RecursionSolutionTest, numIsIslands) {
+  std::vector<std::vector<char>> grid{{'1', '1', '1', '1', '0'},
+                                      {'1', '1', '0', '1', '0'},
+                                      {'1', '1', '0', '0', '0'},
+                                      {'0', '0', '0', '0', '0'}};
+  int res = 1;
+
+  EXPECT_EQ(RecursionSolution().numIsIslands(grid), res);
+}
+
 }  // namespace
