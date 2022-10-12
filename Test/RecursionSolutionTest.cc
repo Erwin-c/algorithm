@@ -41,4 +41,12 @@ TEST(RecursionSolutionTest, combineOptimized) {
   EXPECT_EQ(RecursionSolution().combineOptimized(n, k), res);
 }
 
+TEST(RecursionSolutionTest, exist) {
+  std::vector<std::vector<char>> board{
+      {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+  std::string word = "ABCCED";
+
+  EXPECT_TRUE(RecursionSolution().exist(board, word));
+}
+
 }  // namespace

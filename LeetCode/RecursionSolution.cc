@@ -6,6 +6,84 @@
 
 #include "LeetCode/RecursionSolution.h"
 
+// Time: O(2 ^ n)
+std::vector<std::string> RecursionSolution::letterCombinations(
+    std::string digits) {
+  res.clear();
+
+  if (digits == "") {
+    return res;
+  }
+
+  findCombinations(digits, 0, "");
+
+  return res;
+}
+
+// Time: O(2 ^ n)
+std::vector<std::vector<int>> RecursionSolution::permute(
+    std::vector<int>& nums) {
+  res2.clear();
+
+  if (nums.size() == 0) {
+    return res2;
+  }
+
+  used = std::vector<bool>(nums.size(), false);
+
+  std::vector<int> p;
+  generatePermutaion(nums, 0, p);
+
+  return res2;
+}
+
+// Time: O(2 ^ n)
+std::vector<std::vector<int>> RecursionSolution::combine(int n, int k) {
+  res2.clear();
+
+  if (n <= 0 || k <= 0 || n < k) {
+    return res2;
+  }
+
+  std::vector<int> p;
+  generateCombinations(n, k, 1, p);
+
+  return res2;
+}
+
+std::vector<std::vector<int>> RecursionSolution::combineOptimized(int n,
+                                                                  int k) {
+  res2.clear();
+
+  if (n <= 0 || k <= 0 || n < k) {
+    return res2;
+  }
+
+  std::vector<int> p;
+  generateCombinationsOptimized(n, k, 1, p);
+
+  return res2;
+}
+
+bool RecursionSolution::exist(std::vector<std::vector<char>>& board,
+                              std::string word) {
+  m = board.size();
+  assert(m > 0);
+  n = board[0].size();
+
+  visited = std::vector<std::vector<bool>>(m, std::vector<bool>(n, false));
+
+  for (size_t i = 0; i < board.size(); ++i) {
+    for (size_t j = 0; j < board[i].size(); ++j) {
+      if (searchWord(board, word, 0, i, j)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 void RecursionSolution::findCombinations(const std::string& digits,
                                          size_t index, const std::string& s) {
   if (index == digits.size()) {
@@ -76,61 +154,32 @@ void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
   return;
 }
 
-// Time: O(2 ^ n)
-std::vector<std::string> RecursionSolution::letterCombinations(
-    std::string digits) {
-  res.clear();
-
-  if (digits == "") {
-    return res;
+bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
+                                   const std::string& word, int index,
+                                   int startx, int starty) {
+  if (index == (int)word.size() - 1) {
+    return board[startx][starty] == word[index];
   }
 
-  findCombinations(digits, 0, "");
+  if (board[startx][starty] == word[index]) {
+    for (int i = 0; i < 4; ++i) {
+      visited[startx][starty] = true;
 
-  return res;
+      int newx = startx + d[i][0];
+      int newy = starty + d[i][1];
+
+      if (inArea(newx, newy) && !visited[newx][newy] &&
+          searchWord(board, word, index + 1, newx, newy)) {
+        return true;
+      }
+
+      visited[startx][starty] = false;
+    }
+  }
+
+  return false;
 }
 
-// Time: O(2 ^ n)
-std::vector<std::vector<int>> RecursionSolution::permute(
-    std::vector<int>& nums) {
-  res2.clear();
-
-  if (nums.size() == 0) {
-    return res2;
-  }
-
-  used = std::vector<bool>(nums.size(), false);
-
-  std::vector<int> p;
-  generatePermutaion(nums, 0, p);
-
-  return res2;
-}
-
-// Time: O(2 ^ n)
-std::vector<std::vector<int>> RecursionSolution::combine(int n, int k) {
-  res2.clear();
-
-  if (n <= 0 || k <= 0 || n < k) {
-    return res2;
-  }
-
-  std::vector<int> p;
-  generateCombinations(n, k, 1, p);
-
-  return res2;
-}
-
-std::vector<std::vector<int>> RecursionSolution::combineOptimized(int n,
-                                                                  int k) {
-  res2.clear();
-
-  if (n <= 0 || k <= 0 || n < k) {
-    return res2;
-  }
-
-  std::vector<int> p;
-  generateCombinationsOptimized(n, k, 1, p);
-
-  return res2;
+bool RecursionSolution::inArea(int x, int y) {
+  return x >= 0 && x < m && y >= 0 && y < n;
 }

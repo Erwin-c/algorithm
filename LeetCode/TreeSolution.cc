@@ -231,3 +231,19 @@ TreeNode* TreeSolution::lowestCommonAncestor(TreeNode* root, TreeNode* p,
 
   return root;
 }
+
+int TreeSolution::findPath(TreeNode* node, int num) {
+  if (node == nullptr) {
+    return 0;
+  }
+
+  int res = 0;
+  if (node->val == num) {
+    ++res;
+  }
+
+  res += findPath(node->left, num - node->val);
+  res += findPath(node->right, num - node->val);
+
+  return res;
+}
