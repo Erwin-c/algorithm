@@ -107,6 +107,19 @@ int RecursionSolution::numIsIslands(std::vector<std::vector<char>>& grid) {
   return res;
 }
 
+std::vector<std::vector<std::string>> RecursionSolution::solveNQueens(int n) {
+  res3.clear();
+
+  col = std::vector<bool>(n, false);
+  dia1 = std::vector<bool>(2 * n - 1, false);
+  dia2 = std::vector<bool>(2 * n - 1, false);
+
+  std::vector<int> row;
+  putQueen(n, 0, row);
+
+  return res3;
+}
+
 void RecursionSolution::findCombinations(const std::string& digits,
                                          size_t index, const std::string& s) {
   if (index == digits.size()) {
@@ -220,4 +233,39 @@ void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
 
 bool RecursionSolution::inArea(int x, int y) {
   return x >= 0 && x < m && y >= 0 && y < n;
+}
+
+void RecursionSolution::putQueen(int n, int index, std::vector<int>& row) {
+  if (index == n) {
+    res3.push_back(generateBoard(n, row));
+    return;
+  }
+
+  for (int i = 0; i < n; ++i) {
+    if (!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]) {
+      row.push_back(i);
+      col[i] = true;
+      dia1[index + i] = true;
+      dia2[index - i + n - 1] = true;
+      putQueen(n, index + 1, row);
+      col[i] = false;
+      dia1[index + i] = false;
+      dia2[index - i + n - 1] = false;
+      row.pop_back();
+    }
+  }
+
+  return;
+}
+
+std::vector<std::string> RecursionSolution::generateBoard(
+    int n, std::vector<int>& row) {
+  assert((int)row.size() == n);
+
+  std::vector<std::string> board(n, std::string(n, '.'));
+  for (int i = 0; i < n; ++i) {
+    board[i][row[i]] = 'Q';
+  }
+
+  return board;
 }

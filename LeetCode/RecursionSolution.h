@@ -31,6 +31,9 @@ class RecursionSolution {
   // 200, floodfill
   int numIsIslands(std::vector<std::vector<char>>& grid);
 
+  // 51.
+  std::vector<std::vector<std::string>> solveNQueens(int n);
+
  private:
   const std::string letterMap[10] = {
       " ",     // 10
@@ -48,6 +51,10 @@ class RecursionSolution {
   std::vector<std::string> res;
 
   std::vector<std::vector<int>> res2;
+
+  std::vector<std::vector<std::string>> res3;
+
+  std::vector<bool> col, dia1, dia2;
 
   std::vector<bool> used;
 
@@ -75,6 +82,10 @@ class RecursionSolution {
   void dfs(std::vector<std::vector<char>>& grid, int x, int y);
 
   bool inArea(int x, int y);
+
+  void putQueen(int n, int index, std::vector<int>& row);
+
+  std::vector<std::string> generateBoard(int n, std::vector<int>& row);
 };
 
 #endif  // RECURSION_SOLUTION_H_
