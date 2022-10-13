@@ -28,27 +28,22 @@ class RecursionSolution {
 
   std::vector<std::string> res;
 
+  std::vector<std::vector<int>> res2;
+
+  std::vector<bool> used;
+
   void findCombinations(const std::string& digits, size_t index,
-                        const std::string& s) {
-    if (index == digits.size()) {
-      res.push_back(s);
-      return;
-    }
+                        const std::string& s);
 
-    char c = digits[index];
-    assert(c >= '0' && c <= '9' && c != '1');
-
-    std::string letters = letterMap[c - '0'];
-    for (size_t i = 0; i < letters.size(); ++i) {
-      findCombinations(digits, index + 1, s + letters[i]);
-    }
-
-    return;
-  }
+  void generatePermutaion(const std::vector<int>& nums, size_t index,
+                          std::vector<int>& p);
 
  public:
   // 17.
   std::vector<std::string> letterCombinations(std::string digits);
+
+  // 46.
+  std::vector<std::vector<int>> permute(std::vector<int>& nums);
 };
 
 #endif  // RECURSION_SOLUTION_H_
