@@ -25,4 +25,20 @@ TEST(RecursionSolutionTest, permute) {
   EXPECT_EQ(RecursionSolution().permute(nums), res);
 }
 
+TEST(RecursionSolutionTest, combine) {
+  int n = 4, k = 2;
+  std::vector<std::vector<int>> res{{1, 2}, {1, 3}, {1, 4},
+                                    {2, 3}, {2, 4}, {3, 4}};
+
+  EXPECT_EQ(RecursionSolution().combine(n, k), res);
+}
+
+TEST(RecursionSolutionTest, combineOptimized) {
+  int n = 4, k = 2;
+  std::vector<std::vector<int>> res{{1, 2}, {1, 3}, {1, 4},
+                                    {2, 3}, {2, 4}, {3, 4}};
+
+  EXPECT_EQ(RecursionSolution().combineOptimized(n, k), res);
+}
+
 }  // namespace
