@@ -28,6 +28,9 @@ class RecursionSolution {
   // 79.
   bool exist(std::vector<std::vector<char>>& board, std::string word);
 
+  // 200, floodfill
+  int numIsIslands(std::vector<std::vector<char>>& grid);
+
  private:
   const std::string letterMap[10] = {
       " ",     // 10
@@ -49,6 +52,7 @@ class RecursionSolution {
   std::vector<bool> used;
 
   int d[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+  int d2[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
   int m, n;
 
@@ -67,6 +71,8 @@ class RecursionSolution {
 
   bool searchWord(const std::vector<std::vector<char>>& board,
                   const std::string& word, int index, int startx, int starty);
+
+  void dfs(std::vector<std::vector<char>>& grid, int x, int y);
 
   bool inArea(int x, int y);
 };

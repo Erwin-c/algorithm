@@ -67,14 +67,14 @@ std::vector<std::vector<int>> RecursionSolution::combineOptimized(int n,
 
 bool RecursionSolution::exist(std::vector<std::vector<char>>& board,
                               std::string word) {
-  m = board.size();
+  m = (int)board.size();
   assert(m > 0);
-  n = board[0].size();
+  n = (int)board[0].size();
 
   visited = std::vector<std::vector<bool>>(m, std::vector<bool>(n, false));
 
-  for (size_t i = 0; i < board.size(); ++i) {
-    for (size_t j = 0; j < board[i].size(); ++j) {
+  for (int i = 0; i < m; ++i) {
+    for (int j = 0; j < n; ++j) {
       if (searchWord(board, word, 0, i, j)) {
         return true;
       }
@@ -82,6 +82,29 @@ bool RecursionSolution::exist(std::vector<std::vector<char>>& board,
   }
 
   return false;
+}
+
+int RecursionSolution::numIsIslands(std::vector<std::vector<char>>& grid) {
+  m = (int)grid.size();
+  if (m == 0) {
+    return 0;
+  }
+
+  n = (int)grid[0].size();
+
+  visited = std::vector<std::vector<bool>>(m, std::vector<bool>(n, false));
+
+  int res = 0;
+  for (int i = 0; i < m; ++i) {
+    for (int j = 0; j < n; ++j) {
+      if (grid[i][j] == '1' && !visited[i][j]) {
+        ++res;
+        dfs(grid, i, j);
+      }
+    }
+  }
+
+  return res;
 }
 
 void RecursionSolution::findCombinations(const std::string& digits,
@@ -178,6 +201,21 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
   }
 
   return false;
+}
+
+void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
+                            int y) {
+  visited[x][y] = true;
+
+  for (int i = 0; i < 4; ++i) {
+    int newx = x + d2[i][0];
+    int newy = y + d2[i][1];
+    if (inArea(newx, newy) && !visited[newx][newy] && grid[newx][newy] == '1') {
+      dfs(grid, newx, newy);
+    }
+  }
+
+  return;
 }
 
 bool RecursionSolution::inArea(int x, int y) {
