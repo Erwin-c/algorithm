@@ -198,9 +198,10 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
   }
 
   if (board[startx][starty] == word[index]) {
-    for (int i = 0; i < 4; ++i) {
-      visited[startx][starty] = true;
+    visited[startx][starty] = true;
 
+    for (int i = 0; i < 4; ++i) {
+      // 从 startx, starty 出发, 向四个方向寻找.
       int newx = startx + d[i][0];
       int newy = starty + d[i][1];
 
@@ -208,9 +209,9 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
           searchWord(board, word, index + 1, newx, newy)) {
         return true;
       }
-
-      visited[startx][starty] = false;
     }
+
+    visited[startx][starty] = false;
   }
 
   return false;
@@ -223,6 +224,7 @@ void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
   for (int i = 0; i < 4; ++i) {
     int newx = x + d2[i][0];
     int newy = y + d2[i][1];
+
     if (inArea(newx, newy) && !visited[newx][newy] && grid[newx][newy] == '1') {
       dfs(grid, newx, newy);
     }
@@ -242,6 +244,7 @@ void RecursionSolution::putQueen(int n, int index, std::vector<int>& row) {
   }
 
   for (int i = 0; i < n; ++i) {
+    // 尝试将第 index 行的皇后摆放在第 i 列.
     if (!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]) {
       row.push_back(i);
       col[i] = true;
