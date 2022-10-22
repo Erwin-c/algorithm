@@ -107,6 +107,19 @@ int RecursionSolution::numIsIslands(std::vector<std::vector<char>>& grid) {
   return res;
 }
 
+std::vector<std::vector<std::string>> RecursionSolution::solveNQueens(int n) {
+  res3.clear();
+
+  col = std::vector<bool>(n, false);
+  dia1 = std::vector<bool>(2 * n - 1, false);
+  dia2 = std::vector<bool>(2 * n - 1, false);
+
+  std::vector<int> row;
+  putQueen(n, 0, row);
+
+  return res3;
+}
+
 void RecursionSolution::findCombinations(const std::string& digits,
                                          size_t index, const std::string& s) {
   if (index == digits.size()) {
@@ -185,9 +198,10 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
   }
 
   if (board[startx][starty] == word[index]) {
-    for (int i = 0; i < 4; ++i) {
-      visited[startx][starty] = true;
+    visited[startx][starty] = true;
 
+    for (int i = 0; i < 4; ++i) {
+      // 从 startx, starty 出发, 向四个方向寻找.
       int newx = startx + d[i][0];
       int newy = starty + d[i][1];
 
@@ -195,9 +209,9 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
           searchWord(board, word, index + 1, newx, newy)) {
         return true;
       }
-
-      visited[startx][starty] = false;
     }
+
+    visited[startx][starty] = false;
   }
 
   return false;
@@ -210,6 +224,7 @@ void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
   for (int i = 0; i < 4; ++i) {
     int newx = x + d2[i][0];
     int newy = y + d2[i][1];
+
     if (inArea(newx, newy) && !visited[newx][newy] && grid[newx][newy] == '1') {
       dfs(grid, newx, newy);
     }
@@ -220,4 +235,40 @@ void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
 
 bool RecursionSolution::inArea(int x, int y) {
   return x >= 0 && x < m && y >= 0 && y < n;
+}
+
+void RecursionSolution::putQueen(int n, int index, std::vector<int>& row) {
+  if (index == n) {
+    res3.push_back(generateBoard(n, row));
+    return;
+  }
+
+  for (int i = 0; i < n; ++i) {
+    // 尝试将第 index 行的皇后摆放在第 i 列.
+    if (!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]) {
+      row.push_back(i);
+      col[i] = true;
+      dia1[index + i] = true;
+      dia2[index - i + n - 1] = true;
+      putQueen(n, index + 1, row);
+      col[i] = false;
+      dia1[index + i] = false;
+      dia2[index - i + n - 1] = false;
+      row.pop_back();
+    }
+  }
+
+  return;
+}
+
+std::vector<std::string> RecursionSolution::generateBoard(
+    int n, std::vector<int>& row) {
+  assert((int)row.size() == n);
+
+  std::vector<std::string> board(n, std::string(n, '.'));
+  for (int i = 0; i < n; ++i) {
+    board[i][row[i]] = 'Q';
+  }
+
+  return board;
 }

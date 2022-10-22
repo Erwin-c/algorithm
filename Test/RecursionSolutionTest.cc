@@ -59,4 +59,12 @@ TEST(RecursionSolutionTest, numIsIslands) {
   EXPECT_EQ(RecursionSolution().numIsIslands(grid), res);
 }
 
+TEST(RecursionSolutionTest, solveNQueens) {
+  int n = 4;
+  std::vector<std::vector<std::string>> res{{".Q..", "...Q", "Q...", "..Q."},
+                                            {"..Q.", "Q...", "...Q", ".Q.."}};
+
+  EXPECT_EQ(RecursionSolution().solveNQueens(n), res);
+}
+
 }  // namespace
