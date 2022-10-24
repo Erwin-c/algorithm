@@ -6,7 +6,6 @@
 
 #include "LeetCode/RecursionSolution.h"
 
-// Time: O(2 ^ n)
 std::vector<std::string> RecursionSolution::letterCombinations(
     std::string digits) {
   res.clear();
@@ -20,7 +19,6 @@ std::vector<std::string> RecursionSolution::letterCombinations(
   return res;
 }
 
-// Time: O(2 ^ n)
 std::vector<std::vector<int>> RecursionSolution::permute(
     std::vector<int>& nums) {
   res2.clear();
@@ -37,7 +35,6 @@ std::vector<std::vector<int>> RecursionSolution::permute(
   return res2;
 }
 
-// Time: O(2 ^ n)
 std::vector<std::vector<int>> RecursionSolution::combine(int n, int k) {
   res2.clear();
 
@@ -138,6 +135,8 @@ void RecursionSolution::findCombinations(const std::string& digits,
   return;
 }
 
+// p 中保存了一个有 index - 1 个元素的排列.
+// 向这个排列的末尾添加第 index 个元素, 获得一个有 index 个元素的排列.
 void RecursionSolution::generatePermutaion(const std::vector<int>& nums,
                                            size_t index, std::vector<int>& p) {
   if (index == nums.size()) {
@@ -158,6 +157,7 @@ void RecursionSolution::generatePermutaion(const std::vector<int>& nums,
   return;
 }
 
+// 求解 C(n, k), 当前已经找到的组合存储在 c 中, 需要从 start 开始搜索新的元素.
 void RecursionSolution::generateCombinations(int n, int k, int start,
                                              std::vector<int>& c) {
   if (k == (int)c.size()) {
@@ -174,6 +174,7 @@ void RecursionSolution::generateCombinations(int n, int k, int start,
   return;
 }
 
+// 求解 C(n, k), 当前已经找到的组合存储在 c 中, 需要从 start 开始搜索新的元素.
 void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
                                                       std::vector<int>& c) {
   if (k == (int)c.size()) {
@@ -181,6 +182,8 @@ void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
     return;
   }
 
+  // 还有 k - c.size() 个空位, 所以, [i ... n] 中至少要有 k - c.size() 个元素,
+  // i 最多为 n - (k - c.size()) + 1.
   for (int i = start; i <= n - (k - (int)c.size()) + 1; ++i) {
     c.push_back(i);
     generateCombinations(n, k, i + 1, c);
@@ -190,6 +193,7 @@ void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
   return;
 }
 
+// 从 board[startx][starty] 开始, 寻找 word[index ... word.size()).
 bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
                                    const std::string& word, int index,
                                    int startx, int starty) {
@@ -217,6 +221,8 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
   return false;
 }
 
+// 从 grid[x][y] 的位置开始, 进行 Floodfill.
+// 保证 (x, y) 合法, 且 grid[x][y] 是没有被访问过的陆地.
 void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
                             int y) {
   visited[x][y] = true;
@@ -237,6 +243,7 @@ bool RecursionSolution::inArea(int x, int y) {
   return x >= 0 && x < m && y >= 0 && y < n;
 }
 
+// 尝试在一个 n 皇后问题中, 摆放第 index 行的皇后位置.
 void RecursionSolution::putQueen(int n, int index, std::vector<int>& row) {
   if (index == n) {
     res3.push_back(generateBoard(n, row));
