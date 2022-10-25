@@ -9,13 +9,12 @@
 #include <cassert>
 #include <stdexcept>
 
-// Time: O(n).
-// Space: O(1).
 void ArraySolution::moveZeros(std::vector<int>& nums) {
-  // Element in arr[0...k) is not 0.
+  // nums 中, [0 ... k) 的元素均为非 0 元素.
   size_t k = 0;
 
-  // nums[0...i]: nums[0...k) != 0, nums[k...i] == 0.
+  // 遍历到第 i 个元素后, 保证 [0 ... i] 中所有非 0 元素,
+  // 都按照顺序排列在 [0 ... k) 中, 同时, [k ... i] 为 0.
   for (size_t i = 0; i < nums.size(); ++i) {
     if (nums[i] != 0) {
       if (k != i) {
@@ -29,10 +28,8 @@ void ArraySolution::moveZeros(std::vector<int>& nums) {
   return;
 }
 
-// Time: O(n).
-// Space: O(1).
 void ArraySolution::sortColors(std::vector<int>& nums) {
-  // Frequency of 0, 1, 2.
+  // 存放 0, 1, 2 三个元素的频率.
   int count[3] = {0};
 
   for (size_t i = 0; i < nums.size(); ++i) {
@@ -40,7 +37,7 @@ void ArraySolution::sortColors(std::vector<int>& nums) {
     ++count[nums[i]];
   }
 
-  size_t index = 0;
+  int index = 0;
   for (int i = 0; i < count[0]; ++i) {
     nums[index++] = 0;
   }
@@ -54,13 +51,11 @@ void ArraySolution::sortColors(std::vector<int>& nums) {
   return;
 }
 
-// Time: O(n).
-// Space: O(1).
 void ArraySolution::sortColorsOptimized(std::vector<int>& nums) {
-  int zero = -1;             // nums[0...zero] = 0.
-  size_t two = nums.size();  // nums[two...n) = 2.
+  int zero = -1;             // nums[0 ... zero] = 0.
+  size_t two = nums.size();  // nums[two ... n) = 2.
 
-  for (size_t i = 0; i < two;) {  // nums[(zero + 1)...i) = 1.
+  for (size_t i = 0; i < two;) {  // nums[(zero + 1) ... i) = 1.
     if (nums[i] == 1) {
       ++i;
     } else if (nums[i] == 2) {
@@ -74,17 +69,18 @@ void ArraySolution::sortColorsOptimized(std::vector<int>& nums) {
   return;
 }
 
-// Time: O(n).
-// Space: O(1).
 std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
                                                 int target) {
   assert(numbers.size() >= 2);
 
-  int l = 0, r = numbers.size() - 1;
+  std::vector<int> res;
+
+  int l = 0, r = (int)numbers.size() - 1;
   while (l < r) {
     if (target == numbers[l] + numbers[r]) {
-      int res[2] = {l + 1, r + 1};
-      return std::vector<int>(res, res + 2);
+      res.push_back(l + 1);
+      res.push_back(r + 1);
+      return res;
     } else if (target > numbers[l] + numbers[r]) {
       ++l;
     } else {
@@ -92,22 +88,23 @@ std::vector<int> ArraySolution::twoSumOptimized(std::vector<int>& numbers,
     }
   }
 
-  throw std::invalid_argument("The input has no solution!");
+  // throw std::invalid_argument("The input has no solution!");
+  return res;
 }
 
-// Time: O(n).
-// Space: O(n).
 int ArraySolution::minSubArrayLen(int target, std::vector<int>& nums) {
-  int size = nums.size();
-  // Sliding widow nums[l...r).
+  assert(target > 0);
+
+  int size = (int)nums.size();
+  // 滑动窗口为 nums[l ... r].
   int l = 0, r = -1;
   int res = size + 1;
-  int sum = 0;
 
-  while (l < size) {
+  int sum = 0;
+  while (l < size) {  // 窗口的左边界在数组范围内, 则循环继续.
     if (target > sum && r + 1 < size) {
       sum += nums[++r];
-    } else {
+    } else {  // r 已经到头 或者 sum >= s.
       sum -= nums[l++];
     }
 
@@ -124,11 +121,13 @@ int ArraySolution::minSubArrayLen(int target, std::vector<int>& nums) {
 }
 
 int ArraySolution::lengthOfLongestSubstring(std::string s) {
-  int size = s.size();
+  int size = (int)s.size();
   int freq[256] = {0};
+  //滑动窗口为 s[l ... r].
   int l = 0, r = -1;
   int res = 0;
 
+  // TBD: 在这里, 循环中止的条件可以是 r + 1 < s.size(), 想想看为什么?
   while (l < size) {
     if (freq[(int)s[r + 1]] == 0 && r + 1 < size) {
       ++freq[(int)s[++r]];

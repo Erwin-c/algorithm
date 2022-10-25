@@ -17,6 +17,12 @@ class DPSolution {
   /// 空间复杂度: O(n).
   int climbStairs(int n);
 
+  // 70. Climbing Stairs (DP).
+  // DP
+  // 时间复杂度: O(n).
+  // 空间复杂度: O(n).
+  int climbStairsDP(int n);
+
  private:
   std::vector<int> memo;  // 70. Climbing Stairs.
 
