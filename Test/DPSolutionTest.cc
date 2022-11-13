@@ -23,4 +23,18 @@ TEST(DPSolutionTest, climbStairsDP) {
   EXPECT_EQ(DPSolution().climbStairsDP(n), res);
 }
 
+TEST(DPSolutionTest, integerBreak) {
+  int n = 10;
+  int res = 36;
+
+  EXPECT_EQ(DPSolution().integerBreak(n), res);
+}
+
+TEST(DPSolutionTest, integerBreakDP) {
+  int n = 10;
+  int res = 36;
+
+  EXPECT_EQ(DPSolution().integerBreakDP(n), res);
+}
+
 }  // namespace
