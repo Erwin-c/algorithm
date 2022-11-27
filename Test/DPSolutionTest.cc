@@ -37,4 +37,18 @@ TEST(DPSolutionTest, integerBreakDP) {
   EXPECT_EQ(DPSolution().integerBreakDP(n), res);
 }
 
+TEST(DPSolutionTest, rob) {
+  std::vector<int> nums{1, 2, 3, 1};
+  int res = 4;
+
+  EXPECT_EQ(DPSolution().rob(nums), res);
+}
+
+TEST(DPSolutionTest, robDP) {
+  std::vector<int> nums{2, 7, 9, 3, 1};
+  int res = 12;
+
+  EXPECT_EQ(DPSolution().rob(nums), res);
+}
+
 }  // namespace
