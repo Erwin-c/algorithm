@@ -86,6 +86,74 @@ int DPSolution::robDP(std::vector<int>& nums) {
   return memo[0];
 }
 
+int DPSolution::knapsack01(const std::vector<int>& w, const std::vector<int>& v,
+                           int C) {
+  assert(w.size() == v.size() && C >= 0);
+
+  int n = (int)w.size();
+  if (n == 0 || C == 0) {
+    return 0;
+  }
+
+  memo2.clear();
+  for (int i = 0; i < n; ++i) {
+    memo2.push_back(std::vector<int>(C + 1, -1));
+  }
+
+  return bestValue(w, v, n - 1, C);
+}
+
+int DPSolution::knapsack01DP(const std::vector<int>& w,
+                             const std::vector<int>& v, int C) {
+  assert(w.size() == v.size() && C >= 0);
+
+  int n = (int)w.size();
+  if (n == 0 || C == 0) {
+    return 0;
+  }
+
+  std::vector<std::vector<int>> memo(n, std::vector<int>(C + 1, 0));
+
+  for (int j = 0; j <= C; ++j) {
+    memo[0][j] = (j >= w[0] ? v[0] : 0);
+  }
+
+  for (int i = 1; i < n; ++i) {
+    for (int j = 0; j <= C; ++j) {
+      memo[i][j] = memo[i - 1][j];
+      if (j >= w[i]) {
+        memo[i][j] = std::max(memo[i][j], v[i] + memo[i - 1][j - w[i]]);
+      }
+    }
+  }
+
+  return memo[n - 1][C];
+}
+
+int knapsack01DPOptimized(const std::vector<int>& w, const std::vector<int>& v,
+                          int C) {
+  assert(w.size() == v.size() && C >= 0);
+
+  int n = (int)w.size();
+  if (n == 0 || C == 0) {
+    return 0;
+  }
+
+  std::vector<int> memo(C + 1, 0);
+
+  for (int j = 0; j <= C; ++j) {
+    memo[j] = (j >= w[0] ? v[0] : 0);
+  }
+
+  for (int i = 1; i < n; ++i) {
+    for (int j = C; j >= w[i]; --j) {
+      memo[j] = std::max(memo[j], v[i] + memo[j - w[i]]);
+    }
+  }
+
+  return memo[C];
+}
+
 int DPSolution::calcWays(int n) {
   if (n == 0 || n == 1) {
     return 1;
@@ -137,6 +205,26 @@ int DPSolution::tryRob(const std::vector<int>& nums, int index) {
   }
 
   memo[index] = res;
+
+  return res;
+}
+
+int DPSolution::bestValue(const std::vector<int>& w, const std::vector<int>& v,
+                          int index, int c) {
+  if (c <= 0 || index < 0) {
+    return 0;
+  }
+
+  if (memo2[index][c] != -1) {
+    return memo2[index][c];
+  }
+
+  int res = bestValue(w, v, index - 1, c);
+  if (c >= w[index]) {
+    res = std::max(res, v[index] + bestValue(w, v, index - 1, c - w[index]));
+  }
+
+  memo2[index][c] = res;
 
   return res;
 }
