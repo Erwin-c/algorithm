@@ -57,6 +57,35 @@ int DPSolution::integerBreakDP(int n) {
   return memo[n];
 }
 
+int DPSolution::rob(std::vector<int>& nums) {
+  memo.clear();
+
+  // memo[i] 表示考虑抢劫 nums[i...n) 所能获得的最大收益.
+  memo = std::vector<int>(nums.size(), -1);
+
+  return tryRob(nums, 0);
+}
+
+int DPSolution::robDP(std::vector<int>& nums) {
+  int n = (int)nums.size();
+
+  if (n == 0) {
+    return 0;
+  }
+
+  // memo[i] 表示考虑抢劫 nums[i...n) 所能获得的最大收益.
+  std::vector<int> memo(n, -1);
+  memo[n - 1] = nums[n - 1];
+
+  for (int i = n - 2; i >= 0; --i) {
+    for (int j = i; j < n; ++j) {
+      memo[i] = std::max(memo[i], nums[j] + (j + 2 < n ? memo[j + 2] : 0));
+    }
+  }
+
+  return memo[0];
+}
+
 int DPSolution::calcWays(int n) {
   if (n == 0 || n == 1) {
     return 1;
@@ -89,6 +118,25 @@ int DPSolution::breakInteger(int n) {
   }
 
   memo[n] = res;
+
+  return res;
+}
+
+int DPSolution::tryRob(const std::vector<int>& nums, int index) {
+  if (index >= (int)nums.size()) {
+    return 0;
+  }
+
+  if (memo[index] != -1) {
+    return memo[index];
+  }
+
+  int res = 0;
+  for (int i = index; i < (int)nums.size(); ++i) {
+    res = std::max(res, nums[i] + tryRob(nums, i + 2));
+  }
+
+  memo[index] = res;
 
   return res;
 }
