@@ -28,7 +28,7 @@ void __insertionSort(T arr[], int l, int r) {
   return;
 }
 
-// Merge for arr[l...mid] and arr[mid + 1...r).
+// Merge for arr[l...mid] and arr[(mid + 1), r).
 template <typename T>
 void __merge(T arr[], int l, int mid, int r) {
   T aux[r - l + 1];
@@ -90,17 +90,18 @@ void __mergeSortOptimized(T arr[], int l, int r) {
   return;
 }
 
-// Partition for arr[l...r].
-// Return p: arr[l...(p - 1)] < arr[p], arr[(p + 1)...r] >= arr[p].
+// Partition for arr[l, r].
+// Return p: arr[l, p) < arr[p], arr(p, r] >= arr[p].
 template <typename T>
 int __partition(T arr[], int l, int r) {
   T v = arr[l];
 
-  // arr[(l + 1)...j] < v, arr[(j + 1)...i) >= v.
+  // arr(l, j] < v, arr(j, i) >= v.
   int j = l;
   for (int i = l + 1; i <= r; ++i) {
     // Initial state throughout defination for internal.
-    // arr[(l + 1)...l] and arr[(l + 1)...(l + 1)) are both empty set.
+    // arr(l, j] < v, arr(l, l] is empty.
+    // arr(j, i) >= v, arr(l, l + 1) is empty.
     if (arr[i] < v) {
       std::swap(arr[i], arr[++j]);
     }
@@ -114,6 +115,7 @@ template <typename T>
 int __partitionOptimized(T arr[], int l, int r) {
   // Optimation: Avoid being O(n ^ 2) in ordered arrays.
   srand(time(nullptr));
+  // rand [l, r].
   std::swap(arr[l], arr[rand() % (r - l + 1) + l]);
   T v = arr[l];
 
