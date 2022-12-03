@@ -11,18 +11,26 @@
 
 class SearchSolution {
  public:
-  // 349.
+  // 349. Intersection of Two Arrays.
+  // 时间复杂度: O(n).
+  // 空间复杂度: O(n).
   std::vector<int> intersection(std::vector<int>& nums1,
                                 std::vector<int>& nums2);
 
-  // 349 optimized.
+  // 349. Intersection of Two Arrays Optimized.
+  // 时间复杂度: O(n).
+  // 空间复杂度: O(n).
   std::vector<int> intersectionOptimized(std::vector<int>& nums1,
                                          std::vector<int>& nums2);
 
-  // 350.
+  // 350. Intersection of Two Arrays II.
+  // 时间复杂度: O(n).
+  // 空间复杂度: O(n).
   std::vector<int> intersect(std::vector<int>& nums1, std::vector<int>& nums2);
 
-  // 350 optimized.
+  // 350. Intersection of Two Arrays II Optimized.
+  // 时间复杂度: O(n).
+  // 空间复杂度: O(n).
   std::vector<int> intersectOptimized(std::vector<int>& nums1,
                                       std::vector<int>& nums2);
 

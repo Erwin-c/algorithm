@@ -18,6 +18,9 @@ class ArraySolution {
   // 空间复杂度: O(1).
   void moveZeros(std::vector<int>& nums);
 
+  // 27 (Optimized).
+  // 26, 80.
+
   // 75. Sort Colors.
   // 计数排序的思路.
   // 对整个数组遍历了两遍.
@@ -31,6 +34,8 @@ class ArraySolution {
   // 时间复杂度: O(n).
   // 空间复杂度: O(1).
   void sortColorsOptimized(std::vector<int>& nums);
+
+  // 88, 215.
 
   // TBD: 167 binary search.
   // vector<int> twoSum(vector<int>& numbers, int target);
