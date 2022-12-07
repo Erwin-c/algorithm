@@ -34,10 +34,14 @@ class SearchSolution {
   std::vector<int> intersectOptimized(std::vector<int>& nums1,
                                       std::vector<int>& nums2);
 
-  // 1.
+  // 1. Two Sum.
+  // 时间复杂度: O(n).
+  // 空间复杂度: O(n).
   std::vector<int> twoSum(std::vector<int> nums, int target);
 
-  // 454.
+  // 454. 4Sum II.
+  // 时间复杂度: O(n ^ 2).
+  // 空间复杂度: O(n ^ 2).
   int fourSumCount(std::vector<int>& nums1, std::vector<int>& nums2,
                    std::vector<int>& nums3, std::vector<int>& nums4);
 
