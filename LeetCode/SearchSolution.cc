@@ -14,12 +14,12 @@
 std::vector<int> SearchSolution::intersection(std::vector<int>& nums1,
                                               std::vector<int>& nums2) {
   std::unordered_set<int> record;
-  for (size_t i = 0; i < nums1.size(); ++i) {
+  for (int i = 0; i < (int)nums1.size(); ++i) {
     record.insert(nums1[i]);
   }
 
   std::unordered_set<int> resultSet;
-  for (size_t i = 0; i < nums2.size(); ++i) {
+  for (int i = 0; i < (int)nums2.size(); ++i) {
     if (record.find(nums2[i]) != record.end()) {
       resultSet.insert(nums2[i]);
     }
@@ -39,7 +39,7 @@ std::vector<int> SearchSolution::intersectionOptimized(
   std::unordered_set<int> record(nums1.begin(), nums1.end());
 
   std::unordered_set<int> resultSet;
-  for (size_t i = 0; i < nums2.size(); ++i) {
+  for (int i = 0; i < (int)nums2.size(); ++i) {
     if (record.find(nums2[i]) != record.end()) {
       resultSet.insert(nums2[i]);
     }
@@ -51,7 +51,7 @@ std::vector<int> SearchSolution::intersectionOptimized(
 std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
                                            std::vector<int>& nums2) {
   std::unordered_map<int, int> record;
-  for (size_t i = 0; i < nums1.size(); ++i) {
+  for (int i = 0; i < (int)nums1.size(); ++i) {
     if (record.find(nums1[i]) == record.end()) {
       record.insert(std::make_pair(nums1[i], 1));
     } else {
@@ -60,7 +60,7 @@ std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
   }
 
   std::vector<int> resultVector;
-  for (size_t i = 0; i < nums2.size(); ++i) {
+  for (int i = 0; i < (int)nums2.size(); ++i) {
     if (record.find(nums2[i]) != record.end() && record[nums2[i]] > 0) {
       resultVector.push_back(nums2[i]);
       --record[nums2[i]];
@@ -77,12 +77,12 @@ std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
 std::vector<int> SearchSolution::intersectOptimized(std::vector<int>& nums1,
                                                     std::vector<int>& nums2) {
   std::unordered_map<int, int> record;
-  for (size_t i = 0; i < nums1.size(); ++i) {
+  for (int i = 0; i < (int)nums1.size(); ++i) {
     ++record[nums1[i]];
   }
 
   std::vector<int> resultVector;
-  for (size_t i = 0; i < nums2.size(); ++i) {
+  for (int i = 0; i < (int)nums2.size(); ++i) {
     if (record[nums2[i]] > 0) {
       resultVector.push_back(nums2[i]);
       --record[nums2[i]];
@@ -96,9 +96,9 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   assert(nums.size() >= 2);
 
   std::unordered_map<int, int> record;
-  for (size_t i = 0; i < nums.size(); ++i) {
+  for (int i = 0; i < (int)nums.size(); ++i) {
     int complement = target - nums[i];
-    if (record.find(complement) != record.end()) {
+    if (record.count(complement) != 0) {
       int res[2] = {record[complement], (int)i};
       return std::vector<int>(res, res + 2);
     }
@@ -107,7 +107,7 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   }
 
   // throw std::invalid_argument("The input has no solution!");
-  // TBD: return
+  return std::vector<int>();
 }
 
 int SearchSolution::fourSumCount(std::vector<int>& nums1,
@@ -115,17 +115,17 @@ int SearchSolution::fourSumCount(std::vector<int>& nums1,
                                  std::vector<int>& nums3,
                                  std::vector<int>& nums4) {
   std::unordered_map<int, int> record;
-  for (size_t i = 0; i < nums1.size(); ++i) {
-    for (size_t j = 0; j < nums2.size(); ++j) {
-      ++record[nums1[i] + nums2[j]];
+  for (const auto& p : nums1) {
+    for (const auto& q : nums2) {
+      ++record[p + q];
     }
   }
 
   int res = 0;
-  for (size_t i = 0; i < nums3.size(); ++i) {
-    for (size_t j = 0; j < nums4.size(); ++j) {
-      if (record.find(0 - nums3[i] - nums4[j]) != record.end()) {
-        res += record[0 - nums3[i] - nums4[j]];
+  for (const auto& p : nums3) {
+    for (const auto& q : nums4) {
+      if (record.count(0 - p - q) != 0) {
+        res += record[0 - p - q];
       }
     }
   }

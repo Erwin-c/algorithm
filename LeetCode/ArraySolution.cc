@@ -10,22 +10,22 @@
 #include <stdexcept>
 
 void ArraySolution::moveZeros(std::vector<int>& nums) {
-  int n = nums.size();
+  // nums 中, [0, fast) 的元素均为非 0 元素.
 
-  // nums 中, [0, left) 的元素均为非 0 元素.
-  int left = 0;
-
-  // 遍历到第 right 个元素.
-  // 保证 [0, right] 中所有非 0 元素, 都按照顺序排列在 [0, left) 中,.
-  // 同时, [k...i] 为 0.
-  for (int right = 0; right < n; ++right) {
-    if (nums[right] != 0) {
-      if (right != left) {
-        std::swap(nums[right], nums[left++]);
+  // 遍历到第 fast 个元素.
+  // 保证 [0, fast] 中所有非 0 元素, 都按照顺序排列在 [0, slow) 中.
+  // 同时, [slow...fast] 为 0.
+  int slow = 0, fast = 0;
+  while (fast < (int)nums.size()) {
+    if (nums[fast] != 0) {
+      if (fast != slow) {
+        std::swap(nums[fast], nums[slow++]);
       } else {
-        ++left;
+        ++slow;
       }
     }
+
+    ++fast;
   }
 
   return;
