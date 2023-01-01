@@ -59,6 +59,13 @@ TEST(SearchSolutionTest, fourSumCount) {
   EXPECT_EQ(SearchSolution().fourSumCount(vec1, vec2, vec3, vec4), res);
 }
 
+TEST(SearchSolutionTest, numberOfBoomerangs) {
+  std::vector<std::vector<int>> vec{{0, 0}, {1, 0}, {2, 0}};
+  int res = 2;
+
+  EXPECT_EQ(SearchSolution().numberOfBoomerangs(vec), res);
+}
+
 TEST(SearchSolutionTest, containNearbyDuplicate) {
   int k = 2;
   std::vector<int> vec{1, 2, 3, 1, 2, 3};
