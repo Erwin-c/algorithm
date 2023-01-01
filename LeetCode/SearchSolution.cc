@@ -133,6 +133,27 @@ int SearchSolution::fourSumCount(std::vector<int>& nums1,
   return res;
 }
 
+int SearchSolution::numberOfBoomerangs(std::vector<std::vector<int>>& points) {
+  int n = points.size();
+  int res = 0;
+  for (int i = 0; i < n; ++i) {
+    // record 中存储 点i 到所有其他点的距离出现的频次.
+    std::unordered_map<int, int> record;
+    for (int j = 0; j < n; ++j) {
+      if (j != i) {
+        // 计算距离时不进行开根运算, 以保证精度.
+        record[dis(points[i], points[j])] += 1;
+      }
+    }
+
+    for (const auto& p : record) {
+      res += (p.second) * (p.second - 1);
+    }
+  }
+
+  return res;
+}
+
 bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {
   std::unordered_set<int> record;
   for (size_t i = 0; i < nums.size(); ++i) {
@@ -168,4 +189,9 @@ bool SearchSolution::containNearbyAlmostDuplicate(std::vector<int> nums,
   }
 
   return false;
+}
+
+int SearchSolution::dis(const std::vector<int>& pa,
+                        const std::vector<int>& pb) {
+  return (pa[0] - pb[0]) * (pa[0] - pb[0]) + (pa[1] - pb[1]) * (pa[1] - pb[1]);
 }
