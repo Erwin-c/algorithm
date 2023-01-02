@@ -7,15 +7,14 @@
 #ifndef RECURSION_SOLUTION_H_
 #define RECURSION_SOLUTION_H_
 
-#include <cassert>
 #include <string>
 #include <vector>
 
 class RecursionSolution {
  public:
-  // 17. Letter Combinations of a Phone Number.
-  // 时间复杂度: O(2 ^ len(s)).
-  // 空间复杂度: O(len(s)).
+  // 17. Letter Combinations of a Phone Number
+  // 时间复杂度: O(2 ^ len(s))
+  // 空间复杂度: O(len(s))
   std::vector<std::string> letterCombinations(std::string digits);
 
   // 46. Permutations.
@@ -49,7 +48,7 @@ class RecursionSolution {
   std::vector<std::vector<std::string>> solveNQueens(int n);
 
  private:
-  // 17. Letter Combinations of a Phone Number.
+  // 17. Letter Combinations of a Phone Number
   const std::string letterMap[10] = {
       " ",     // 10
       "",      // 1
@@ -69,7 +68,7 @@ class RecursionSolution {
   int m, n;  // 79. Word Search.
              // 200. Number of Islands.
 
-  std::vector<std::string> res;  // 17. Letter Combinations of a Phone Number.
+  std::vector<std::string> res;  // 17. Letter Combinations of a Phone Number
 
   std::vector<std::vector<int>> res2;  // 46. Permutations.
 
@@ -82,8 +81,8 @@ class RecursionSolution {
   std::vector<std::vector<bool>> visited;  // 79. Word Search.
                                            // 200. Number of Islands.
 
-  void findCombinations(const std::string& digits, size_t index,
-                        const std::string& s);
+  void findCombination(const std::string& digits, int index,
+                       const std::string& s);
 
   // 46. Permutations.
   void generatePermutaion(const std::vector<int>& nums, size_t index,
