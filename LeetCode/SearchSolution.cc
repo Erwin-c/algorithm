@@ -156,13 +156,15 @@ int SearchSolution::numberOfBoomerangs(std::vector<std::vector<int>>& points) {
 
 bool SearchSolution::containNearbyDuplicate(std::vector<int>& nums, int k) {
   std::unordered_set<int> record;
-  for (size_t i = 0; i < nums.size(); ++i) {
+  for (int i = 0; i < (int)nums.size(); ++i) {
     if (record.find(nums[i]) != record.end()) {
       return true;
     }
 
     record.insert(nums[i]);
 
+    // 保持 record 中最多有k个元素.
+    // 因为在下一次循环中会添加一个新元素, 使得总共考虑 k+1 个元素.
     if ((int)record.size() == k + 1) {
       record.erase(nums[i - k]);
     }
@@ -175,7 +177,7 @@ bool SearchSolution::containNearbyAlmostDuplicate(std::vector<int> nums,
                                                   int indexDiff,
                                                   int valueDiff) {
   std::set<int> record;
-  for (size_t i = 0; i < nums.size(); ++i) {
+  for (int i = 0; i < (int)nums.size(); ++i) {
     if (record.lower_bound(nums[i] - valueDiff) != record.end() &&
         *record.lower_bound(nums[i] - valueDiff) <= nums[i] + valueDiff) {
       return true;

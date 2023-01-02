@@ -50,10 +50,15 @@ class SearchSolution {
   // 空间复杂度: O(n)
   int numberOfBoomerangs(std::vector<std::vector<int>>& points);
 
-  // 219.
+  // 219. Contains Duplicate II
+  // 滑动窗口
+  // 时间复杂度: O(n)
+  // 空间复杂度: O(k)
   bool containNearbyDuplicate(std::vector<int>& nums, int k);
 
-  // 220.
+  // 220. Contains Duplicate III
+  // 时间复杂度: O(nlogk)
+  // 空间复杂度: O(k)
   bool containNearbyAlmostDuplicate(std::vector<int> nums, int indexDiff,
                                     int valueDiff);
 
