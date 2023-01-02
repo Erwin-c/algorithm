@@ -46,7 +46,7 @@ class ArraySolution {
   std::vector<int> twoSumOptimized(std::vector<int>& numbers, int target);
 
   // 209. Minimum Size Subarray Sum
-  // 滑动窗口的思路
+  // 滑动窗口
   // 时间复杂度: O(n)
   // 空间复杂度: O(1)
   int minSubArrayLen(int target, std::vector<int>& nums);
