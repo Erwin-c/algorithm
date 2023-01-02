@@ -13,8 +13,8 @@
 class RecursionSolution {
  public:
   // 17. Letter Combinations of a Phone Number
-  // 时间复杂度: O(2 ^ len(s))
-  // 空间复杂度: O(len(s))
+  // 时间复杂度: O(2 ^ n)
+  // 空间复杂度: O(n)
   std::vector<std::string> letterCombinations(std::string digits);
 
   // 46. Permutations.
