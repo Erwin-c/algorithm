@@ -28,7 +28,7 @@ std::vector<int> SearchSolution::intersection(std::vector<int>& nums1,
   std::vector<int> resultVector;
   for (std::unordered_set<int>::iterator iter = resultSet.begin();
        iter != resultSet.end(); ++iter) {
-    resultVector.push_back(*iter);
+    resultVector.emplace_back(*iter);
   }
 
   return resultVector;
@@ -39,9 +39,9 @@ std::vector<int> SearchSolution::intersectionOptimized(
   std::unordered_set<int> record(nums1.begin(), nums1.end());
 
   std::unordered_set<int> resultSet;
-  for (int i = 0; i < (int)nums2.size(); ++i) {
-    if (record.find(nums2[i]) != record.end()) {
-      resultSet.insert(nums2[i]);
+  for (const auto& p : nums2) {
+    if (record.find(p) != record.end()) {
+      resultSet.insert(p);
     }
   }
 
@@ -77,15 +77,15 @@ std::vector<int> SearchSolution::intersect(std::vector<int>& nums1,
 std::vector<int> SearchSolution::intersectOptimized(std::vector<int>& nums1,
                                                     std::vector<int>& nums2) {
   std::unordered_map<int, int> record;
-  for (int i = 0; i < (int)nums1.size(); ++i) {
-    ++record[nums1[i]];
+  for (const auto& p : nums1) {
+    ++record[p];
   }
 
   std::vector<int> resultVector;
-  for (int i = 0; i < (int)nums2.size(); ++i) {
-    if (record[nums2[i]] > 0) {
-      resultVector.push_back(nums2[i]);
-      --record[nums2[i]];
+  for (const auto& p : nums2) {
+    if (record[p] > 0) {
+      resultVector.emplace_back(p);
+      --record[p];
     }
   }
 
@@ -98,7 +98,7 @@ std::vector<int> SearchSolution::twoSum(std::vector<int> nums, int target) {
   std::unordered_map<int, int> record;
   for (int i = 0; i < (int)nums.size(); ++i) {
     int complement = target - nums[i];
-    if (record.count(complement) != 0) {
+    if (record.find(complement) != record.end()) {
       int res[2] = {record[complement], (int)i};
       return std::vector<int>(res, res + 2);
     }
@@ -124,7 +124,7 @@ int SearchSolution::fourSumCount(std::vector<int>& nums1,
   int res = 0;
   for (const auto& p : nums3) {
     for (const auto& q : nums4) {
-      if (record.count(0 - p - q) != 0) {
+      if (record.find(0 - p - q) != record.end()) {
         res += record[0 - p - q];
       }
     }
@@ -146,8 +146,8 @@ int SearchSolution::numberOfBoomerangs(std::vector<std::vector<int>>& points) {
       }
     }
 
-    for (const auto& p : record) {
-      res += (p.second) * (p.second - 1);
+    for (const auto& [_, count] : record) {
+      res += count * (count - 1);
     }
   }
 
