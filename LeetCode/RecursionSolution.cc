@@ -6,6 +6,8 @@
 
 #include "LeetCode/RecursionSolution.h"
 
+#include <cassert>
+
 std::vector<std::string> RecursionSolution::letterCombinations(
     std::string digits) {
   res.clear();
@@ -14,7 +16,7 @@ std::vector<std::string> RecursionSolution::letterCombinations(
     return res;
   }
 
-  findCombinations(digits, 0, "");
+  findCombination(digits, 0, "");
 
   return res;
 }
@@ -117,10 +119,12 @@ std::vector<std::vector<std::string>> RecursionSolution::solveNQueens(int n) {
   return res3;
 }
 
-void RecursionSolution::findCombinations(const std::string& digits,
-                                         size_t index, const std::string& s) {
-  if (index == digits.size()) {
-    res.push_back(s);
+// s 中保存了此时从 digits[0, index - 1] 翻译得到的一个字母字符串.
+// 寻找和 digits[index] 匹配的字母, 获得 digits[0, index] 翻译得到的解.
+void RecursionSolution::findCombination(const std::string& digits, int index,
+                                        const std::string& s) {
+  if (index == (int)digits.size()) {
+    res.emplace_back(s);
     return;
   }
 
@@ -128,8 +132,8 @@ void RecursionSolution::findCombinations(const std::string& digits,
   assert(c >= '0' && c <= '9' && c != '1');
 
   std::string letters = letterMap[c - '0'];
-  for (size_t i = 0; i < letters.size(); ++i) {
-    findCombinations(digits, index + 1, s + letters[i]);
+  for (int i = 0; i < (int)letters.size(); ++i) {
+    findCombination(digits, index + 1, s + letters[i]);
   }
 
   return;
