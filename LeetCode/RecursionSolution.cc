@@ -29,7 +29,7 @@ std::vector<std::vector<int>> RecursionSolution::permute(
     return res2;
   }
 
-  used = std::vector<bool>(nums.size(), false);
+  used.assign(nums.size(), false);
 
   std::vector<int> p;
   generatePermutaion(nums, 0, p);
@@ -153,8 +153,8 @@ void RecursionSolution::generatePermutaion(const std::vector<int>& nums,
       p.emplace_back(nums[i]);
       used[i] = true;
       generatePermutaion(nums, index + 1, p);
-      p.pop_back();
       used[i] = false;
+      p.pop_back();
     }
   }
 
@@ -165,12 +165,12 @@ void RecursionSolution::generatePermutaion(const std::vector<int>& nums,
 void RecursionSolution::generateCombinations(int n, int k, int start,
                                              std::vector<int>& c) {
   if (k == (int)c.size()) {
-    res2.push_back(c);
+    res2.emplace_back(c);
     return;
   }
 
   for (int i = start; i <= n; ++i) {
-    c.push_back(i);
+    c.emplace_back(i);
     generateCombinations(n, k, i + 1, c);
     c.pop_back();
   }
@@ -182,14 +182,14 @@ void RecursionSolution::generateCombinations(int n, int k, int start,
 void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
                                                       std::vector<int>& c) {
   if (k == (int)c.size()) {
-    res2.push_back(c);
+    res2.emplace_back(c);
     return;
   }
 
-  // 还有 k - c.size() 个空位, 所以, [i ... n] 中至少要有 k - c.size() 个元素,
+  // 还有 k - c.size() 个空位, 所以, [i, n] 中至少要有 k - c.size() 个元素,
   // i 最多为 n - (k - c.size()) + 1.
   for (int i = start; i <= n - (k - (int)c.size()) + 1; ++i) {
-    c.push_back(i);
+    c.emplace_back(i);
     generateCombinations(n, k, i + 1, c);
     c.pop_back();
   }
