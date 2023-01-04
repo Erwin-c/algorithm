@@ -142,15 +142,15 @@ void RecursionSolution::findCombination(const std::string& digits, int index,
 // p 中保存了一个有 index - 1 个元素的排列.
 // 向这个排列的末尾添加第 index 个元素, 获得一个有 index 个元素的排列.
 void RecursionSolution::generatePermutaion(const std::vector<int>& nums,
-                                           size_t index, std::vector<int>& p) {
-  if (index == nums.size()) {
-    res2.push_back(p);
+                                           int index, std::vector<int>& p) {
+  if (index == (int)nums.size()) {
+    res2.emplace_back(p);
     return;
   }
 
-  for (size_t i = 0; i < nums.size(); ++i) {
+  for (int i = 0; i < (int)nums.size(); ++i) {
     if (!used[i]) {
-      p.push_back(nums[i]);
+      p.emplace_back(nums[i]);
       used[i] = true;
       generatePermutaion(nums, index + 1, p);
       p.pop_back();
