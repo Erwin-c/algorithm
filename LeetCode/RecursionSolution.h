@@ -17,9 +17,9 @@ class RecursionSolution {
   // 空间复杂度: O(n)
   std::vector<std::string> letterCombinations(std::string digits);
 
-  // 46. Permutations.
-  // 时间复杂度: O(n ^ n).
-  // 空间复杂度: O(n).
+  // 46. Permutations
+  // 时间复杂度: O(n ^ n)
+  // 空间复杂度: O(n)
   std::vector<std::vector<int>> permute(std::vector<int>& nums);
 
   // 77. Combinations.
@@ -62,30 +62,31 @@ class RecursionSolution {
       "wxyz"   // 9
   };
 
+  std::vector<std::string> res;
+
+  // 46. Permutations
+  std::vector<std::vector<int>> res2;
+  std::vector<bool> used;
+
   int d[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};   // 79. Word Search.
   int d2[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};  // 200. Number of Islands.
 
   int m, n;  // 79. Word Search.
              // 200. Number of Islands.
 
-  std::vector<std::string> res;  // 17. Letter Combinations of a Phone Number
-
-  std::vector<std::vector<int>> res2;  // 46. Permutations.
-
   std::vector<std::vector<std::string>> res3;  // 51. N-Queens.
-
-  std::vector<bool> used;  // 46. Permutations.
 
   std::vector<bool> col, dia1, dia2;  // 51. N-Queens.
 
   std::vector<std::vector<bool>> visited;  // 79. Word Search.
                                            // 200. Number of Islands.
 
+  // 17. Letter Combinations of a Phone Number
   void findCombination(const std::string& digits, int index,
                        const std::string& s);
 
-  // 46. Permutations.
-  void generatePermutaion(const std::vector<int>& nums, size_t index,
+  // 46. Permutations
+  void generatePermutaion(const std::vector<int>& nums, int index,
                           std::vector<int>& p);
 
   // 77. Combinations.
