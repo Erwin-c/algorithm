@@ -22,14 +22,14 @@ class RecursionSolution {
   // 空间复杂度: O(n)
   std::vector<std::vector<int>> permute(std::vector<int>& nums);
 
-  // 77. Combinations.
-  // 时间复杂度: O(n ^ k).
-  // 空间复杂度: O(k).
+  // 77. Combinations
+  // 时间复杂度: O(n ^ k)
+  // 空间复杂度: O(k)
   std::vector<std::vector<int>> combine(int n, int k);
 
-  // 77. Combinations (Optimized).
-  // 时间复杂度: O(n ^ k).
-  // 空间复杂度: O(k).
+  // 77. Combinations (Optimized)
+  // 时间复杂度: O(n ^ k)
+  // 空间复杂度: O(k)
   std::vector<std::vector<int>> combineOptimized(int n, int k);
 
   // 79. Word Search.
@@ -65,6 +65,7 @@ class RecursionSolution {
   std::vector<std::string> res;
 
   // 46. Permutations
+  // 77. Combinations
   std::vector<std::vector<int>> res2;
   std::vector<bool> used;
 
@@ -89,7 +90,7 @@ class RecursionSolution {
   void generatePermutaion(const std::vector<int>& nums, int index,
                           std::vector<int>& p);
 
-  // 77. Combinations.
+  // 77. Combinations
   void generateCombinations(int n, int k, int start, std::vector<int>& c);
 
   // 77. Combinations (Optimized).
