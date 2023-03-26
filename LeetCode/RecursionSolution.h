@@ -98,7 +98,7 @@ class RecursionSolution {
                                      std::vector<int>& c);
 
   // 79. Word Search.
-  bool searchWord(const std::vector<std::vector<char>>& board,
+  bool searchW`ord(const std::vector<std::vector<char>>& board,
                   const std::string& word, int index, int startx, int starty);
 
   // 200. Number of Islands (Floodfill).

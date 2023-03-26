@@ -15,6 +15,7 @@ void ArraySolution::moveZeros(std::vector<int>& nums) {
   // 遍历到第 fast 个元素.
   // 保证 [0, fast] 中所有非 0 元素, 都按照顺序排列在 [0, slow) 中.
   // 同时, [slow...fast] 为 0.
+
   int slow = 0, fast = 0;
   while (fast < (int)nums.size()) {
     if (nums[fast] != 0) {

@@ -84,12 +84,12 @@ bool RecursionSolution::exist(std::vector<std::vector<char>>& board,
 }
 
 int RecursionSolution::numIsIslands(std::vector<std::vector<char>>& grid) {
-  m = (int)grid.size();
+  m = grid.size();
   if (m == 0) {
     return 0;
   }
 
-  n = (int)grid[0].size();
+  n = grid[0].size();
 
   visited = std::vector<std::vector<bool>>(m, std::vector<bool>(n, false));
 
@@ -197,7 +197,7 @@ void RecursionSolution::generateCombinationsOptimized(int n, int k, int start,
   return;
 }
 
-// 从 board[startx][starty] 开始, 寻找 word[index ... word.size()).
+// 从 board[startx][starty] 开始, 寻找 word[index, word.size()).
 bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
                                    const std::string& word, int index,
                                    int startx, int starty) {
@@ -229,6 +229,10 @@ bool RecursionSolution::searchWord(const std::vector<std::vector<char>>& board,
 // 保证 (x, y) 合法, 且 grid[x][y] 是没有被访问过的陆地.
 void RecursionSolution::dfs(std::vector<std::vector<char>>& grid, int x,
                             int y) {
+  if (visited[x][y]) {
+    return;
+  }
+
   visited[x][y] = true;
 
   for (int i = 0; i < 4; ++i) {
