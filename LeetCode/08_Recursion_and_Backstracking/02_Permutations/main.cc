@@ -29,7 +29,7 @@ class Solution {
   std::vector<std::vector<int>> res;
   std::vector<bool> used;
 
-  // p 中保存了一个有 index-1 个元素的排列.
+  // p 中保存了一个有 index - 1 个元素的排列.
   // 向这个排列的末尾添加第 index 个元素, 获得一个有 index 个元素的排列.
   void generatePermutation(const std::vector<int>& nums, int index,
                            std::vector<int>& p) {
