@@ -15,7 +15,7 @@ int binarySearch(T arr[], int n, T target) {
   int l = 0, r = n;
   // arr[l...r) is invalid when 'l == r'.
   while (l < r) {
-    int mid = l + (r - l) << 1;
+    int mid = l + (r - l) / 2;
     if (target == arr[mid]) {
       return mid;
     }

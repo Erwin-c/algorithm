@@ -179,7 +179,6 @@ bool TreeSolution::hasPathSum(TreeNode* root, int targetSum) {
 
 std::vector<std::string> TreeSolution::binaryTreePaths(TreeNode* root) {
   std::vector<std::string> res;
-
   if (root == nullptr) {
     return res;
   }
