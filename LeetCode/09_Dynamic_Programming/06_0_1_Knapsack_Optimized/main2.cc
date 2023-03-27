@@ -1,10 +1,10 @@
 /*
  * 0-1 背包问题.
  *
- *  动态规划.
+ *  动态规划改进: 滚动数组.
  *
  *  时间复杂度: O(n * C).
- *  空间复杂度: O(n * C).
+ *  空间复杂度: O(C), 只使用了C的额外空间.
  *    其中 n 为物品个数; C 为背包容积.
  *
  *  Author: Erwin
@@ -15,28 +15,25 @@
 
 class Knapsack01 {
  public:
-  int knapsack01(const std::vector<int> &w, const std::vector<int> &v, int C) {
+  int knapsack01(const std::vector<int>& w, const std::vector<int>& v, int C) {
     int n = w.size();
     if (n == 0 || C == 0) {
       return 0;
     }
 
-    std::vector<std::vector<int>> memo(n, std::vector<int>(C + 1, 0));
+    std::vector<int> memo(C + 1, 0);
 
     for (int j = 0; j <= C; ++j) {
-      memo[0][j] = j >= w[0] ? v[0] : 0;
+      memo[j] = j >= w[0] ? v[0] : 0;
     }
 
     for (int i = 1; i < n; ++i) {
-      for (int j = 0; j <= C; ++j) {
-        memo[i][j] = memo[i - 1][j];
-        if (j >= w[i]) {
-          memo[i][j] = std::max(memo[i][j], v[i] + memo[i - 1][j - w[i]]);
-        }
+      for (int j = C; j >= w[i]; --j) {
+        memo[j] = std::max(memo[j], v[i] + memo[j - w[i]]);
       }
     }
 
-    return memo[n - 1][C];
+    return memo[C];
   }
 };
 
