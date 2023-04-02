@@ -25,7 +25,7 @@ class LCS {
     // memo[i][0] 表示 s2 取空字符串时, 和 s1 的前 i 个字符作比较.
     // 所以, memo[0][j] 和 memo[i][0] 均取0.
     // 我们不需要对 memo 进行单独的边界条件处理.
-    std::vector<std::vector<int> > memo(m + 1, std::vector<int>(n + 1, 0));
+    std::vector<std::vector<int> > memo(m + 1, std::vector<int>(n + 1));
 
     // 动态规划的过程.
     // 注意, 由于动态规划状态的转变, 下面的 i 和 j 可以取到 m 和 n.

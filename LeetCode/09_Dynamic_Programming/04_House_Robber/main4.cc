@@ -22,7 +22,7 @@ class Solution {
     }
 
     // memo[i] 表示考虑抢劫 nums[0, i] 所能获得的最大收益.
-    std::vector<int> memo(n, 0);
+    std::vector<int> memo(n);
     memo[0] = nums[0];
     for (int i = 1; i < n; ++i) {
       for (int j = i; j >= 0; --j) {
