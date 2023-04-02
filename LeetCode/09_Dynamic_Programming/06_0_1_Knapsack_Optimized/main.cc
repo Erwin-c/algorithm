@@ -21,7 +21,7 @@ class Knapsack01 {
       return 0;
     }
 
-    std::vector<std::vector<int>> memo(2, std::vector<int>(C + 1, 0));
+    std::vector<std::vector<int>> memo(2, std::vector<int>(C + 1));
 
     for (int j = 0; j <= C; ++j) {
       memo[0][j] = j >= w[0] ? v[0] : 0;
