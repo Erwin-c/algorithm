@@ -18,8 +18,6 @@ class Solution {
       return res;
     }
 
-    res.clear();
-
     findCombination(digits, 0, "");
 
     return res;
